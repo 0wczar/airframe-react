@@ -215,4 +215,6 @@ Used plugins in this dashboard:
 * [react-grid-layout 0.16.x](https://reactjs.org) - A draggable and resizable grid layout with responsive breakpoints, for React.
 * [react-helmet 5.x.x](https://github.com/nfl/react-helmet) - A document head manager for React
 * [react-hot-loader 4.11.x](https://github.com/gaearon/react-hot-loader) - Tweak React components in real time.
+* [react-quill 1.x.x](https://github.com/zenoamaro/react-quill) - A Quill component for React
 * [react-image-crop 8.0.2](https://github.com/DominicTobias/react-image-crop) - A responsive image cropping tool for React
+* [react-router 5.x.x](https://github.com/ReactTraining/react-router) - Declarative routing for React
