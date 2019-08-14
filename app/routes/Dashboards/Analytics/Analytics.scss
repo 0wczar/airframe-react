@@ -1,0 +1,60 @@
+@import "./../../../styles/variables.scss";
+
+.sessions {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.sessions-progress {
+    margin-bottom: 2rem;
+}
+
+.session {
+    flex: 1 1 auto;
+
+    &__percentage {
+        font-size: 2.5rem;
+    }  
+}
+
+:global(.float-column--size-xs),
+:global(.float-column--size-sm) {
+    .sessions {
+        flex-direction: column;
+    }
+
+    .session {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+
+        &__values {
+            margin-left: auto;
+        }
+
+        &__percentage {
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        &__value {
+            line-height: 1;
+        }
+
+        + .session {
+            border-top: 1px solid $gray-400;
+        }
+    }
+}
+
+:global(.float-column--size-xs) {
+    .sessions-progress {
+        margin-top: 2rem;
+    }
+
+    .sessions-info {
+        display: none;
+    }
+}

@@ -1,0 +1,43 @@
+@import "./../../../../styles/variables.scss";
+
+.list {
+    transition: background-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+    &--drag-over {
+        background-color: lighten($primary, 45%);
+    }
+}
+
+.list-group-item {
+    border-left: 1px solid transparent !important;
+    border-right: 1px solid transparent !important;
+    transition: border-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+    &:first-child {
+        border-top: 1px solid transparent !important;
+    }
+
+    &--dragging {
+        &:first-child {
+            border-top-color: $primary !important;   
+        }
+        border-color: $primary !important;
+    }
+}
+
+.table {
+    transition: background-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+    &--drag-over {
+        background-color: lighten($primary, 45%);
+    }
+}
+
+.row {
+    transition: border-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    background: $white;
+    
+    &--dragging {
+        border: 1px solid $primary !important;
+    }
+}

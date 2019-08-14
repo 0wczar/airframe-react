@@ -1,0 +1,8 @@
+/* React Bootstrap Typeahead Overrides */
+.rbt-token {
+	background-color: $primary !important;
+	color: $white !important;
+}
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+	color: darken($white,20%)  !important;
+}

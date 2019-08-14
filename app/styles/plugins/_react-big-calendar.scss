@@ -1,0 +1,71 @@
+/* React Big Calendar Overrides */
+.rbc-month-view {
+	border: 1px solid $gray-300 !important;
+}
+.rbc-off-range-bg {
+	background: $gray-100 !important;
+}
+
+.rbc-header {
+	font-size: 12px !important;
+	font-weight: 500 !important;
+}
+
+.rbc-off-range {
+	color: $gray-400 !important;
+}
+
+.rbc-event {
+	background: $primary !important;
+}
+
+.rbc-day-slot .rbc-event {
+	border: 1px solid darken($primary, 15%) !important;
+}
+
+.rbc-show-more {
+	font-weight: normal !important;
+}
+
+.rbc-today {
+	background-color: lighten($primary, 40%) !important;
+}
+
+.rbc-date-cell.rbc-now {
+	color: $black !important;
+	font-weight: normal !important;
+}
+
+.rbc-toolbar-label {
+	color: $black !important;
+}
+
+.rbc-toolbar button {
+	color: $body-color !important;
+	font-size: 14px !important;
+	border: 1px solid $gray-300 !important;
+}
+
+.rbc-toolbar button:active, .rbc-toolbar button.rbc-active {
+	background-image: none;
+	color: $black !important;
+	box-shadow: none !important;
+	background-color: $gray-300 !important;
+	border-color: $gray-300 !important;
+}
+
+.rbc-toolbar button:hover {
+	background-color: lighten($gray-300, 5%) !important;
+}
+
+.rbc-header {
+	border-bottom: 1px solid $gray-300 !important;
+}
+
+.rbc-header + .rbc-header {
+	border-left: 1px solid $gray-300 !important;
+}
+
+.rbc-month-row + .rbc-month-row {
+	border-top: 1px solid $gray-300 !important;
+}

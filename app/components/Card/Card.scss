@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+
+.custom-card {
+    &--border-dash,
+    &--border-dot,
+    &--border {
+        @each $name, $color in $dashboard-colors {
+            &.custom-card--color-#{$name} {
+                border-color: $color
+            }
+        }
+    }
+
+    &--side-border {
+        border-left-width: 2px;
+
+        @each $name, $color in $dashboard-colors {
+            &.custom-card--color-#{$name} {
+                border-left-color: $color
+            }
+        }
+    }
+
+    &--background {
+        color: map-get($dashboard-colors, 'white');
+
+        @each $name, $color in $dashboard-colors {
+            &.custom-card--color-#{$name} {
+               background-color: $color; 
+            }
+        }
+    }
+
+    &--border-dash {
+        border-style: dashed;
+        border-width: 2px;
+    }
+
+    &--border-dot {
+        border-style: dotted;
+        border-width: 2px;
+    }
+
+    &--shadow {
+        box-shadow: 0 1px 2px 0 rgba(31, 45, 61, 0.07);
+    }
+
+    &--none {
+        border: none;
+        background: none;
+    }
+}

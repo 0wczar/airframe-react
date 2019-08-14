@@ -1,0 +1,82 @@
+@import "~react-toastify/scss/main.scss";
+@import "../variables.scss";
+
+.Toastify__toast {
+	background-color: $white;
+	padding: 20px;
+	border-radius: 3px;
+	border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    font-family: inherit;
+}
+.Toastify__toast p {
+	color:  $body-color;
+}
+.Toastify__toast h6 {
+	color:  $black;
+	font-weight: 500;
+}
+
+// Toastiy: "SUCCESS" Alert
+.Toastify__toast--success .fa-check {
+	color:  $success;
+}
+.Toastify__toast--success .fa-check-circle {
+	color:  $success !important;
+}
+.Toastify__toast--success {
+	border-left: 3px solid $success;
+}
+.Toastify__close-button--success {
+	color: $gray-500;
+}
+
+// Toastiy: "INFO" Alert
+
+.Toastify__toast--info .fa-info {
+	color:  $primary;
+}
+.Toastify__toast--info {
+	background-color: $white;
+	border-left: 3px solid $primary;
+}
+.Toastify__close-button--info {
+	color: $gray-500;
+}
+
+// Toastiy: "WARNING" Alert
+.Toastify__toast--warning .fa-exclamation {
+	color:  $warning;
+}
+.Toastify__toast--warning {
+	background-color: $white;
+	border-left: 3px solid $warning;
+}
+.Toastify__close-button--warning {
+	color: $gray-500;
+}
+
+// Toastiy: "ERROR" Alert
+.Toastify__toast--error .fa-close {
+	color:  $danger;
+}
+.Toastify__toast--error {
+	background-color: $white;
+	border-left: 3px solid $danger;
+}
+.Toastify__close-button--error {
+	color: $gray-500;
+}
+
+// Toastiy: "DEFAULT" Alert
+.Toastify__toast--default .fa-exclamation {
+	color:  $dark;
+}
+.Toastify__toast--default {
+	background-color: $white;
+	border-left: 3px solid $secondary;
+}
+.Toastify__close-button--default {
+	color: $gray-500;
+}

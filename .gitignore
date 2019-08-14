@@ -1,0 +1,10 @@
+# build output
+dist
+
+# dependencies
+node_modules
+package-lock.json
+yarn.lock
+
+# other
+.DS_Store

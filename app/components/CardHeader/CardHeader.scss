@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+.custom-card-header {
+    &--background {
+        color: map-get($dashboard-colors, "white");
+
+        @each $name, $color in $dashboard-colors {
+            &.custom-card-header--color-#{$name} {
+               background-color: $color; 
+            }
+        }
+    }
+
+    &--border {
+        @each $name, $color in $dashboard-colors {
+            border-bottom: 2px solid;
+            background: none;
+            
+            &.custom-card-header--color-#{$name} {
+               border-bottom-color: $color; 
+            }
+        }
+    }
+}
