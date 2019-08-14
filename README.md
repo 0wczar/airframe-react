@@ -201,6 +201,7 @@ Used plugins in this dashboard:
 
 * [React 16.9.x](https://reactjs.org) - A JavaScript library for building user interfaces
 * [Bootstrap 4.x](http://getbootstrap.com) - Bootstrap is the most popular HTML, CSS, and JS framework
+* [reactstrap 5.x.x](https://github.com/reactstrap/reactstrap) - Simple React Bootstrap 4 components
 * [Peity 3.3.x](http://benpickles.github.io/peity/) - progressive pie, donut, bar and line charts
 * [Font Awesome 4.7.x](http://fontawesome.io/) - Font Awesome, the iconic font and CSS framework.
 * [Holder 2.x.x](http://holderjs.com) -  client side image placeholders
@@ -218,3 +219,7 @@ Used plugins in this dashboard:
 * [react-quill 1.x.x](https://github.com/zenoamaro/react-quill) - A Quill component for React
 * [react-image-crop 8.0.2](https://github.com/DominicTobias/react-image-crop) - A responsive image cropping tool for React
 * [react-router 5.x.x](https://github.com/ReactTraining/react-router) - Declarative routing for React
+* [text-mask 5.x.x](https://github.com/text-mask/text-mask) - Input mask for React
+* [react-toastify 5.x.x](https://github.com/fkhadra/react-toastify) - React notification made easy
+* [react-toggle 4.x.x](https://github.com/aaronshaf/react-toggle) - Elegant, accessible toggle component for React. Also a glorified checkbox.
+* [reacharts 1.x.x](https://github.com/recharts/recharts) - Redefined chart library built with React and D3
