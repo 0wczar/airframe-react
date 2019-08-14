@@ -213,3 +213,6 @@ Used plugins in this dashboard:
 * [react-datepicker 2.7.0](https://github.com/Hacker0x01/react-datepicker) - A simple and reusable datepicker component for React
 * [react-dropzone 10.x.x](https://react-dropzone.js.org/) - Simple HTML5 drag-drop zone with React.js
 * [react-grid-layout 0.16.x](https://reactjs.org) - A draggable and resizable grid layout with responsive breakpoints, for React.
+* [react-helmet 5.x.x](https://github.com/nfl/react-helmet) - A document head manager for React
+* [react-hot-loader 4.11.x](https://github.com/gaearon/react-hot-loader) - Tweak React components in real time.
+* [react-image-crop 8.0.2](https://github.com/DominicTobias/react-image-crop) - A responsive image cropping tool for React
