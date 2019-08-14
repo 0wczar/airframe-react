@@ -2,7 +2,6 @@
 
 High Quality **Dashboard / Admin / Analytics template** that works great on any smartphone, tablet or desktop. Available as **Open Source as MIT license.**
 
-- [View Demo](http://dashboards.webkom.co/jquery/airframe) 
 - [View Demo](http://dashboards.webkom.co/react/airframe/)
 - [jQuery Version](http://dashboards.webkom.co/jquery/airframe) 
 - [Next Version](http://airframe.nextjs.webkom.co) - _Documentation in preparation_ 
@@ -154,20 +153,20 @@ export const RoutedSidebars = () => (
 You can set the color scheme for the sidebar and navbar by providing `initialStyle` and `initialColor` to the `<ThemeProvider>` component which should be wrapping the `<Layout>` component.
 
 Possible `initialStyle` values:
-* light
-* dark
-* color
+* `light`
+* `dark`
+* `color`
 
 Possible `initialColor` values:
-* primary
-* success
-* info
-* warning
-* danger
-* indigo
-* purple
-* pink
-* yellow
+* `primary`
+* `success`
+* `info`
+* `warning`
+* `danger`
+* `indigo`
+* `purple`
+* `pink`
+* `yellow`
 
 ### Programatic Theme Changing
 You can change the color scheme on runtime by using the `ThemeConsumer` from the components. Example:
