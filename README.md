@@ -10,7 +10,7 @@ High Quality **Dashboard / Admin / Analytics template** that works great on any 
 - [MVC.Net Version](http://dashboards.webkom.co/net-mvc/airframe) - _Documentation in preparation_
 - *Sketch Files (Soon)*
 
-![aiframe-2019-light-primary-ExchangeTrading2x-bfc026c1-0477-45c8-ba55-f6dd43141e4c](https://user-images.githubusercontent.com/2330394/63056029-77e91e80-bee7-11e9-92b8-6178fa2691d3.png)
+![aiframe-2019-light-primary-ExchangeTrading2x-bfc026c1-0477-45c8-ba55-f6dd43141e4c](https://user-images.githubusercontent.com/2330394/63061353-20ea4600-bef5-11e9-84c8-000a6dceea4d.png)
 
 # Introduction
 
