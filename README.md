@@ -203,5 +203,8 @@ Used plugins in this dashboard:
 * [Peity 3.3.x](http://benpickles.github.io/peity/) - progressive pie, donut, bar and line charts
 * [Font Awesome 4.7.x](http://fontawesome.io/) - Font Awesome, the iconic font and CSS framework.
 * [Holder 2.x.x](http://holderjs.com) -  client side image placeholders
-* [Highcharts 7.x.x](http://www.highcharts.com/demo) - Interactive JavaScript charts for your web pages.
-* [AG Grid 7.x.x](https://github.com/ag-grid/ag-grid) - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components 
+* [Lodash 7.x.x](https://lodash.com) - A modern JavaScript utility library delivering modularity, performance & extras.
+* [Moment 7.x.x](http://momentjs.com/) - Parse, validate, manipulate, and display dates in javascript.
+* [React 16.9.x](https://reactjs.org) - A JavaScript library for building user interfaces
+* [react-beautiful-dnd 11.0.4](https://github.com/atlassian/react-beautiful-dnd) - Beautiful and accessible drag and drop for lists with React
+* [react-big-calendar 0.22.x](https://github.com/intljusticemission/react-big-calendar) - gcal/outlook like calendar component
