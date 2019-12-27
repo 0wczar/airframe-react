@@ -12,7 +12,7 @@ export const CustomSizePerPageButton = ({
     options,
     currSizePerPage,
     onSizePerPageChange,
-    ...ddProps,
+    ...ddProps
 }) => (
     <UncontrolledButtonDropdown { ...ddProps }>
         <DropdownToggle size="sm" color="link" className="text-decoration-none">
