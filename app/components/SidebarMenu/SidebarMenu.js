@@ -144,17 +144,18 @@ class SidebarMenu extends React.Component {
             >
             <ul className={ sidebarMenuClass } ref={ this.containerRef }>
             {
-                React.Children.map(this.props.children, (child) =>
-                    <MenuContext.Consumer>
-                    {
-                        (ctx) => React.cloneElement(child, {
-                            ...ctx,
-                            currentUrl: this.props.location.pathname,
-                            slim: isSlim
-                        })
-                    }
-                    </MenuContext.Consumer>
-                )
+                React.Children.map(this.props.children, (child) => {
+                    return child ? 
+                        <MenuContext.Consumer>
+                          {
+                              (ctx) => React.cloneElement(child, {
+                                  ...ctx,
+                                  currentUrl: this.props.location.pathname,
+                                  slim: isSlim
+                              })
+                          }
+                      </MenuContext.Consumer> : null;                    
+                })
             }
             </ul>
             </MenuContext.Provider>
