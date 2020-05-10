@@ -35,7 +35,7 @@ const TinyDonutChartBig = (props) => (
 );
 
 TinyDonutChartBig.propTypes = {
-    pieBg: PropTypes.spring
+    pieBg: PropTypes.string
 };
 TinyDonutChartBig.defaultProps = {
     pieBg: "300"
