@@ -1,0 +1,283 @@
+@import "variables";
+@import "mixins/layout-theme";
+
+/**
+        Theme Colors
+**/
+$color-alternatives: (
+    'primary': $primary,
+    'success': $success,
+    'info': $info,
+    'danger': $danger,
+    'warning': $warning,
+    'indigo': $indigo,
+    'purple': $purple,
+    'pink': $pink,
+    'yellow': $yellow
+);
+
+/**
+        DARK Theme
+**/
+[class*="layout--theme--dark--"],
+[class*="sidebar-dark-"] {
+    // General Dark Sidebar Setup
+    --theme-sidebar-background: #{$gray-800};
+    --theme-sidebar-border: none;
+    --theme-sidebar-border-slim-submenu: 1px solid #{rgba($white, 0.2)};
+    --theme-sidebar-close-color: #{$white};
+    --theme-sidebar-text-color: #{$white};
+    --theme-sidebar-text-color-muted: #{$gray-600};
+    --theme-sidebar-link-color: #{$white};
+    --theme-sidebar-link-color-hover: #{lighten($white, 10%)};
+    --theme-sidebar-link-color-muted: #{$gray-600};
+    --theme-sidebar-scroll-rail-color: transparent;
+    --theme-sidebar-scroll-thumb-color: transparent;
+
+    // General Dark Sidebar Menu Setup
+    --theme-menu-background-color: transparent;
+    --theme-menu-text-color: #{$gray-600};
+    --theme-menu-icon-color: #{$gray-600};
+    --theme-menu-slim-icon-color: #{$gray-600};
+    --theme-menu-arrow-color: #{$gray-600};
+    --theme-menu-background-color-hover: transparent;
+    --theme-menu-slim-background-color-hover: transparent;
+    --theme-menu-text-color-hover: #{$white};
+    --theme-menu-slim-text-color-hover: #{$white};
+    --theme-menu-icon-color-hover: #{$white};
+    --theme-menu-slim-icon-color-hover: #{$white};
+    --theme-menu-arrow-color-hover: #{$white};
+    --theme-menu-background-color-active: transparent;
+    --theme-menu-slim-background-color-active: transparent;
+    --theme-menu-text-color-active: #{$white};
+    --theme-menu-slim-text-color-active: #{$white};
+    --theme-menu-icon-color-active: #{$white};
+    --theme-menu-slim-icon-color-active: #{$white};
+    --theme-menu-arrow-color-active: #{$white};
+}
+[class*="layout--theme--dark--"],
+[class*="navbar-dark-"] {
+    // General Dark Navbar Setup
+    --theme-navbar-background: #{$gray-800};
+    --theme-navbar-between-border-color: #{$gray-800};
+    --theme-navbar-menu-item-color: #{$gray-600};
+    --theme-navbar-menu-item-hover-color: #{$white};
+    --theme-navbar-menu-item-active-background: #{rgba(black, 0.1)};
+    --theme-navbar-menu-item-active-color: #{$white};
+    --theme-navbar-menu-item-accent-hover-color: #{$gray-600};
+    --theme-navbar-dropdown-active-color: #{$white};
+}
+
+@each $key, $color in $color-alternatives {
+    .layout--theme--dark--#{$key},
+    .theme-dark-#{$key} {
+        --theme-theme-color: #{$color};
+    }
+
+    .layout--theme--dark--#{$key},
+    .sidebar-dark-#{$key} {
+        --theme-sidebar-brand-color: #{$color};
+
+        --theme-menu-accent-color: #{$color};
+        --theme-menu-accent-color-hover: #{$color};
+    }
+
+    .layout--theme--dark--#{$key},
+    .navbar-dark-#{$key} {
+        --theme-navbar-brand-color: #{$color};
+        --theme-navbar-menu-item-accent-color: #{$color};
+        --theme-navbar-dropdown-active-background: #{$color};
+    }
+}
+
+/**
+        LIGHT Theme
+**/
+[class*="layout--theme--light--"],
+[class*="sidebar-light-"] {
+    // General Light Sidebar Setup
+    --theme-sidebar-background: #{$white};
+    --theme-sidebar-border: 1px solid #{$gray-300};
+    --theme-sidebar-border-slim-submenu: 1px solid #{$gray-300};
+    --theme-sidebar-close-color: #{$body-color};
+    --theme-sidebar-text-color: #{$black};
+    --theme-sidebar-text-color-muted: #{$body-color};
+    --theme-sidebar-link-color: #{$black};
+    --theme-sidebar-link-color-hover: #{lighten($black, 10%)};
+    --theme-sidebar-link-color-muted: #{$body-color};
+    --theme-sidebar-scroll-rail-color: transparent;
+    --theme-sidebar-scroll-thumb-color: transparent;
+
+    // General Light Sidebar Menu Setup
+    --theme-menu-background-color: transparent;
+    --theme-menu-text-color: #{$body-color};
+    --theme-menu-icon-color: #{$gray-400};
+    --theme-menu-slim-icon-color: #{$body-color};
+    --theme-menu-arrow-color: #{$gray-400};
+    --theme-menu-background-color-hover: transparent;
+    --theme-menu-slim-background-color-hover: transparent;
+    --theme-menu-text-color-hover: #{$black};
+    --theme-menu-slim-text-color-hover: #{$black};
+    --theme-menu-icon-color-hover: #{$black};
+    --theme-menu-slim-icon-color-hover: #{$black};
+    --theme-menu-arrow-color-hover: #{$black};
+    --theme-menu-background-color-active: transparent;
+    --theme-menu-slim-background-color-active: transparent;
+    --theme-menu-text-color-active: #{$black};
+    --theme-menu-slim-text-color-active: #{$black};
+    --theme-menu-icon-color-active: #{$black};
+    --theme-menu-slim-icon-color-active: #{$black};
+    --theme-menu-arrow-color-active: #{$black};
+}
+[class*="layout--theme--light--"],
+[class*="navbar-light-"] {
+    // General Light Navbar Setup
+    --theme-navbar-background: #{$white};
+    --theme-navbar-between-border-color: #{$gray-200};
+    --theme-navbar-menu-item-color: #{$body-color};
+    --theme-navbar-menu-item-hover-color: #{$black};
+    --theme-navbar-menu-item-active-background: #{rgba(black, 0.05)};
+    --theme-navbar-menu-item-active-color: #{$black};
+    --theme-navbar-menu-item-accent-hover-color: #{$black};
+    --theme-navbar-dropdown-active-color: #{$white};
+}
+
+@each $key, $color in $color-alternatives {
+    .layout--theme--light--#{$key},
+    .theme-light-#{$key} {
+        --theme-theme-color: #{$color};
+    }
+
+    .layout--theme--light--#{$key},
+    .sidebar-light-#{$key} {
+        --theme-sidebar-brand-color: #{$color};
+
+        --theme-menu-accent-color: #{$color};
+        --theme-menu-accent-color-hover: #{$color};
+    }
+
+    .layout--theme--light--#{$key},
+    .navbar-light-#{$key} {
+        --theme-navbar-brand-color: #{$color};
+        --theme-navbar-menu-item-accent-color: #{$color};
+        --theme-navbar-dropdown-active-background: #{$color};
+    }
+}
+
+/**
+        COLOR Theme
+**/
+[class*="layout--theme--color--"],
+[class*="sidebar-color-"] {
+    $muted-color: rgba($white, 0.7);
+    // General Color Sidebar Setup
+    --theme-sidebar-border: none;
+    --theme-sidebar-border-slim-submenu: 1px solid #{rgba($white, 0.5)};
+    --theme-sidebar-brand-color: #{$white};
+    --theme-sidebar-close-color: #{$muted-color};
+    --theme-sidebar-text-color: #{$white};
+    --theme-sidebar-text-color-muted: #{$muted-color};
+    --theme-sidebar-link-color: #{$white};
+    --theme-sidebar-link-color-hover: #{rgba($white, 0.9)};
+    --theme-sidebar-link-color-muted: #{$muted-color};
+    --theme-sidebar-scroll-rail-color: transparent;
+    --theme-sidebar-scroll-thumb-color: transparent;
+
+    // General Color Sidebar Menu Setup
+    --theme-menu-accent-color: #{$white};
+    --theme-menu-accent-color-hover: #{$white};
+    --theme-menu-background-color: transparent;
+    --theme-menu-text-color: #{$muted-color};
+    --theme-menu-icon-color: #{$muted-color};
+    --theme-menu-slim-icon-color: #{$muted-color};
+    --theme-menu-arrow-color: #{$muted-color};
+    --theme-menu-background-color-hover: transparent;
+    --theme-menu-slim-background-color-hover: transparent;
+    --theme-menu-text-color-hover: #{$white};
+    --theme-menu-slim-text-color-hover: #{$white};
+    --theme-menu-icon-color-hover: #{$white};
+    --theme-menu-slim-icon-color-hover: #{$white};
+    --theme-menu-arrow-color-hover: #{$white};
+    --theme-menu-background-color-active: transparent;
+    --theme-menu-slim-background-color-active: transparent;
+    --theme-menu-text-color-active: #{$white};
+    --theme-menu-slim-text-color-active: #{$white};
+    --theme-menu-icon-color-active: #{$white};
+    --theme-menu-slim-icon-color-active: #{$white};
+    --theme-menu-arrow-color-active: #{$white};
+}
+
+[class*="layout--theme--color--"],
+[class*="navbar-color-"] {
+    // General Color Navbar Setup
+    --theme-navbar-brand-color: #{$white};
+    --theme-navbar-menu-item-color: #{rgba($white, 0.8)};
+    --theme-navbar-menu-item-hover-color: #{$white};
+    --theme-navbar-menu-item-active-background: #{rgba($black, 0.1)};
+    --theme-navbar-menu-item-active-color: #{$white};
+    --theme-navbar-menu-item-accent-color: #{$white};
+    --theme-navbar-menu-item-accent-hover-color: #{rgba($white, 0.5)};
+    --theme-navbar-dropdown-active-color: #{$white};
+}
+
+@each $key, $color in $color-alternatives {
+    // Global Theme
+    .layout--theme--color--#{$key} {
+        --theme-theme-color: #{$color};
+
+        --theme-navbar-background: #{$color};
+        --theme-navbar-between-border-color: #{$color};
+        --theme-navbar-dropdown-active-background: #{$color};
+
+        --theme-sidebar-background: #{$color};
+
+        // Override Layout Navbar Badges
+        .layout__navbar .navbar-themed {
+            .icon-with-badge .icon-with-badge__badge {
+                background-color: change-color($color, $lightness: 70%) !important;
+            }
+        }
+
+        // Override Layout Sidebar Badges
+        .layout__sidebar .sidebar {
+            .badge {
+                background-color: rgba($white, 0.5),
+            }
+        }
+    }
+
+    .theme-color-#{$key} {
+        --theme-theme-color: #{$color};
+    }
+
+    // Navbar theme
+    .navbar-color-#{$key} {
+        --theme-theme-color: #{$color};
+
+        --theme-navbar-background: #{$color};
+        --theme-navbar-between-border-color: #{$color};
+        --theme-navbar-dropdown-active-background: #{$color};
+
+        // Override Badges
+        &.navbar,
+        .navbar.navbar-themed {
+            .icon-with-badge .icon-with-badge__badge {
+                background-color: change-color($color, $lightness: 70%) !important;
+            }
+        }
+    }
+
+    // Sidebar theme
+    .sidebar-color-#{key} {
+        --theme-theme-color: #{$color};
+
+        --theme-sidebar-background: #{$color};
+
+        // Override Badges
+        .badge {
+            background-color: rgba($white, 0.4),
+        }
+    }
+}
+
+@include apply-layout-theme-accent();

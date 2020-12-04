@@ -1,0 +1,169 @@
+@import "./variables";
+
+/* Variant Generator */
+@mixin avatar-variants($avatars-config) {
+    @each $size, $avatar in $avatars-config {
+        .avatar--#{$size} {
+            width: map-get($avatar, size);
+            height: map-get($avatar, size);
+
+            .avatar__icon {
+                // Status Only
+                &:not(.avatar__icon--nested) {
+                    $def: map-get($avatar, status);
+
+                    right: map-get($def, offset-right);
+                    bottom: map-get($def, offset-bottom);
+
+                    > *:first-child {
+                        font-size: map-get($def, background-size);
+                    }
+
+                    > * ~ * {
+                        font-size: map-get($def, status-size-ratio) * map-get($def, background-size);
+
+                        // FALLBACK for older versions, SHOULD BE REMOVED LATER
+                        &.avatar__icon--small {
+                            $fallDef: map-get($avatar, status-icon);
+                            
+                            font-size: map-get($fallDef, status-icon-size-ratio) * map-get($def,  background-size);
+                        }
+                    }
+                }
+
+                // Status + Icon
+                &.avatar__icon--nested {
+                    $def: map-get($avatar, status-icon);
+
+                    right: map-get($def, offset-right);
+                    bottom: map-get($def, offset-bottom);
+
+                    > *:first-child {
+                        font-size: map-get($def, background-size);
+                    }
+
+                    > * ~ * {
+                        font-size: map-get($def, status-size-ratio) * map-get($def, background-size);
+        
+                        &.avatar__icon__inner {
+                            font-size: map-get($def, status-icon-size-ratio) * map-get($def,  background-size);
+                        }
+                    }
+                }
+            }
+
+            .avatar__badge {
+                right: map-get($avatar, badge-right);
+                top: map-get($avatar, badge-top);
+
+                @if map-has-key($avatar, badge-font-size) {
+                    .badge,
+                    .label {
+                        font-size: map-get($avatar, badge-font-size);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Avatar Base */
+.avatar {
+    position: relative;
+    display: inline-block;
+
+    &__content {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        // Fix for Safari bug where the avatar isn't round sometimes:
+        mask-image: -webkit-radial-gradient(white, black);
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
+
+    &__badge {
+        position: absolute;
+        display: block;
+        transform: translate(50%, -50%);
+        z-index: 1;
+    }
+    
+    &__icon {
+        position: absolute;
+        display: block;
+        transform: translate(50%, 50%);
+        z-index: 1;
+  
+        &--stack {
+            > .fa {
+                display: block;
+                
+                ~ .fa {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+}
+
+.avatar-font {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    &__text {
+        flex: 0 0 auto;
+        font-size: 11px;
+        font-weight: 600;
+    }
+}
+
+.avatar-font--sm .avatar-font__text {
+    font-size: 10px;
+}
+
+.avatar-font--lg .avatar-font__text {
+    font-size: 24px;
+}
+
+.avatar-image {
+    display: inline-block;
+    position: relative;
+
+    &__image {
+        position: relative;
+        visibility: hidden;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    &--loaded {
+        .avatar-image__image {
+            visibility: visible;
+        }
+    }
+}
+
+@include avatar-variants($avatars);

@@ -1,0 +1,104 @@
+.timeline {
+    .timeline-date {
+        display: block;
+        max-width: 210px;
+        position: relative;
+        padding-top: 8px;
+
+        &:before{
+            background: $gray-300;
+            border-radius: 2px;
+            bottom: -30px;
+            content: "";
+            height: 24px;
+            left: 12px;
+            position: absolute;
+            width: 1px;
+        }
+    }
+  
+    &.timeline-datetime{
+        .timeline-item{
+            margin-left: 117px;
+        }
+  
+        .timeline-date{
+            text-align: center;
+            &:before {
+                left: calc(50% - 1px);
+            }
+        }
+    }
+  
+    .timeline-item{
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: 25px;
+        position: relative;
+  
+        &:first-child{
+            margin-top: 0;
+        }
+  
+        .timeline-item-time{
+            position: absolute;
+            top: 10px;
+            right: calc(100% + 35px);
+            text-align: right;
+        }
+  
+        .timeline-item-inner{
+            padding: 10px;
+            position: relative;
+        }
+  
+        .timeline-item-head {
+            border-bottom: 1px solid $gray-300;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+    
+            .user-detail h5 {
+                margin: 0 0 2px 0;
+            }
+    
+            .post-type > p {
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: .7em;
+                margin: 0;
+                line-height: 17px;
+            }
+    
+            .post-time > p {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: .6em;
+                line-height: 15px;
+                margin: 0;
+            }
+        }
+  
+        .timeline-item-content p {
+            margin: 0;
+        }
+  
+        .timeline-icon {
+            &:before{
+                background: $gray-300;
+                border-radius: 2px;
+                bottom: -28px;
+                content: "";
+                height: 100%;
+                left: -14px;
+                position: absolute;
+                width: 1px;
+            }
+  
+            i{
+                left: -19px;
+                position: absolute;
+                top: 10px;
+            }
+        }
+    }
+}

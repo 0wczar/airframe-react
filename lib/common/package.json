@@ -1,0 +1,22 @@
+{
+  "name": "airframe-common",
+  "version": "2.0.0",
+  "description": "Common modules for the airframe dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0wczar/airframe-react.git"
+  },
+  "author": "webkom.co",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0wczar/airframe-react/issues"
+  },
+  "homepage": "https://github.com/0wczar/airframe-react#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}
