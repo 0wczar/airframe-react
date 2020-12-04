@@ -58,7 +58,7 @@ export const Checkable = memo(({
             role="checkbox"
             aria-checked={ checked ? 'true' : 'false' }
             onClick={ clickHandler }
-            className={ cn(className, 'af--checkable') }
+            className={ cn(className, 'af__checkable') }
             { ...otherProps }
         >
             { children({ checked: checked ?? defaultChecked, onChange, type, inputElement }) }

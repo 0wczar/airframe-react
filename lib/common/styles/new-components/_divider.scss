@@ -1,0 +1,44 @@
+@import "./../variables";
+
+.af__divider {
+    display: flex;
+    align-items: center;
+    &:before,
+    &:after {
+        flex: 1 1 auto;
+        border-top: 1px solid $gray-300;
+    }
+    &:after {
+        content: " ";
+    }
+    > *:first-child {
+        padding-left: 0;
+        padding-right: 1rem;
+        text-align: left;
+        color: $body-color;
+    }
+
+    &.af__divider--center {
+        &:before {
+            content: " ";
+        }
+        > *:first-child {
+            text-align: center;
+            padding-left: 1rem;
+        }
+    }
+
+    &.af__divider--right {
+        &:before {
+            content: " ";
+        }
+        &:after {
+            content: none;
+        }
+        > *:first-child {
+            text-align: right;
+            padding-left: 1rem;
+            padding-right: 0;
+        }
+    }
+}
