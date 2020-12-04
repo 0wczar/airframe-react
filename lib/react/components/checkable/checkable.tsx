@@ -1,28 +1,68 @@
-import React from 'react';
+import React, { useCallback, memo } from 'react';
+import { CustomInput } from 'reactstrap';
+import cn from 'classnames';
 
 import { CustomizableComponent } from '@types';
 
-import { CheckableContext } from './checkableContext';
-import { withDefaultProps } from 'components/common';
+export type CheckableRenderFuncParams = {
+    checked: boolean,
+    onChange: (isChecked: boolean) => void,
+    type: 'radio' | 'checkbox'
+};
 
-export type CheckableProps = CustomizableComponent & CheckableDefaultProps & {
+export type CheckableProps = CustomizableComponent & {
+    className?: string,
+    type?: 'radio' | 'checkbox',
     defaultChecked?: boolean,
     checked?: boolean,
     onChange?: (isChecked: boolean) => void,
+    children: (params: CheckableRenderFuncParams & {
+        inputElement: React.ReactNode
+    }) => React.ReactNode,
+    renderInput?: (params: CheckableRenderFuncParams) => React.ReactNode;
 }
 
-type CheckableDefaultProps = typeof defaultProps;
+export const Checkable = memo(({
+    className,
+    defaultChecked,
+    checked,
+    onChange,
+    type,
+    component,
+    children,
+    renderInput,
+    ...otherProps
+}: CheckableProps) => {
+    const clickHandler = useCallback(() => onChange(!checked), [onChange, checked]);
 
-const defaultProps = {
-    component: 'div',
-}
+    const inputRender = renderInput || (({ checked, onChange, type }) => {
+        const changeHandler = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
+            onChange(ev.target.checked);
+        }, []);
 
-const Checkable = ({ defaultChecked, checked, onChange, component: Component, ...otherProps }: CheckableProps) => (
-    <CheckableContext.Provider value={{ defaultChecked, checked, onChange }}>
-        <Component { ...otherProps } />
-    </CheckableContext.Provider>
-);
+        return (
+            <CustomInput
+                type={ type }
+                onChange={ changeHandler }
+                checked={ checked ?? defaultChecked }
+            />
+        );
+    });
 
-const CheckableExtended = withDefaultProps(defaultProps)(Checkable);
+    const inputElement = inputRender({ checked, onChange, type });
 
-export { CheckableExtended as Checkable }
+    const Component = component ?? 'div';
+
+    return (
+        <Component
+            role="checkbox"
+            aria-checked={ checked ? 'true' : 'false' }
+            onClick={ clickHandler }
+            className={ cn(className, 'af--checkable') }
+            { ...otherProps }
+        >
+            { children({ checked: checked ?? defaultChecked, onChange, type, inputElement }) }
+        </Component>
+    );
+});
+
