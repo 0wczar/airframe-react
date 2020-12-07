@@ -1,5 +1,5 @@
 {
-  "name": "airframe-react",
+  "name": "@airframe/core-react-bs",
   "version": "2.0.0",
   "description": "Airframe Dashboard components for React",
   "main": "index.ts",
@@ -32,6 +32,9 @@
     "tslint-react": "^5.0.0",
     "tslint-react-hooks": "^2.2.2",
     "typescript": "^3.9.6"
+  },
+  "peerDependencies": {
+    "@airframe/styles-bs": "^2.0.0"
   },
   "eslintConfig": {
     "extends": "react-app",

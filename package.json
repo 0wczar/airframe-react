@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "workspaces": [
+        "packages/react-bs",
+        "examples/react-bs-full"
+    ],
+    "scripts": {
+        "start": "yarn --cwd packages/react-mui develop && yarn --cwd examples/react-mui-full start",
+        "develop": "yarn --cwd packages/react-mui start & yarn --cwd examples/react-mui-full start",
+        "build": "yarn --cwd packages/react-mui build && yarn --cwd examples/react-mui-full build"
+    }
+}
+  

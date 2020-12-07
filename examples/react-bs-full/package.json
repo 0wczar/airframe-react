@@ -1,8 +1,10 @@
 {
-  "name": "react-full",
+  "name": "@airframe/example-react-bs-full",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@airframe/core-react-bs": "^2.0.0",
+    "@airframe/styles-bs": "^2.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",

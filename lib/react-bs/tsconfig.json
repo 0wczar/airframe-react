@@ -7,10 +7,10 @@
         "target": "es6",
         "jsx": "react",
         "esModuleInterop": true,
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "paths": {
-            "@components": ["./components"],
-            "@types": ["./types"]
+            "@components": ["components"],
+            "@types": ["types"]
         }
     }
 }
