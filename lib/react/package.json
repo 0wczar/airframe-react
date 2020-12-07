@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/0wczar/airframe-react#readme",
   "dependencies": {
+    "@types/node": "^14.14.10",
     "beautiful-react-hooks": "^0.27.1",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
-    "reactstrap": "^8.5.1"
+    "reactstrap": "^8.7.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
