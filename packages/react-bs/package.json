@@ -34,7 +34,6 @@
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
     "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
