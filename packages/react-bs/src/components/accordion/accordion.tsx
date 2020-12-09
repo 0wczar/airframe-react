@@ -34,8 +34,10 @@ export const Accordion: React.FC<AccordionProps> = ({
 
     useEffect(() => {
         if (typeof open !== 'undefined' && typeof onToggle === 'undefined') {
-            throw "Accordion: props.open has to be used combined with props.onToggle " +
-                "use props.initialOpen to create an uncontrolled Accordion."
+            throw new Error(
+                'Accordion: props.open has to be used combined with props.onToggle use ' +
+                'props.initialOpen to create an uncontrolled Accordion.'
+            );
         }
     }, [open, onToggle]);
 
@@ -43,7 +45,7 @@ export const Accordion: React.FC<AccordionProps> = ({
         <AccordionContext.Provider
             value={{
                 onToggle: toggleHandler,
-                isOpen: !onToggle ? isOpen : open
+                isOpen: (!onToggle ? isOpen : open) ?? false
             }}
         >
             <Card className={ cn(className, 'card--accordion') } style={ style }>

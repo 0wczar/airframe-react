@@ -1,7 +1,8 @@
-import typescript from "rollup-plugin-typescript2";
-import commonjs from "rollup-plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
+import commonjs from "@rollup/plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
-import resolve from "rollup-plugin-node-resolve";
+import resolve from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 
 import pkg from "./package.json";
@@ -14,80 +15,82 @@ const configDevelopment = {
             file: pkg.main,
             format: "cjs",
             exports: "named",
-            sourcemap: true
+            sourcemap: true,
+            dir: "./lib"
         },
         {
             file: pkg.module,
             format: "es",
             exports: "named",
-            sourcemap: true
+            sourcemap: true,
+            dir: "./lib"
         }
     ],
     plugins: [
         external(),
+        {
+            transform ( code, id ) {
+              console.log( id );
+              console.log( code );
+              // not returning anything, so doesn't affect bundle
+            }
+          },
+        babel({
+            babelHelpers: 'bundled'
+        }),
         resolve(),
         typescript({
             sourceMap: true,
             inlineSources: true,
-            rollupCommonJSResolveHack: true,
             exclude: "**/__tests__/**"
         }),
         commonjs({
-            include: ["../../node_modules/**"],
-            namedExports: {
-                "../../node_modules/react/react.js": [
-                    "Children",
-                    "Component",
-                    "createElement"
-                ],
-                "../../node_modules/react-dom/index.js": [
-                    "render"
-                ]
-            }
+            include: /node_modules/
         }),
         terser({
             mangle: false
-        })
+        }),
     ]
 };
+
+const extensions = [
+    '.js',
+    '.jsx',
+    '.ts',
+    '.tsx'
+];
 
 // Production ===================================
 const configProduction = {
     input: "src/index.ts",
+    external: [/@babel\/runtime/],
     output: [
         {
             file: pkg.main,
             format: "cjs",
             exports: "named",
-            sourcemap: false
+            sourcemap: true,
         },
         {
             file: pkg.module,
             format: "es",
             exports: "named",
-            sourcemap: false
+            sourcemap: true,
         }
     ],
     plugins: [
         external(),
         resolve(),
-        typescript({
-            rollupCommonJSResolveHack: true,
-            exclude: "**/__tests__/**",
-            clean: true
-        }),
         commonjs({
-            include: ["../../node_modules/**"],
-            namedExports: {
-                "../../node_modules/react/react.js": [
-                    "Children",
-                    "Component",
-                    "createElement"
-                ],
-                "../../node_modules/react-dom/index.js": [
-                    "render"
-                ]
-            }
+            include: /node_modules/,
+            extensions
+        }),
+        babel({
+            rootMode: 'upward',
+            babelHelpers: 'runtime',
+            ignore: [/node_modules/],
+            //exclude: /node_modules/,
+            extensions
         }),
         terser()
     ]

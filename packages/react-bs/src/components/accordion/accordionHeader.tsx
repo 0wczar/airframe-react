@@ -25,7 +25,7 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
         if (onClick) {
             onClick(e);
         }
-    }, []);
+    }, [onClick, onToggle]);
 
     return (
         <CardHeader

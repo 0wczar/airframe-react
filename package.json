@@ -2,12 +2,13 @@
     "private": true,
     "workspaces": [
         "packages/react-bs",
+        "packages/styles-bs",
         "examples/react-bs-full"
     ],
     "scripts": {
-        "start": "yarn --cwd packages/react-mui develop && yarn --cwd examples/react-mui-full start",
-        "develop": "yarn --cwd packages/react-mui start & yarn --cwd examples/react-mui-full start",
-        "build": "yarn --cwd packages/react-mui build && yarn --cwd examples/react-mui-full build"
+        "start": "yarn --cwd packages/react-bs develop && yarn --cwd examples/react-bs-full start",
+        "develop": "yarn --cwd packages/react-bs start & yarn --cwd examples/react-bs-full start",
+        "build": "yarn --cwd packages/react-bs build && yarn --cwd examples/react-bs-full build"
     }
 }
   

@@ -11,6 +11,7 @@ export type CheckableRenderFuncParams = {
 };
 
 export type CheckableProps = CustomizableComponent & {
+    id: string,
     className?: string,
     type?: 'radio' | 'checkbox',
     defaultChecked?: boolean,
@@ -23,25 +24,35 @@ export type CheckableProps = CustomizableComponent & {
 }
 
 export const Checkable = memo(({
+    id,
     className,
     defaultChecked,
-    checked,
-    onChange,
-    type,
+    checked: checkedOptional,
+    onChange: onChangeOptional,
+    type: typeOptional,
     component,
     children,
     renderInput,
     ...otherProps
 }: CheckableProps) => {
-    const clickHandler = useCallback(() => onChange(!checked), [onChange, checked]);
+    const checked = checkedOptional ?? false;
+    const onChange = onChangeOptional ?? (() => {});
+    const type = typeOptional ?? 'checkbox';
+
+    const clickHandler = useCallback(() => {
+        if (onChange) {
+            onChange(!checked);
+        }
+    }, [onChange, checked]);
 
     const inputRender = renderInput || (({ checked, onChange, type }) => {
         const changeHandler = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
             onChange(ev.target.checked);
-        }, []);
+        }, [onChange]);
 
         return (
             <CustomInput
+                id={ id }
                 type={ type }
                 onChange={ changeHandler }
                 checked={ checked ?? defaultChecked }
@@ -61,7 +72,7 @@ export const Checkable = memo(({
             className={ cn(className, 'af__checkable') }
             { ...otherProps }
         >
-            { children({ checked: checked ?? defaultChecked, onChange, type, inputElement }) }
+            { children({ checked: checked ?? defaultChecked ?? false, onChange, type, inputElement }) }
         </Component>
     );
 });
