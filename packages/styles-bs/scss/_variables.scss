@@ -1,0 +1,192 @@
+$facebook:      #3a5e95 !default;
+$twitter:       #60addb !default;
+$lastfm:        #e01132 !default;
+$pinterest:     #bd0520 !default;
+$linkedin:      #057cb2 !default;
+$medium:        #5cb85c !default;
+$skype:         #0ab2ef !default;
+$foursquare:    #f84978 !default;
+$android:       #a6c843 !default;
+$spotify:       #2fd665 !default;
+$paypal:        #2a9ad7 !default;
+$dribbble:      #f16898 !default;
+$youtube:       #ed1922 !default;
+$windows:       #10bff2 !default;
+$amazon:        #fea320 !default;
+
+$shades: () !default;
+$shades: (
+    'black-01':            rgba($black,.1),
+    'black-02':            rgba($black,.2),
+    'black-03':            rgba($black,.3),
+    'black-04':            rgba($black,.4),
+    'black-05':            rgba($black,.5),
+    'black-06':            rgba($black,.6),
+    'black-07':            rgba($black,.7),
+    'black-08':            rgba($black,.8),
+    'black-09':            rgba($black,.9),
+
+    'white-01':            rgba($white,.1),
+    'white-02':            rgba($white,.2),
+    'white-03':            rgba($white,.3),
+    'white-04':            rgba($white,.4),
+    'white-05':            rgba($white,.5),
+    'white-06':            rgba($white,.6),
+    'white-07':            rgba($white,.7),
+    'white-08':            rgba($white,.8),
+    'white-09':            rgba($white,.9),
+
+    'primary-01':          rgba($blue,.1),
+    'primary-02':          rgba($blue,.2),
+    'primary-03':          rgba($blue,.3),
+    'primary-04':          rgba($blue,.4),
+    'primary-05':          rgba($blue,.5),
+    'primary-06':          rgba($blue,.6),
+    'primary-07':          rgba($blue,.7),
+    'primary-08':          rgba($blue,.8),
+    'primary-09':          rgba($blue,.9),
+
+    'info-01':             rgba($cyan,.1),
+    'info-02':             rgba($cyan,.2),
+    'info-03':             rgba($cyan,.3),
+    'info-04':             rgba($cyan,.4),
+    'info-05':             rgba($cyan,.5),
+    'info-06':             rgba($cyan,.6),
+    'info-07':             rgba($cyan,.7),
+    'info-08':             rgba($cyan,.8),
+    'info-09':             rgba($cyan,.9),
+
+    'success-01':          rgba($green,.1),
+    'success-02':          rgba($green,.2),
+    'success-03':          rgba($green,.3),
+    'success-04':          rgba($green,.4),
+    'success-05':          rgba($green,.5),
+    'success-06':          rgba($green,.6),
+    'success-07':          rgba($green,.7),
+    'success-08':          rgba($green,.8),
+    'success-09':          rgba($green,.9),
+
+    'warning-01':          rgba($orange,.1),
+    'warning-02':          rgba($orange,.2),
+    'warning-03':          rgba($orange,.3),
+    'warning-04':          rgba($orange,.4),
+    'warning-05':          rgba($orange,.5),
+    'warning-06':          rgba($orange,.6),
+    'warning-07':          rgba($orange,.7),
+    'warning-08':          rgba($orange,.8),
+    'warning-09':          rgba($orange,.9),
+
+    'danger-01':           rgba($red,.1),
+    'danger-02':           rgba($red,.2),
+    'danger-03':           rgba($red,.3),
+    'danger-04':           rgba($red,.4),
+    'danger-05':           rgba($red,.5),
+    'danger-06':           rgba($red,.6),
+    'danger-07':           rgba($red,.7),
+    'danger-08':           rgba($red,.8),
+    'danger-09':           rgba($red,.9),
+
+    'yellow-01':           rgba($yellow,.1),
+    'yellow-02':           rgba($yellow,.2),
+    'yellow-03':           rgba($yellow,.3),
+    'yellow-04':           rgba($yellow,.4),
+    'yellow-05':           rgba($yellow,.5),
+    'yellow-06':           rgba($yellow,.6),
+    'yellow-07':           rgba($yellow,.7),
+    'yellow-08':           rgba($yellow,.8),
+    'yellow-09':           rgba($yellow,.9),
+
+    'secondary-01':        rgba($gray-600,.1),
+    'secondary-02':        rgba($gray-600,.2),
+    'secondary-03':        rgba($gray-600,.3),
+    'secondary-04':        rgba($gray-600,.4),
+    'secondary-05':        rgba($gray-600,.5),
+    'secondary-06':        rgba($gray-600,.6),
+    'secondary-07':        rgba($gray-600,.7),
+    'secondary-08':        rgba($gray-600,.8),
+    'secondary-09':        rgba($gray-600,.9),
+
+    'dark-01':             rgba($gray-800,.1),
+    'dark-02':             rgba($gray-800,.2),
+    'dark-03':             rgba($gray-800,.3),
+    'dark-04':             rgba($gray-800,.4),
+    'dark-05':             rgba($gray-800,.5),
+    'dark-06':             rgba($gray-800,.6),
+    'dark-07':             rgba($gray-800,.7),
+    'dark-08':             rgba($gray-800,.8),
+    'dark-09':             rgba($gray-800,.9),
+
+    'light-01':            rgba($gray-100,.1),
+    'light-02':            rgba($gray-100,.2),
+    'light-03':            rgba($gray-100,.3),
+    'light-04':            rgba($gray-100,.4),
+    'light-05':            rgba($gray-100,.5),
+    'light-06':            rgba($gray-100,.6),
+    'light-07':            rgba($gray-100,.7),
+    'light-08':            rgba($gray-100,.8),
+    'light-09':            rgba($gray-100,.9),
+
+    'purple-01':          rgba($purple,.1),
+    'purple-02':          rgba($purple,.2),
+    'purple-03':          rgba($purple,.3),
+    'purple-04':          rgba($purple,.4),
+    'purple-05':          rgba($purple,.5),
+    'purple-06':          rgba($purple,.6),
+    'purple-07':          rgba($purple,.7),
+    'purple-08':          rgba($purple,.8),
+    'purple-09':          rgba($purple,.9),
+);
+
+$socialColors: () !default;
+$socialColors: (
+    "facebook":     $facebook,
+    "twitter":      $twitter,
+    "lastfm":       $lastfm,
+    "pinterest":    $pinterest,
+    "linkedin":     $linkedin,
+    "medium":       $medium,
+    "skype":        $skype,
+    "foursquare":   $foursquare,
+    "android":      $android,
+    "spotify":      $spotify,
+    "paypal":       $paypal,
+    "dribble":      $dribbble,
+    "youtube":      $youtube,
+    "windows":      $windows,
+    "amazon":       $amazon
+);
+
+$colors: map-collect(
+    $colors,
+    $socialColors,
+    $shades
+);
+
+// Utility Extensions
+$border-radius-helpers-sizes: (
+    0: 0,
+    1: 1px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px,
+    30: 30px
+);
+
+$border-helpers-sizes: (
+    0: 0,
+    1: 1px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px
+);
+
+$border-helpers-styles: (
+    'solid': solid,
+    'dashed': dashed,
+    'dotted': dotted
+);
+
+$font-helpers-weight: 100, 200, 300, 400, 500, 600 , 700, 800, 900 !default;
+$font-helpers-sizes: 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 !default;

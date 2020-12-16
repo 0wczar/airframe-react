@@ -1,1 +1,219 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Color system
+
+$gray-600:                          #868e96 !default;
+$gray-700:                          #5d636d !default;
+$gray-800:                          #3f4651 !default;
+$gray-900:                          #353c48 !default;
+$black:                             #1f2d3d !default;
+
+$blue:                              #1eb7ff !default;
+$indigo:                            #6610f2 !default;
+$purple:                            #ca8eff !default;
+$pink:                              #e83e8c !default;
+$red:                               #ed1c24 !default;
+$orange:                            #f27212 !default;
+$yellow:                            #f7bf47 !default; 
+$green:                             #1bb934 !default;
+$teal:                              #20c997 !default;
+$cyan:                              #33ae9a !default;
+
+$warning:       $orange !default;
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "indigo":       $indigo,
+    "purple":       $purple,
+    "pink":         $pink,
+    "yellow":       $yellow,
+  )
+);
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                           #f9fafc !default;
+$body-color:                        #8493a5 !default;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                        $dark !default;
+$link-hover-color:                  darken($link-color, 18%) !default;
+$link-hover-decoration:             none !default;
+
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:            "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// stylelint-enable value-keyword-case
+$font-size-base:                    0.875rem !default;
+$font-size-lg:                      $font-size-base * 1.11429 !default;
+$font-size-sm:                      $font-size-base * .85714 !default;
+
+$line-height-base:                  1.6 !default;
+
+$h6-font-size:                      .9rem !default;
+
+$headings-font-family:              inherit !default;
+$headings-font-weight:              $font-weight-normal !default;
+$headings-line-height:              1.2 !default;
+$headings-color:                    $gray-900 !default;
+
+$display4-size:                     3.1rem !default;
+
+$small-font-size:                   12px !default;
+
+$text-muted:                        lighten($body-color, 14%) !default;
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-accent-bg:                   rgba($gray-500, .075) !default;
+$table-hover-bg:                    rgba($gray-500, .075) !default;
+$table-active-bg:                   $table-hover-bg !default;
+
+$table-border-color:                $gray-200 !default;
+
+$table-head-color:                  $body-color !default;
+
+$table-dark-bg:                     $gray-900 !default;
+
+$table-caption-color:               $body-color !default;
+
+
+// Forms
+
+$input-bg:                          $body-bg !default;
+$input-disabled-bg:                 lighten($body-bg, 10%) !default; // TODO: Not sure
+
+$input-border-color:                $gray-300 !default;
+
+$input-placeholder-color:           lighten($body-color, 11%) !default;
+
+$input-transition:                  border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// TODO: Different custom control checkbox style - CHECK OUT
+
+$custom-range-thumb-bg:             theme-color("primary") !default;
+$custom-range-thumb-active-bg:      lighten($custom-range-thumb-bg, 35%) !default;
+
+$custom-file-button-bg:             $gray-200 !default;
+
+
+// Navs
+
+$nav-pills-link-active-color:       $black !default;
+$nav-pills-link-active-bg:          $gray-200 !default;
+
+
+// Navbar
+
+$navbar-light-color:                $body-color !default;
+$navbar-light-hover-color:          $black !default;
+$navbar-light-active-color:         $black !default;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-border-color:             $gray-300 !default;
+
+$dropdown-link-color:               $body-color !default;
+
+$dropdown-link-active-color:        $black !default;
+$dropdown-link-active-bg:           $gray-200 !default;
+
+$dropdown-header-color:             $body-color !default;
+
+
+// Pagination
+
+$pagination-color:                  $body-color !default;
+$pagination-bg:                     transparent !default;
+
+$pagination-hover-color:            $black !default;
+
+$pagination-active-color:           $black !default;
+$pagination-active-bg:              $gray-300 !default;
+$pagination-active-border-color:    $gray-300 !default;
+
+$pagination-disabled-color:         $body-color !default;
+$pagination-disabled-bg:            transparent !default;
+
+
+// Tooltips
+
+$tooltip-bg:                        $dark !default;
+
+$tooltip-arrow-color:               $dark !default;
+
+
+// Popovers
+
+$popover-bg:                        $dark !default;
+$popover-border-color:              $dark !default;
+
+$popover-header-bg:                 $dark !default;
+$popover-header-color:              $white !default;
+
+
+// Modals
+
+$modal-content-border-color:        $gray-300 !default;
+
+
+
+// List group
+
+$list-group-border-color:           $gray-200 !default;
+
+$list-group-active-color:           $black !default;
+$list-group-active-bg:              $gray-100 !default;
+$list-group-active-border-color:    $gray-200 !default;
+
+$list-group-action-color:           $body-color !default;
+$list-group-action-hover-color:     $black !default;
+
+$list-group-action-active-color:    $body-color !default;
+$list-group-action-active-bg:       $gray-100 !default;
+
+
+// Figures
+
+$figure-caption-font-size:          $small-font-size !default;
+
+
+// Breadcrumbs
+
+$breadcrumb-bg:                     transparent !default;
+$breadcrumb-active-color:           $body-color !default;
+
+
+// Close
+
+$close-color:                       $body-color !default;
+
+
+// Code
+
+$code-font-size:                    $small-font-size !default;
+
+$pre-color:                         null !default;
 
