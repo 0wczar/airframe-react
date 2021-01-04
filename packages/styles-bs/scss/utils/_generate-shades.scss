@@ -1,0 +1,11 @@
+@function generate-shades($name, $color) {
+    $output: ();
+
+    @for $i from 1 through 9 {
+        $output: map-merge($output, (
+            $name-$i: rgba($color, $i / 10)
+        ))
+    }
+
+    @return $output;
+}

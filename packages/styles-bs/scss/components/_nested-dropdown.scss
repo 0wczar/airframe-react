@@ -1,0 +1,85 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.nested-dropdown {
+    &__submenu-item {
+        position: relative;
+
+        &__link {
+            position: relative;
+            
+            &::after {
+                position: absolute;
+                right: 0.75rem;
+                top: 50%;
+                transform: translateY(-50%);
+                content: "\f105";
+                font: normal normal normal 14px/1 FontAwesome;
+            }
+        }
+
+        &__menu-wrap {
+            position: absolute;
+            top: -2px;
+            left: 100%;
+            padding-left: 2px;
+        }
+
+        &__menu.dropdown-menu {
+            position: static;
+        }
+    }
+}
+
+.navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} .navbar-nav {
+            @include media-breakpoint-down($breakpoint) {
+                .nested-dropdown__submenu-item {
+                    &:hover,
+                    &:active {
+                        background-color: transparent;
+                    }
+
+                    &--open .nested-dropdown__submenu-item__menu.dropdown-menu {
+                        display: block;
+                    }
+                }
+
+                .nested-dropdown__submenu-item__link::after {
+                    content: "\f107";
+                    position: static;
+                    right: auto;
+                    top: auto;
+                    transform: none;
+                    margin-left: 0.5rem;
+                }
+
+                .nested-dropdown__submenu-item__menu-wrap {
+                    position: static;
+                    padding: 0;
+                }
+
+                .nested-dropdown__submenu-item__menu.dropdown-menu {
+                    border: none;
+                    padding: 0;
+
+                    .dropdown-item {
+                        padding-left: 2rem;
+                    }
+                }
+            }
+
+            @include media-breakpoint-up($next) {
+                .nested-dropdown__submenu-item {
+                    &:hover .nested-dropdown__submenu-item__menu {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

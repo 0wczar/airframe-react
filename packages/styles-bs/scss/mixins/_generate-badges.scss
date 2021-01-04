@@ -1,0 +1,33 @@
+// Generates Outline Badges: .badge-outline-
+@mixin generate-outline-badges($colorMap) {
+    [class*="badge-outline"] {
+        background: none;
+        border-width: 1px;
+        border-style: solid;
+    }
+    @each $name, $color in $colorMap {
+        .badge-outline-#{$name} {
+            border-color: $color;
+            color: $color;
+        }
+    }
+}
+
+// Generates Light Badges .badge-light-
+@mixin generate-light-badges($colorMap) {
+    @each $name, $color in $colorMap {
+        .badge-light-#{$name} {
+            background-color: lighten($color, 35%);
+            color: darken($color, 15%);
+        }
+    }
+}
+
+// Generates Standard Badges .badge-
+@mixin generate-badges($colorMap) {
+    @each $name, $color in $colorMap {
+        .badge-#{$name} {
+            @include badge-variant($color);
+        }
+    }
+}

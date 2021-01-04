@@ -1,0 +1,101 @@
+@import "./variables";
+
+// Generate Card color Options
+@each $name, $color in $dashboard-colors {
+    .card--color-#{$name} {
+        --card-color: #{$color};
+    }
+}
+
+// Generate Card Header variants
+.card-header {
+    &--background {
+        color: map-get($dashboard-colors, "white");
+
+        background-color: var(--card-color);
+    }
+
+    &--border {
+        border-bottom: 2px solid var(--card-color);
+        background: none;
+    }
+}
+
+// Generate Card variants
+.card {
+    &--border-dash,
+    &--border-dot,
+    &--border {
+        border-color: var(--card-color);
+    }
+
+    &--side-border {
+        &--left {
+            border-left-width: 2px;
+            border-left-color: var(--card-color);
+        }
+        &--right {
+            border-right-width: 2px;
+            border-right-color: var(--card-color);
+        }
+        &--top {
+            border-top-width: 2px;
+            border-top-color: var(--card-color);
+        }
+        &--bottom {
+            border-bottom-width: 2px;
+            border-bottom-color: var(--card-color);
+        }
+    }
+
+    &--background {
+        color: map-get($dashboard-colors, 'white');
+
+        background-color: var(--card-color);
+    }
+
+    &--border-dash {
+        border-style: dashed;
+        border-width: 2px;
+        border-color: $gray-400;
+    }
+
+    &--border-dot {
+        border-style: dotted;
+        border-width: 2px;
+        border-color: $gray-400;
+    }
+
+    &--shadow-sm {
+        box-shadow: $box-shadow-sm;
+    }
+
+    &--shadow {
+        box-shadow: $box-shadow;
+    }
+
+    &--shadow-lg {
+        box-shadow: $box-shadow-lg;
+    }
+
+    &--none {
+        border: none;
+        background: none;
+    }
+}
+
+// Accordion Card
+.card--accordion {
+    .card-header {
+        background: none;
+        border-bottom: none;
+        cursor: pointer;
+        color: $link-color;
+        text-decoration: $link-decoration;
+    
+        &:hover {
+            color: $link-hover-color;
+            text-decoration: $link-hover-decoration;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+// Generates .btn- and .btn-outline- classes for additional buttons styles
+@mixin generate-buttons($colorMap) {
+    @each $name, $colorDef in $colorMap {
+        $color: nth($colorDef, 1);
+        $background: nth($colorDef, 2);
+        $border: nth($colorDef, 3);
+
+        .btn-#{$name} {
+            @include button-variant($background, $border);
+            
+            &.btn {
+                color: $color;
+            }
+        }
+
+        .btn-outline-#{$name} {
+            @include button-outline-variant($background);
+        }
+    }
+}

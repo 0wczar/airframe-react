@@ -1,0 +1,14 @@
+// Generates .text- and .bg- helpers
+@mixin generate-colors($colorMap) {
+    @each $name, $color in $colorMap {
+        // Text Color
+        .text-#{$name} {
+            color: $color !important;
+        }
+
+        // Background Color
+        .bg-#{$name} {
+            background-color: $color !important;
+        }
+    }
+}
