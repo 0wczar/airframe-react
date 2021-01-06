@@ -1,5 +1,8 @@
+@import "./bootstrap/variables";
+
 @import "./utils/map-collect";
-@import "./utils/generate-shades";
+@import "./utils/create-shades";
+@import "./utils/named-grays";
 
 $facebook:      #3a5e95 !default;
 $twitter:       #60addb !default;
@@ -19,19 +22,19 @@ $amazon:        #fea320 !default;
 
 $shades: () !default;
 $shades: map-collect(
-    generate-shades('black', $black),
-    generate-shades('white', $white),
-    generate-shades('primary', $primary),
-    generate-shades('info', $info),
-    generate-shades('success', $success),
-    generate-shades('warning', $warning),
-    generate-shades('danger', $danger),
-    generate-shades('yellow', $yellow),
-    generate-shades('purple', $purple)
+    create-shades('black', $black),
+    create-shades('white', $white),
+    create-shades('primary', $primary),
+    create-shades('info', $info),
+    create-shades('success', $success),
+    create-shades('warning', $warning),
+    create-shades('danger', $danger),
+    create-shades('yellow', $yellow),
+    create-shades('purple', $purple)
 );
 
-$socialColors: () !default;
-$socialColors: (
+$social-colors: () !default;
+$social-colors: (
     "facebook":     $facebook,
     "twitter":      $twitter,
     "lastfm":       $lastfm,
@@ -49,10 +52,43 @@ $socialColors: (
     "amazon":       $amazon
 );
 
+$bs-colors: $colors;
+
 $colors: map-collect(
-    $colors,
-    $socialColors,
+    $bs-colors,
+    $social-colors,
     $shades
+);
+
+$helper-colors: map-collect(
+    $bs-colors
+    $theme-colors,
+    $social-colors,
+    (
+        'white': $white,
+        'black': $black,
+        'body-bg': $body-bg,
+        'inverse': $black
+    ),
+    named-grays($grays)
+);
+
+$extended-buttons-colors: map-collect(
+    $social-colors,
+    named-grays($grays)
+);
+
+$extended-badge-colors: map-collect(
+    $bs-colors,
+    (
+        'black': $black,
+        'gray-dark': $gray-800,
+        'gray': $gray-700,
+        'gray-light': $gray-500,
+        'gray-lighter': $gray-400,
+        'gray-lightest': $gray-300,
+        'white': $white,
+    )
 );
 
 // Utility Extensions

@@ -1,6 +1,8 @@
 /* Components */
 @import "./components/avatars";
 @import "./components/card";
+@import "./components/checkable";
+@import "./components/divider";
 @import "./components/dropdown-menu";
 @import "./components/fullscreen";
 @import "./components/hr-text";
@@ -17,3 +19,5 @@
 /* Theme Variants */
 @import "./theme-variants";
 
+/* Extensions */
+@import "./extensions";

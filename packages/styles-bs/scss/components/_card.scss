@@ -1,4 +1,4 @@
-@import "./variables";
+@import "./../variables";
 
 // Generate Card color Options
 @each $name, $color in $dashboard-colors {

@@ -1,0 +1,106 @@
+@import "./mixins/generate-badges";
+@import "./mixins/generate-buttons";
+@import "./mixins/generate-colors";
+
+// Create helper classes, extended Badges and Buttons
+// ----------------------------------------------
+// Generate Helper Classes .bg-<color> .text-<color>
+@include generate-colors($helper-colors);
+
+// Generate Extended Button Classes
+@include generate-buttons($extended-buttons-colors);
+
+// Generate Extended Badge Classes
+@include generate-badges($extended-badge-colors);
+
+//@include generate-colors($shades);
+
+// background, borders, reset classes
+// ---------------------------------------------
+.bg-none {
+    background: none !important;
+}
+
+.br-none {
+    border-radius: 0 !important;
+}
+
+.b-none {
+    border: none !important;
+}
+
+.bl-none {
+    border-left: none !important;
+}
+
+.br-none {
+    border-right: none !important;
+}
+
+.bt-none {
+    border-top: none !important;
+}
+
+.bb-none {
+    border-bottom: none !important;
+}
+
+// Font Weight / Sizes Generator
+// ---------------------------------------------
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $value in $font-helpers-weight {
+            .fw#{$infix}-#{$value} { font-weight: $value !important; }
+        }
+
+        @each $value in $font-helpers-sizes {
+            .fs#{$infix}-#{$value} { font-size: #{$value}px !important; }
+        }
+    }
+}
+
+// Shadow Boxes .shadow-box-*-*
+// ---------------------------------------------
+.shadow-box-light {
+    box-shadow: 0px 0px 5px 0px rgba(196, 196, 196, 0.59) !important;
+}
+
+.shadow-box-down {
+    box-shadow: 0px 3px 4px -1px rgba(196, 196, 196, 0.51) !important;
+}
+
+.shadow-box-inset-down {
+    box-shadow: inset 0px 4px 6px -4px rgba(194, 194, 194, 1) !important;
+}
+
+.shadow-box-hard-down {
+    box-shadow: -1px 6px 0px -2px rgba(196, 196, 196, 0.38) !important;
+}
+
+.shadow-box-inset-hard-down {
+    box-shadow: inset 0px 6px 0px -1px rgba(196, 196, 196, 0.38) !important;
+}
+
+.shadow-box-hard {
+    box-shadow: 0px 0px 0px 3px rgba(194, 194, 194, 0.34) !important;
+}
+
+.shadow-box-none {
+    box-shadow: none !important;
+}
+
+// CARET DISABLED in Dropdowns
+// ---------------------------------------------
+.no-caret::after {
+    display: none !important;
+}
+
+// Tiny Text muted
+// ---------------------------------------------
+.tiny {
+    font-size: 11px;
+    color: $text-muted;
+    font-weight: 500;
+}

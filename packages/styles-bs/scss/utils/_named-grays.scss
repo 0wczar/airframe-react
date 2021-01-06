@@ -1,0 +1,13 @@
+// Will transform gray indexes (100, 200, 300)
+// to full names (gray-100, gray-200 ...)
+@function named-grays($grays) {
+    $output: ();
+
+    @each $gray-index, $color in $grays {
+        $output: map-merge($output, (
+            'gray-'$gray-index: $color
+        ))
+    }
+
+    @return $output;
+}
