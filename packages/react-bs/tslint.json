@@ -1,3 +1,6 @@
 {
-    "extends": ["tslint-react", "tslint-react-hooks"]
+    "extends": ["tslint-react", "tslint-react-hooks"],
+    "rules": {
+        "jsx-boolean-value": false
+    }
 }

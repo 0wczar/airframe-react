@@ -1,0 +1,61 @@
+// Icons
+.alert-primary .alert__icon {
+    color: theme-color(primary);
+}
+.alert-danger .alert__icon {
+    color: theme-color(danger);
+}
+.alert-info .alert__icon {
+    color: theme-color(info);
+}
+.alert-warning .alert__icon {
+    color: theme-color(warning);
+}
+.alert-success .alert__icon {
+    color: theme-color(success);
+}
+.alert-dark .alert__icon {
+    color: theme-color(dark);
+}
+
+// Background Icons
+.alert .alert__bg-icon {
+    color: $gray-200;
+}
+
+// Headings
+.alert .alert__heading {
+    color: $black;
+    
+    &:not(.alert__heading--inline) {
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+}
+
+// Backgrounds
+.alert {
+    background-color: white;
+    border: 1px solid $gray-300;
+    border-left-width: 3px;
+    color: $body-color;
+
+    &.alert-primary {
+        border-left-color: theme-color(primary);
+    }
+    &.alert-danger {
+        border-left-color: theme-color(danger);
+    }
+    &.alert-warning {
+        border-left-color: theme-color(warning);
+    }
+    &.alert-info {
+        border-left-color: theme-color(info);
+    }
+    &.alert-success {
+        border-left-color: theme-color(success);
+    }
+    &.alert-dark {
+        border-left-color: theme-color(dark);
+    }
+}
