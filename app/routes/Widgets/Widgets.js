@@ -168,7 +168,7 @@ export const Widgets = () => (
                 <CardBody>
                     <ProfileOverviewCard 
                         title="Total Bounces"
-                        badgeTitle="Reatime"
+                        badgeTitle="Realtime"
                         badgeColor="warning"
                         value="91"
                         valueTitle="vs 87 prev."
