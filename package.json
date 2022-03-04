@@ -55,7 +55,7 @@
     "ag-grid-community": "^21.0.1",
     "ag-grid-react": "^21.0.1",
     "bootstrap": "^4.3.1",
-    "faker": "^4.1.0",
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "font-awesome": "^4.7.0",
     "holderjs": "^2.9.6",
     "lodash": "^4.17.11",
