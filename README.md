@@ -1,3 +1,5 @@
+> **NEW!** Version HTML/CSS is available here: https://github.com/0wczar/airframe
+
 # Airframe React
 
 High Quality **Dashboard / Admin / Analytics template** that works great on any smartphone, tablet or desktop. Available as **Open Source as MIT license.**
