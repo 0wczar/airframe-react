@@ -1,4 +1,5 @@
-> **NEW!** Version HTML/CSS is available here: https://github.com/0wczar/airframe
+> **Note**
+> Version HTML/CSS is available here: https://github.com/0wczar/airframe
 
 # Airframe React
 
