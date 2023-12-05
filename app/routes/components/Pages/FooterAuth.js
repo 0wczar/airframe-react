@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { FooterText } from '../FooterText';
 
 const FooterAuth = ({ className }) => (
-    <p className={ classNames(className, 'small') }>
+    <p className={classNames(className, 'small')}>
         <FooterText />
     </p>
 );
 FooterAuth.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
 };
 
 export { FooterAuth };

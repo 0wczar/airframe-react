@@ -10,13 +10,13 @@ export class NestedDropdown extends React.Component {
         super(props);
 
         this.state = {
-            openId: null
-        }
+            openId: null,
+        };
     }
 
     handleOpen(targetId) {
         this.setState({
-            openId: targetId
+            openId: targetId,
         });
     }
 
@@ -25,14 +25,14 @@ export class NestedDropdown extends React.Component {
         const dropdownClass = classNames(className, 'nested-dropdown');
 
         return (
-            <Tag { ...otherProps } className={ dropdownClass } >
+            <Tag {...otherProps} className={dropdownClass}>
                 <Provider
                     value={{
                         openId: this.state.openId,
-                        onOpen: this.handleOpen.bind(this)
+                        onOpen: this.handleOpen.bind(this),
                     }}
                 >
-                    { children }
+                    {children}
                 </Provider>
             </Tag>
         );
@@ -40,13 +40,10 @@ export class NestedDropdown extends React.Component {
 }
 
 NestedDropdown.propTypes = {
-    tag: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.func
-    ]),
+    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     className: PropTypes.string,
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 NestedDropdown.defaultProps = {
-    tag: UncontrolledDropdown
+    tag: UncontrolledDropdown,
 };

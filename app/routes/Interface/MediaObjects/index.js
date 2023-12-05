@@ -1,3 +1,3 @@
 import MediaObjects from './MediaObjects';
 
-export default MediaObjects; 
+export default MediaObjects;

@@ -4,21 +4,21 @@ import {
     Input,
     InputGroup,
     Button,
-    InputGroupAddon
-} from './../../../../components';
+    InputGroupAddon,
+} from '../../../../components';
 
 export class CustomSearch extends React.Component {
     static propTypes = {
         className: PropTypes.string,
-        onSearch: PropTypes.func
-    }
+        onSearch: PropTypes.func,
+    };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            value: ''
-        }
+            value: '',
+        };
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -29,29 +29,31 @@ export class CustomSearch extends React.Component {
 
     render() {
         return (
-            <InputGroup className={ this.props.className } size="sm">
-                <InputGroupAddon addonType="prepend">
-                    <i className="fa fa-search fa-fw"></i>
+            <InputGroup className={this.props.className} size='sm'>
+                <InputGroupAddon addonType='prepend'>
+                    <i className='fa fa-search fa-fw'></i>
                 </InputGroupAddon>
                 <Input
-                    onChange={(e) => { this.setState({ value: e.target.value }) }}
-                    value={ this.state.value }
-                    className="bg-white"
-                    placeholder="Type to search..."
+                    onChange={(e) => {
+                        this.setState({ value: e.target.value });
+                    }}
+                    value={this.state.value}
+                    className='bg-white'
+                    placeholder='Type to search...'
                 />
-                {
-                    this.state.value && (
-                        <InputGroupAddon addonType="append">
-                            <Button
-                                outline
-                                onClick={() => { this.setState({value: ''}) }}
-                            >
-                                <i className="fa fa-fw fa-times"></i>
-                            </Button>
-                        </InputGroupAddon>
-                    )
-                }
+                {this.state.value && (
+                    <InputGroupAddon addonType='append'>
+                        <Button
+                            outline
+                            onClick={() => {
+                                this.setState({ value: '' });
+                            }}
+                        >
+                            <i className='fa fa-fw fa-times'></i>
+                        </Button>
+                    </InputGroupAddon>
+                )}
             </InputGroup>
-        )
+        );
     }
-} 
+}

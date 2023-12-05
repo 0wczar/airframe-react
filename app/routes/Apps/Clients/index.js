@@ -1,3 +1,3 @@
 import Clients from './Clients';
 
-export default Clients; 
+export default Clients;

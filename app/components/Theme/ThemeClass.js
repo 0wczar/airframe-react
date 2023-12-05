@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Consumer } from './ThemeContext';
 
 const ThemeClass = ({ children, color, style }) => {
-    const layoutThemeClass = `layout--theme--${ style }--${ color }`;
-    
+    const layoutThemeClass = `layout--theme--${style}--${color}`;
+
     return children(layoutThemeClass);
 };
 ThemeClass.propTypes = {
@@ -14,12 +14,10 @@ ThemeClass.propTypes = {
     style: PropTypes.string,
 };
 
-const ContextThemeClass = (otherProps) =>
+const ContextThemeClass = (otherProps) => (
     <Consumer>
-        {
-            (themeState) => <ThemeClass {...{ ...themeState, ...otherProps }}/>
-        }
-    </Consumer>;
+        {(themeState) => <ThemeClass {...{ ...themeState, ...otherProps }} />}
+    </Consumer>
+);
 
 export { ContextThemeClass as ThemeClass };
-

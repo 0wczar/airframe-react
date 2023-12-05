@@ -1,3 +1,3 @@
 import Files from './Files';
 
-export default Files; 
+export default Files;

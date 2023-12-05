@@ -6,18 +6,15 @@ import { Consumer } from './context';
 
 class CheckableInput extends React.Component {
     static propTypes = {
-        tag: PropTypes.oneOfType([
-            PropTypes.func,
-            PropTypes.string
-        ]),
+        tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
         type: PropTypes.string,
         defaultChecked: PropTypes.bool,
         toggle: PropTypes.func,
-        isChecked: PropTypes.bool
+        isChecked: PropTypes.bool,
     };
     static defaultProps = {
         tag: Input,
-        type: "checkbox"
+        type: 'checkbox',
     };
 
     componentDidMount() {
@@ -32,9 +29,11 @@ class CheckableInput extends React.Component {
 
         return (
             <Tag
-                checked={ isChecked }
-                onChange={ (e) => { toggle(e.target.checked) } }
-                { ...otherProps }
+                checked={isChecked}
+                onChange={(e) => {
+                    toggle(e.target.checked);
+                }}
+                {...otherProps}
             />
         );
     }
@@ -42,11 +41,7 @@ class CheckableInput extends React.Component {
 
 const ContextCheckableInput = (props) => (
     <Consumer>
-    {
-        (value) => (
-            <CheckableInput { ...{ ...props, ...value } } />
-        )
-    }
+        {(value) => <CheckableInput {...{ ...props, ...value }} />}
     </Consumer>
 );
 

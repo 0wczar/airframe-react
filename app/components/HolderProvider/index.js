@@ -3,8 +3,7 @@ import { HolderIconProvider } from './HolderIconProvider';
 
 const HolderProvider = {
     Text: HolderTextProvider,
-    Icon: HolderIconProvider
+    Icon: HolderIconProvider,
 };
 
 export default HolderProvider;
-

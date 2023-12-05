@@ -19,32 +19,32 @@ export const StarRating = (props) => {
     const StartElement = isInterctive ? 'a' : 'i';
 
     return (
-        <div className={ starRatingClass } {...otherProps}>
-            {
-                (() => {
-                    const stars = [];
+        <div className={starRatingClass} {...otherProps}>
+            {(() => {
+                const stars = [];
 
-                    for(let i = 1; i <= maxStars; i++) {
-                        const starProps = {
-                            key: i,
-                            className: classNames('fa fa-fw', {
-                                'fa-star': i <= currentStars,
-                                'fa-star-o': i > currentStars,
-                                [`text-${starColor}`]: i <= currentStars
-                            }),
-                            onClick: () => isInterctive && onSelect(i)
-                        };
+                for (let i = 1; i <= maxStars; i++) {
+                    const starProps = {
+                        key: i,
+                        className: classNames('fa fa-fw', {
+                            'fa-star': i <= currentStars,
+                            'fa-star-o': i > currentStars,
+                            [`text-${starColor}`]: i <= currentStars,
+                        }),
+                        onClick: () => isInterctive && onSelect(i),
+                    };
 
-                        if (isInterctive) {
-                            starProps['href'] = 'javascript:;';
-                        }
-
-                        stars.push(<StartElement { ...starProps } key={ i }></StartElement>);
+                    if (isInterctive) {
+                        starProps['href'] = 'javascript:;';
                     }
 
-                    return stars;
-                })()
-            }
+                    stars.push(
+                        <StartElement {...starProps} key={i}></StartElement>,
+                    );
+                }
+
+                return stars;
+            })()}
         </div>
     );
 };
@@ -54,7 +54,7 @@ StarRating.propTypes = {
     max: PropTypes.number,
     at: PropTypes.number,
     starColor: PropTypes.string,
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
 };
 
 StarRating.defaultProps = {

@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import uid from 'uuid/v4';
-import { customFilter, Comparator, FILTER_TYPES } from 'react-bootstrap-table2-filter';
+import { v4 as uuidv4 } from 'uuid';
+import {
+    customFilter,
+    Comparator,
+    FILTER_TYPES,
+} from 'react-bootstrap-table2-filter';
 
-import { CustomInput, Input } from './../../../../components';
+import { CustomInput, Input } from '../../../../components';
 
 const comparatorSign = (comp) => {
     switch (comp) {
@@ -15,7 +19,7 @@ const comparatorSign = (comp) => {
         case Comparator.LT:
             return '<';
     }
-}
+};
 
 class NumberFilter extends React.Component {
     static propTypes = {
@@ -25,24 +29,24 @@ class NumberFilter extends React.Component {
         getFilter: PropTypes.func,
         comparators: PropTypes.array,
         comparator: PropTypes.string,
-        onClick: PropTypes.func
-    }
+        onClick: PropTypes.func,
+    };
 
     static defaultProps = {
         comparators: [Comparator.EQ],
-        comparator: Comparator.EQ
-    }
+        comparator: Comparator.EQ,
+    };
 
     constructor(props) {
         super(props);
 
         this.state = {
             value: '',
-            comparator: props.comparator
-        }
+            comparator: props.comparator,
+        };
 
-        this.comparatorInputId = uid();
-        this.valueInputId = uid();
+        this.comparatorInputId = uuidv4();
+        this.valueInputId = uuidv4();
     }
 
     componentDidMount() {
@@ -60,7 +64,7 @@ class NumberFilter extends React.Component {
         ) {
             this.props.onFilter({
                 number: this.state.value,
-                comparator: this.state.comparator
+                comparator: this.state.comparator,
             });
         }
         if (prevProps.comparator !== this.props.comparator) {
@@ -81,51 +85,53 @@ class NumberFilter extends React.Component {
         const { comparator } = this.state;
         return (
             <div className='d-flex'>
-            {
-                (!_.isEmpty(comparators) && comparators.length > 0) && (
+                {!_.isEmpty(comparators) && comparators.length > 0 && (
                     <CustomInput
-                        type="select"
-                        bsSize="sm"
-                        onChange={(e) => { this.setState({ comparator: e.target.value }) }}
+                        type='select'
+                        bsSize='sm'
+                        onChange={(e) => {
+                            this.setState({ comparator: e.target.value });
+                        }}
                         onClick={this.handleClick}
-                        value={ comparator }
-                        className="d-block bg-white mr-1"
+                        value={comparator}
+                        className='d-block bg-white mr-1'
                         id={this.comparatorInputId}
                     >
-                        <option value=""></option>
+                        <option value=''></option>
 
-                        {
-                            _.map(comparators, (comparator, index) => (
-                                <option
-                                    value={ comparator }
-                                    key={ index }
-                                >
-                                    { comparatorSign(comparator) }
-                                </option>
-                            ))
-                        }
+                        {_.map(comparators, (comparator, index) => (
+                            <option value={comparator} key={index}>
+                                {comparatorSign(comparator)}
+                            </option>
+                        ))}
                     </CustomInput>
-                )
-            }
+                )}
                 <Input
-                    type="number"
-                    className="bg-white"
-                    bsSize="sm"
-                    onChange={(e) => { this.setState({ value: e.target.value }) }}
+                    type='number'
+                    className='bg-white'
+                    bsSize='sm'
+                    onChange={(e) => {
+                        this.setState({ value: e.target.value });
+                    }}
                     onClick={this.handleClick}
-                    value={ this.state.value }
-                    placeholder={ placeholder }
+                    value={this.state.value}
+                    placeholder={placeholder}
                     id={this.valueInputId}
                 />
             </div>
-        )
+        );
     }
 }
 
-export const buildCustomNumberFilter = ({ placeholder, getFilter, comparators, ...other } = {}) => ({
+export const buildCustomNumberFilter = ({
+    placeholder,
+    getFilter,
+    comparators,
+    ...other
+} = {}) => ({
     filter: customFilter({
         type: FILTER_TYPES.NUMBER,
-        ...other
+        ...other,
     }),
     filterRenderer: function NumberFilterWrap(onFilter, column) {
         return (
@@ -135,9 +141,9 @@ export const buildCustomNumberFilter = ({ placeholder, getFilter, comparators, .
                     column,
                     placeholder,
                     getFilter,
-                    comparators
+                    comparators,
                 }}
             />
-        )
-    }
+        );
+    },
 });

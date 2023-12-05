@@ -1,3 +1,3 @@
 import ProfileEdit from './ProfileEdit';
 
-export default ProfileEdit; 
+export default ProfileEdit;

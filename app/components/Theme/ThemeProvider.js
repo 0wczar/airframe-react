@@ -33,18 +33,18 @@ export class ThemeProvider extends React.Component {
     onChangeTheme(themeState) {
         this.setState(themeState);
     }
-    
+
     render() {
         const { children } = this.props;
-        
+
         return (
             <Provider
                 value={{
                     ...this.state,
-                    onChangeTheme: this.onChangeTheme.bind(this)
+                    onChangeTheme: this.onChangeTheme.bind(this),
                 }}
             >
-                { children }
+                {children}
             </Provider>
         );
     }

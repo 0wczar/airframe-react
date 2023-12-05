@@ -1,3 +1,3 @@
 import TasksDetails from './TasksDetails';
 
-export default TasksDetails; 
+export default TasksDetails;

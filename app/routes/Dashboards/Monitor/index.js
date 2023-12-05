@@ -1,3 +1,3 @@
 import Monitor from './Monitor';
 
-export default Monitor; 
+export default Monitor;

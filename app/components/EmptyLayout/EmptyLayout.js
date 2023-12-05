@@ -2,22 +2,20 @@ import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {
-    withPageConfig
-} from './../../components/Layout';
+import { withPageConfig } from '../Layout';
 
 class EmptyLayout extends React.Component {
     static propTypes = {
         pageConfig: PropTypes.object.isRequired,
         children: PropTypes.node.isRequired,
-        className: PropTypes.string
+        className: PropTypes.string,
     };
 
     componentDidMount() {
         this.props.pageConfig.setElementsVisibility({
             navbarHidden: true,
             sidebarHidden: true,
-            footerHidden: true 
+            footerHidden: true,
         });
     }
 
@@ -25,23 +23,17 @@ class EmptyLayout extends React.Component {
         this.props.pageConfig.setElementsVisibility({
             navbarHidden: false,
             sidebarHidden: false,
-            footerHidden: false 
+            footerHidden: false,
         });
     }
 
     render() {
         const emptyLayoutClass = classNames('fullscreen', this.props.className);
 
-        return (
-            <div className={ emptyLayoutClass }>
-                { this.props.children }
-            </div>
-        );
+        return <div className={emptyLayoutClass}>{this.props.children}</div>;
     }
-};
+}
 
 const PageConfigEmptyLayout = withPageConfig(EmptyLayout);
 
-export {
-    PageConfigEmptyLayout as EmptyLayout
-};
+export { PageConfigEmptyLayout as EmptyLayout };

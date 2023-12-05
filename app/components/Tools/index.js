@@ -5,7 +5,7 @@ import { SlimProps } from './SlimProps';
 const Tools = {
     SlimOnly,
     DefaultOnly,
-    SlimProps
+    SlimProps,
 };
 
 export default Tools;

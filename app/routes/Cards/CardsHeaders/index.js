@@ -1,3 +1,3 @@
 import CardsHeaders from './CardsHeaders';
 
-export default CardsHeaders; 
+export default CardsHeaders;

@@ -10,25 +10,17 @@ const UncontrolledModalClose = (props) => {
 
     return (
         <Consumer>
-        {
-            (value) => (
-                <Tag
-                    { ...otherProps }
-                    onClick={ () => value.toggleModal() }
-                />
-            )
-        }
+            {(value) => (
+                <Tag {...otherProps} onClick={() => value.toggleModal()} />
+            )}
         </Consumer>
-    )
+    );
 };
 UncontrolledModalClose.propTypes = {
-    tag: PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.string
-    ])
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
 };
 UncontrolledModalClose.defaultProps = {
-    tag: Button
+    tag: Button,
 };
 
 export { UncontrolledModalClose };

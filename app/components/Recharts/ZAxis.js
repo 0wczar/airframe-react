@@ -5,6 +5,6 @@ import styleConfig from './config';
 export class ZAxis extends RCZAxis {
     static defaultProps = {
         ...RCZAxis.defaultProps,
-        ...styleConfig.axis
-    }
+        ...styleConfig.axis,
+    };
 }

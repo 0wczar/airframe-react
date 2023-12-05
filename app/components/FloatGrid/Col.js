@@ -11,7 +11,7 @@ const breakPoints = [
     { id: 'lg', min: 496, max: 600 },
     { id: 'md', min: 384, max: 496 },
     { id: 'sm', min: 288, max: 384 },
-    { id: 'xs', max: 288 }
+    { id: 'xs', max: 288 },
 ];
 
 const getCurrentbreakPoint = (width, breakPoints) => {
@@ -53,36 +53,57 @@ export class Col extends React.Component {
         lgY: PropTypes.number,
         mdY: PropTypes.number,
         smY: PropTypes.number,
-        xsY: PropTypes.number, 
+        xsY: PropTypes.number,
 
         trueSize: PropTypes.object,
         children: PropTypes.node,
-        className: PropTypes.string
-    }
+        className: PropTypes.string,
+    };
 
     static defaultProps = {
-        active: true
-    }
+        active: true,
+    };
 
     render() {
         const { active, children, className, trueSize } = this.props;
-        const bsColumnProps = _.pick(this.props, ['xl', 'lg', 'md', 'sm', 'xs']);
-        const otherProps = _.omit(this.props, [..._.keys(Col.propTypes),
-            'minW', 'maxW', 'minH', 'maxH', 'moved', 'static', 'isDraggable', 'isResizable']);
-        const floatColBpId = trueSize ? getCurrentbreakPoint(trueSize.wPx, breakPoints) : 'xl';
-        const floatColClasses = classNames(className, 'float-col',
-            'float-column', `float-column--size-${floatColBpId}`);
+        const bsColumnProps = _.pick(this.props, [
+            'xl',
+            'lg',
+            'md',
+            'sm',
+            'xs',
+        ]);
+        const otherProps = _.omit(this.props, [
+            ..._.keys(Col.propTypes),
+            'minW',
+            'maxW',
+            'minH',
+            'maxH',
+            'moved',
+            'static',
+            'isDraggable',
+            'isResizable',
+        ]);
+        const floatColBpId = trueSize
+            ? getCurrentbreakPoint(trueSize.wPx, breakPoints)
+            : 'xl';
+        const floatColClasses = classNames(
+            className,
+            'float-col',
+            'float-column',
+            `float-column--size-${floatColBpId}`,
+        );
 
         return active ? (
-            <div { ...otherProps } className={ floatColClasses }>
-                { children }
+            <div {...otherProps} className={floatColClasses}>
+                {children}
             </div>
         ) : (
             <BootstrapCol
-                { ...(_.extend(bsColumnProps, otherProps)) }
-                className={ classNames(className, 'pb-3') }
+                {..._.extend(bsColumnProps, otherProps)}
+                className={classNames(className, 'pb-3')}
             >
-                { children }
+                {children}
             </BootstrapCol>
         );
     }

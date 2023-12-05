@@ -1,3 +1,3 @@
 import TabsPills from './TabsPills';
 
-export default TabsPills; 
+export default TabsPills;

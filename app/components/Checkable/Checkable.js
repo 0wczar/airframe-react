@@ -6,20 +6,17 @@ import { Provider } from './context';
 class Checkable extends React.Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
-        tag: PropTypes.oneOfType([
-            PropTypes.func,
-            PropTypes.string
-        ])
+        tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     };
     static defaultProps = {
-        tag: "div"
+        tag: 'div',
     };
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
-            isChecked: false
+            isChecked: false,
         };
     }
 
@@ -31,12 +28,14 @@ class Checkable extends React.Component {
             <Provider
                 value={{
                     isChecked: this.state.isChecked,
-                    toggle: (enabled) => { this.setState({ isChecked: enabled || !this.state.isChecked }) }
+                    toggle: (enabled) => {
+                        this.setState({
+                            isChecked: enabled || !this.state.isChecked,
+                        });
+                    },
                 }}
             >
-                <Tag { ...otherProps }>
-                    { children }
-                </Tag>
+                <Tag {...otherProps}>{children}</Tag>
             </Provider>
         );
     }

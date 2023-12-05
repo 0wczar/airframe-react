@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import './../../styles/components/wizard.scss';
+import '../../styles/components/wizard.scss';
 
 export class Wizard extends React.Component {
     static propTypes = {
         children: PropTypes.node,
         onStepChanged: PropTypes.func,
         activeStep: PropTypes.string,
-        initialActiveStep: PropTypes.string
-    }
+        initialActiveStep: PropTypes.string,
+    };
 
     componentDidMount() {
         const { initialActiveStep, activeStep, onStepChanged } = this.props;
@@ -19,20 +19,20 @@ export class Wizard extends React.Component {
             // eslint-disable-next-line no-console
             console.warn(
                 'Warning: You need to provide onStepChanged props if you want the ' +
-                'component to be controlled. For uncontrolled type, use initialActiveStep.'
+                    'component to be controlled. For uncontrolled type, use initialActiveStep.',
             );
         }
 
         if (!onStepChanged) {
             this.setState({
-                activeStep: initialActiveStep || activeStep
-            })
+                activeStep: initialActiveStep || activeStep,
+            });
         }
     }
 
     stepClick(id) {
         this.setState({
-            activeStep: id
+            activeStep: id,
         });
 
         this.props.onStepChanged(id);
@@ -52,15 +52,15 @@ export class Wizard extends React.Component {
 
         return (
             <div className='wizard'>
-                {
-                    _.map(children, (child, index) => (
-                        React.cloneElement(child, {
-                            onClick: () => {this.stepClick(child.props.id || '')},
-                            active: child.props.id === activeStep,
-                            key: index
-                        })
-                    ))
-                }
+                {_.map(children, (child, index) =>
+                    React.cloneElement(child, {
+                        onClick: () => {
+                            this.stepClick(child.props.id || '');
+                        },
+                        active: child.props.id === activeStep,
+                        key: index,
+                    }),
+                )}
             </div>
         );
     }

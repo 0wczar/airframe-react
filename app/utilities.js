@@ -1,4 +1,4 @@
-const allAvatars = (ctx => {
+const allAvatars = ((ctx) => {
     let keys = ctx.keys();
     return keys.map(ctx);
 })(require.context('./images/avatars', true, /.*/));

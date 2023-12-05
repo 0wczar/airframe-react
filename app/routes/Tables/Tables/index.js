@@ -1,3 +1,3 @@
 import Tables from './Tables';
 
-export default Tables; 
+export default Tables;

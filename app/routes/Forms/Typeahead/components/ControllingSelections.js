@@ -7,9 +7,9 @@ export const ControllingSelections = () => (
     <Typeahead
         clearButton
         defaultSelected={options.slice(0, 5)}
-        labelKey="name"
+        labelKey='name'
         multiple
         options={options}
-        placeholder="Choose a state..."
+        placeholder='Choose a state...'
     />
-)
+);

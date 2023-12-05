@@ -1,3 +1,3 @@
 import Forms from './Forms';
 
-export default Forms; 
+export default Forms;

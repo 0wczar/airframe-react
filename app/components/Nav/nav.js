@@ -7,10 +7,8 @@ import { Nav as BsNav } from 'reactstrap';
 const Nav = ({ accent, className, ...otherProps }) => {
     return (
         <BsNav
-            className={
-                classNames(className, 'nav', { 'nav-accent': accent })
-            }
-            { ...otherProps }
+            className={classNames(className, 'nav', { 'nav-accent': accent })}
+            {...otherProps}
         />
     );
 };
@@ -19,7 +17,7 @@ Nav.propTypes = {
     accent: PropTypes.bool,
 };
 Nav.defaultProps = {
-    accent: false
+    accent: false,
 };
 
 export { Nav };

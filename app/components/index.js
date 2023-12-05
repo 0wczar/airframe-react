@@ -15,7 +15,7 @@ import Layout, {
     withPageConfig,
     setupPage,
     PageConfigProvider,
-    PageConfigConsumer
+    PageConfigConsumer,
 } from './Layout';
 import Nav from './Nav';
 import Navbar from './Navbar';
@@ -111,7 +111,7 @@ export {
     UncontrolledButtonDropdown,
     UncontrolledDropdown,
     UncontrolledCollapse,
-    UncontrolledTooltip
+    UncontrolledTooltip,
 } from 'reactstrap';
 export {
     Accordion,
@@ -153,5 +153,5 @@ export {
     UncontrolledPopover,
     UncontrolledTabs,
     UncontrolledModal,
-    Wizard
+    Wizard,
 };

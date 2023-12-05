@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider, { Range } from 'rc-slider';
 
-import colors from './../../../colors';
+import colors from '../../../colors';
 import {
     Form,
     FormGroup,
@@ -14,11 +14,11 @@ import {
     Button,
     Row,
     Col,
-    Container
-} from './../../../components';
+    Container,
+} from '../../../components';
 
-import { HeaderMain } from "../../components/HeaderMain";
-import { HeaderDemo } from "../../components/HeaderDemo";
+import { HeaderMain } from '../../components/HeaderMain';
+import { HeaderDemo } from '../../components/HeaderDemo';
 
 import classes from './Sliders.scss';
 
@@ -34,7 +34,7 @@ const marks = {
         },
         label: <strong>100°C</strong>,
     },
-}
+};
 
 class CustomizedRange extends React.Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class CustomizedRange extends React.Component {
         this.state = {
             lowerBound: 20,
             upperBound: 40,
-            value: [20, 40]
+            value: [20, 40],
         };
     }
     onLowerBoundChange(e) {
@@ -65,28 +65,24 @@ class CustomizedRange extends React.Component {
         return (
             <div>
                 <Form inline className='mb-3 d-flex justify-content-between'>
-                    <div className="d-flex">
-                        <FormGroup  className='mr-3'>
-                            <Label>
-                                Lower Bound
-                            </Label>
+                    <div className='d-flex'>
+                        <FormGroup className='mr-3'>
+                            <Label>Lower Bound</Label>
                             <Input
-                                type="number"
-                                bsSize="sm"
-                                className={ classes.inlineInput }
+                                type='number'
+                                bsSize='sm'
+                                className={classes.inlineInput}
                                 value={this.state.lowerBound}
                                 onChange={this.onLowerBoundChange.bind(this)}
                             />
                         </FormGroup>
 
                         <FormGroup>
-                            <Label>
-                                Upper Bound
-                            </Label>
+                            <Label>Upper Bound</Label>
                             <Input
-                                type="number"
-                                bsSize="sm"
-                                className={ classes.inlineInput }
+                                type='number'
+                                bsSize='sm'
+                                className={classes.inlineInput}
                                 value={this.state.upperBound}
                                 onChange={this.onUpperBoundChange.bind(this)}
                             />
@@ -96,9 +92,9 @@ class CustomizedRange extends React.Component {
                     <FormGroup>
                         <Button
                             onClick={this.handleApply.bind(this)}
-                            type="button"
-                            color="primary"
-                            size="sm"
+                            type='button'
+                            color='primary'
+                            size='sm'
                             block
                         >
                             Apply
@@ -106,8 +102,12 @@ class CustomizedRange extends React.Component {
                     </FormGroup>
                 </Form>
 
-                <div className={ classes.sliderWrap }>
-                    <Range allowCross={false} value={this.state.value} onChange={this.onSliderChange.bind(this)} />
+                <div className={classes.sliderWrap}>
+                    <Range
+                        allowCross={false}
+                        value={this.state.value}
+                        onChange={this.onSliderChange.bind(this)}
+                    />
                 </div>
             </div>
         );
@@ -116,8 +116,8 @@ class CustomizedRange extends React.Component {
 
 class DynamicBounds extends React.Component {
     static propTypes = {
-        children: PropTypes.node.isRequired
-    }
+        children: PropTypes.node.isRequired,
+    };
 
     constructor(props) {
         super(props);
@@ -141,41 +141,35 @@ class DynamicBounds extends React.Component {
         const { children } = this.props;
         const updatedChild = React.cloneElement(React.Children.only(children), {
             min: this.state.min,
-            max: this.state.max
+            max: this.state.max,
         });
 
         return (
             <div>
-                <Form inline className="mb-3">
-                    <FormGroup className="mr-3">
-                        <Label>
-                            Min
-                        </Label>
+                <Form inline className='mb-3'>
+                    <FormGroup className='mr-3'>
+                        <Label>Min</Label>
                         <Input
-                            className={ classes.inlineInput }
-                            type="number"
+                            className={classes.inlineInput}
+                            type='number'
                             value={this.state.min}
                             onChange={this.onMinChange.bind(this)}
-                            bsSize="sm"
+                            bsSize='sm'
                         />
                     </FormGroup>
 
                     <FormGroup>
-                        <Label>
-                            Max
-                        </Label>
+                        <Label>Max</Label>
                         <Input
-                            className={ classes.inlineInput }
-                            type="number"
+                            className={classes.inlineInput}
+                            type='number'
                             value={this.state.max}
                             onChange={this.onMaxChange.bind(this)}
-                            bsSize="sm"
+                            bsSize='sm'
                         />
                     </FormGroup>
                 </Form>
-                <div className={ classes.sliderWrap }>
-                    { updatedChild }
-                </div>
+                <div className={classes.sliderWrap}>{updatedChild}</div>
             </div>
         );
     }
@@ -192,11 +186,9 @@ class ControlledRange extends React.Component {
         this.setState({
             value,
         });
-    }
+    };
     render() {
-        return (
-            <Range value={this.state.value} onChange={this.handleChange}/>
-        );
+        return <Range value={this.state.value} onChange={this.handleChange} />;
     }
 }
 
@@ -205,20 +197,23 @@ class CustomizedSlider extends React.Component {
         super();
 
         this.state = {
-            value: 50
-        }
+            value: 50,
+        };
     }
 
     onSliderChange(value) {
         this.setState({
-            value
+            value,
         });
     }
 
     render() {
-        return(
-            <Slider value={this.state.value} onChange={this.onSliderChange.bind(this)} />
-        )
+        return (
+            <Slider
+                value={this.state.value}
+                onChange={this.onSliderChange.bind(this)}
+            />
+        );
     }
 }
 
@@ -226,203 +221,335 @@ export class Sliders extends React.Component {
     render() {
         return (
             <Container>
-                <HeaderMain 
-                    title="Sliders"
-                    className="mb-5 mt-4"
-                />
+                <HeaderMain title='Sliders' className='mb-5 mt-4' />
                 <Row>
                     <Col>
-                        { /* START Header 1 */}
-                        <HeaderDemo 
-                            no={1} 
-                            title="Marks"
-                            subTitle={(
+                        {/* START Header 1 */}
+                        <HeaderDemo
+                            no={1}
+                            title='Marks'
+                            subTitle={
                                 <React.Fragment>
                                     See 6 examples below:
                                 </React.Fragment>
-                            )}                                 
+                            }
                         />
-                        { /* END Header 1 */}
-                        { /* START Card Example */}
+                        {/* END Header 1 */}
+                        {/* START Card Example */}
                         <Card>
                             <CardBody>
                                 <Row>
-                                    <Col lg={ 6 }>
-                                        <p>Slider with marks, <code>step=null</code></p>
-                                        <div className={ classes.markedSliderWrap }>
-                                            <Slider min={-10} marks={marks} step={null} defaultValue={20} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Slider with marks,{' '}
+                                            <code>step=null</code>
+                                        </p>
+                                        <div
+                                            className={classes.markedSliderWrap}
+                                        >
+                                            <Slider
+                                                min={-10}
+                                                marks={marks}
+                                                step={null}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
-                                        <p>Slider with marks, <code>included=false</code></p>
-                                        <div className={ classes.markedSliderWrap }>
-                                            <Slider min={-10} marks={marks} included={false} defaultValue={20} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Slider with marks,{' '}
+                                            <code>included=false</code>
+                                        </p>
+                                        <div
+                                            className={classes.markedSliderWrap}
+                                        >
+                                            <Slider
+                                                min={-10}
+                                                marks={marks}
+                                                included={false}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Slider with marks and steps</p>
-                                        <div className={ classes.markedSliderWrap }>
-                                            <Slider dots min={-10} marks={marks} step={10} defaultValue={20} />
+                                        <div
+                                            className={classes.markedSliderWrap}
+                                        >
+                                            <Slider
+                                                dots
+                                                min={-10}
+                                                marks={marks}
+                                                step={10}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
-                                        <p>Slider with marks and steps, <code>included=false</code></p>
-                                        <div className={ classes.markedSliderWrap }>
-                                            <Slider min={-10} marks={marks} step={10} included={false} defaultValue={20} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Slider with marks and steps,{' '}
+                                            <code>included=false</code>
+                                        </p>
+                                        <div
+                                            className={classes.markedSliderWrap}
+                                        >
+                                            <Slider
+                                                min={-10}
+                                                marks={marks}
+                                                step={10}
+                                                included={false}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Range with marks</p>
-                                        <div className={ classes.markedSliderWrap }>
-                                            <Range min={-10} marks={marks} defaultValue={[20, 40]} />
+                                        <div
+                                            className={classes.markedSliderWrap}
+                                        >
+                                            <Range
+                                                min={-10}
+                                                marks={marks}
+                                                defaultValue={[20, 40]}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Range with marks and steps</p>
-                                        <div className={ classes.markedSliderWrap }>
-                                            <Range min={-10} marks={marks} step={10} defaultValue={[20, 40]} />
+                                        <div
+                                            className={classes.markedSliderWrap}
+                                        >
+                                            <Range
+                                                min={-10}
+                                                marks={marks}
+                                                step={10}
+                                                defaultValue={[20, 40]}
+                                            />
                                         </div>
                                     </Col>
                                 </Row>
                             </CardBody>
                         </Card>
-                        { /* END Card Example */}
+                        {/* END Card Example */}
 
-                        { /* START Header 2 */}
-                        <HeaderDemo 
-                            no={2} 
-                            title="Range"
-                            className="mt-5"
-                            subTitle={(
+                        {/* START Header 2 */}
+                        <HeaderDemo
+                            no={2}
+                            title='Range'
+                            className='mt-5'
+                            subTitle={
                                 <React.Fragment>
                                     See 8 examples below:
                                 </React.Fragment>
-                            )}                                 
+                            }
                         />
-                        { /* END Header 2 */}
-                        { /* START Card Example */}
+                        {/* END Header 2 */}
+                        {/* START Card Example */}
                         <Card>
                             <CardBody>
                                 <Row>
-                                    <Col lg={ 6 }>
-                                        <p>Basic Range，<code>allowCross=false</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Range allowCross={false} defaultValue={[0, 20]} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Range，
+                                            <code>allowCross=false</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Range
+                                                allowCross={false}
+                                                defaultValue={[0, 20]}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
-                                        <p>Basic Range，<code>disabled</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Range allowCross={false} defaultValue={[0, 20]} disabled />
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Range，<code>disabled</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Range
+                                                allowCross={false}
+                                                defaultValue={[0, 20]}
+                                                disabled
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
-                                        <p>Basic Range，<code>step=20</code> </p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Range step={20} defaultValue={[20, 20]} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Range，<code>step=20</code>{' '}
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Range
+                                                step={20}
+                                                defaultValue={[20, 20]}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
-                                        <p>Basic Range，<code>step=20, dots</code> </p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Range dots step={20} defaultValue={[20, 40]} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Range，
+                                            <code>step=20, dots</code>{' '}
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Range
+                                                dots
+                                                step={20}
+                                                defaultValue={[20, 40]}
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Controlled Range</p>
-                                        <div className={ classes.rangeSliderWrap }>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
                                             <ControlledRange />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Multi Range</p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Range count={3} defaultValue={[20, 40, 60, 80]} pushable />
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Range
+                                                count={3}
+                                                defaultValue={[20, 40, 60, 80]}
+                                                pushable
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Customized Range</p>
-                                        <div className={ classes.rangeSliderWrap }>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
                                             <CustomizedRange />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
-                                        <p>Range with dynamic <code>max</code> <code>min</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
+                                    <Col lg={6}>
+                                        <p>
+                                            Range with dynamic <code>max</code>{' '}
+                                            <code>min</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
                                             <DynamicBounds>
-                                                <Range defaultValue={[20, 50]} />
+                                                <Range
+                                                    defaultValue={[20, 50]}
+                                                />
                                             </DynamicBounds>
                                         </div>
                                     </Col>
                                 </Row>
                             </CardBody>
                         </Card>
-                        { /* END Card Example */}
+                        {/* END Card Example */}
 
-                        { /* START Header 3 */}
-                        <HeaderDemo 
-                            no={3} 
-                            title="Sliders"
-                            className="mt-5"
-                            subTitle={(
+                        {/* START Header 3 */}
+                        <HeaderDemo
+                            no={3}
+                            title='Sliders'
+                            className='mt-5'
+                            subTitle={
                                 <React.Fragment>
                                     See 7 examples below:
                                 </React.Fragment>
-                            )}                                 
+                            }
                         />
-                        { /* END Header 3 */}
-                        { /* START Card Example */}
+                        {/* END Header 3 */}
+                        {/* START Card Example */}
                         <Card>
                             <CardBody>
                                 <Row>
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Basic Slider</p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Slider tipTransitionName="rc-slider-tooltip-zoom-down" />
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Slider tipTransitionName='rc-slider-tooltip-zoom-down' />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
-                                        <p>Basic Slider, <code>disabled</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Slider tipTransitionName="rc-slider-tooltip-zoom-down" disabled />
-                                        </div>
-                                    </Col>
-
-                                    <Col lg={ 6 }>
-                                        <p>Basic Slider，<code>step=20</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Slider step={20} defaultValue={50} />
-                                        </div>
-                                    </Col>
-
-                                    <Col lg={ 6 }>
-                                        <p>Basic Slider，<code>step=20, dots</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
-                                            <Slider dots step={20} defaultValue={100} />
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Slider, <code>disabled</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Slider
+                                                tipTransitionName='rc-slider-tooltip-zoom-down'
+                                                disabled
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Slider，<code>step=20</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Slider
+                                                step={20}
+                                                defaultValue={50}
+                                            />
+                                        </div>
+                                    </Col>
+
+                                    <Col lg={6}>
+                                        <p>
+                                            Basic Slider，
+                                            <code>step=20, dots</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
+                                            <Slider
+                                                dots
+                                                step={20}
+                                                defaultValue={100}
+                                            />
+                                        </div>
+                                    </Col>
+
+                                    <Col lg={6}>
                                         <p>Controlled Slider</p>
-                                        <div className={ classes.rangeSliderWrap }>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
                                             <Slider value={50} />
                                         </div>
                                     </Col>
-                                    <Col lg={ 6 }>
+                                    <Col lg={6}>
                                         <p>Customized Slider</p>
-                                        <div className={ classes.rangeSliderWrap }>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
                                             <CustomizedSlider />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 6 }>
-                                        <p>Slider with dynamic <code>min</code>, <code>max</code></p>
-                                        <div className={ classes.rangeSliderWrap }>
+                                    <Col lg={6}>
+                                        <p>
+                                            Slider with dynamic <code>min</code>
+                                            , <code>max</code>
+                                        </p>
+                                        <div
+                                            className={classes.rangeSliderWrap}
+                                        >
                                             <DynamicBounds>
                                                 <Slider defaultValue={50} />
                                             </DynamicBounds>
@@ -432,66 +559,134 @@ export class Sliders extends React.Component {
                             </CardBody>
                         </Card>
 
-                        { /* START Header 4 */}
-                        <HeaderDemo 
-                            no={4} 
-                            title="Vertical Sliders"
-                            className="mt-5"
-                            subTitle={(
+                        {/* START Header 4 */}
+                        <HeaderDemo
+                            no={4}
+                            title='Vertical Sliders'
+                            className='mt-5'
+                            subTitle={
                                 <React.Fragment>
                                     See 6 examples below:
                                 </React.Fragment>
-                            )}                                 
+                            }
                         />
-                        { /* END Header 4 */}
-                        { /* START Card Example */}
+                        {/* END Header 4 */}
+                        {/* START Card Example */}
                         <Card>
                             <CardBody>
                                 <Row>
-                                    <Col lg={ 3 }>
-                                        <p>Slider with marks, <code>step=null</code></p>
-                                        <div className={ classes.markedSliderVerticalWrap }>
-                                            <Slider vertical min={-10} marks={marks} step={null} defaultValue={20} />
+                                    <Col lg={3}>
+                                        <p>
+                                            Slider with marks,{' '}
+                                            <code>step=null</code>
+                                        </p>
+                                        <div
+                                            className={
+                                                classes.markedSliderVerticalWrap
+                                            }
+                                        >
+                                            <Slider
+                                                vertical
+                                                min={-10}
+                                                marks={marks}
+                                                step={null}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 3 }>
+                                    <Col lg={3}>
                                         <p>Slider with marks and steps</p>
-                                        <div className={ classes.markedSliderVerticalWrap }>
-                                            <Slider vertical dots min={-10} marks={marks} step={10} defaultValue={20} />
+                                        <div
+                                            className={
+                                                classes.markedSliderVerticalWrap
+                                            }
+                                        >
+                                            <Slider
+                                                vertical
+                                                dots
+                                                min={-10}
+                                                marks={marks}
+                                                step={10}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 3 }>
-                                        <p>Slider with marks, <code>included=false</code></p>
-                                        <div className={ classes.markedSliderVerticalWrap }>
-                                            <Slider vertical min={-10} marks={marks} included={false} defaultValue={20} />
+                                    <Col lg={3}>
+                                        <p>
+                                            Slider with marks,{' '}
+                                            <code>included=false</code>
+                                        </p>
+                                        <div
+                                            className={
+                                                classes.markedSliderVerticalWrap
+                                            }
+                                        >
+                                            <Slider
+                                                vertical
+                                                min={-10}
+                                                marks={marks}
+                                                included={false}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
-                                    <Col lg={ 3 }>
-                                        <p>Slider with marks and steps, <code>included=false</code></p>
-                                        <div className={ classes.markedSliderVerticalWrap }>
-                                            <Slider vertical min={-10} marks={marks} step={10} included={false} defaultValue={20} />
+                                    <Col lg={3}>
+                                        <p>
+                                            Slider with marks and steps,{' '}
+                                            <code>included=false</code>
+                                        </p>
+                                        <div
+                                            className={
+                                                classes.markedSliderVerticalWrap
+                                            }
+                                        >
+                                            <Slider
+                                                vertical
+                                                min={-10}
+                                                marks={marks}
+                                                step={10}
+                                                included={false}
+                                                defaultValue={20}
+                                            />
                                         </div>
                                     </Col>
 
-                                    <Col lg={ 3 }>
+                                    <Col lg={3}>
                                         <p>Range with marks</p>
-                                        <div className={ classes.markedSliderVerticalWrap }>
-                                            <Range vertical min={-10} marks={marks} defaultValue={[20, 40]} />
-                                        </div>
-                                    </Col>
-                                    <Col lg={ 3 }>
-                                        <p>Range with marks and steps</p>
-                                        <div className={ classes.markedSliderVerticalWrap }>
-                                            <Range vertical min={-10} marks={marks} step={10}
+                                        <div
+                                            className={
+                                                classes.markedSliderVerticalWrap
+                                            }
+                                        >
+                                            <Range
+                                                vertical
+                                                min={-10}
+                                                marks={marks}
                                                 defaultValue={[20, 40]}
                                             />
                                         </div>
                                     </Col>
-                                </Row>                   
+                                    <Col lg={3}>
+                                        <p>Range with marks and steps</p>
+                                        <div
+                                            className={
+                                                classes.markedSliderVerticalWrap
+                                            }
+                                        >
+                                            <Range
+                                                vertical
+                                                min={-10}
+                                                marks={marks}
+                                                step={10}
+                                                defaultValue={[20, 40]}
+                                            />
+                                        </div>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
-                    { /* END Card Example */}
+                        {/* END Card Example */}
                     </Col>
                 </Row>
             </Container>

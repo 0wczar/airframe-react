@@ -5,6 +5,7 @@ dist
 node_modules
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 # other
 .DS_Store

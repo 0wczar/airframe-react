@@ -1,3 +1,3 @@
 import EmailDetails from './EmailDetails';
 
-export default EmailDetails; 
+export default EmailDetails;

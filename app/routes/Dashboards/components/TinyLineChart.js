@@ -1,10 +1,10 @@
 import React from 'react';
 import _ from 'lodash';
-import {  
+import {
     ResponsiveContainer,
-    LineChart, 
+    LineChart,
     Line,
-	Dot
+    Dot,
 } from './../../../components/recharts';
 
 import colors from './../../../colors';
@@ -12,18 +12,20 @@ import colors from './../../../colors';
 const data = _.times(20, () => ({ pv: Math.random() * 100 }));
 
 // eslint-disable-next-line react/prop-types
-const generateDot = ({stroke, ...other}) => (
-    <Dot
-        { ...other }
-        fill={ stroke }
-        stroke={ colors['white'] }
-    />
+const generateDot = ({ stroke, ...other }) => (
+    <Dot {...other} fill={stroke} stroke={colors['white']} />
 );
 
 const TinyLineChart = () => (
-    <ResponsiveContainer width='100%' height={ 40 }>
+    <ResponsiveContainer width='100%' height={40}>
         <LineChart data={data}>
-            <Line dataKey='pv' stroke={ colors['primary-07'] } strokeWidth={2} activeDot={{r: 5}} dot={generateDot} />
+            <Line
+                dataKey='pv'
+                stroke={colors['primary-07']}
+                strokeWidth={2}
+                activeDot={{ r: 5 }}
+                dot={generateDot}
+            />
         </LineChart>
     </ResponsiveContainer>
 );

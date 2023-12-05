@@ -1,17 +1,17 @@
 import React from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
 
-import { FormGroup, CustomInput } from './../../../../components';
+import { FormGroup, CustomInput } from '../../../../components';
 
 export class FilteringExample extends React.Component {
     state = {
         caseSensitive: false,
         ignoreDiacritics: true,
     };
-  
+
     render() {
-        const {caseSensitive, ignoreDiacritics} = this.state;
-    
+        const { caseSensitive, ignoreDiacritics } = this.state;
+
         return (
             <React.Fragment>
                 <Typeahead
@@ -43,27 +43,31 @@ export class FilteringExample extends React.Component {
                         'Ruda Śląska',
                         'Rybnik',
                     ]}
-                    placeholder="Cities in Poland..."
+                    placeholder='Cities in Poland...'
                 />
-                <FormGroup className="mt-2">
+                <FormGroup className='mt-2'>
                     <CustomInput
                         checked={caseSensitive}
-                        onChange={(e) => this.setState({caseSensitive: e.target.checked})}
-                        type="checkbox"
-                        id="case-sensitive-enabled"
-                        label="Case-sensitive filtering"
+                        onChange={(e) =>
+                            this.setState({ caseSensitive: e.target.checked })
+                        }
+                        type='checkbox'
+                        id='case-sensitive-enabled'
+                        label='Case-sensitive filtering'
                     />
                     <CustomInput
                         checked={!ignoreDiacritics}
                         onChange={(e) => {
-                            this.setState({ignoreDiacritics: !e.target.checked});
+                            this.setState({
+                                ignoreDiacritics: !e.target.checked,
+                            });
                         }}
-                        type="checkbox"
-                        id="ignore-diactrical-enabled"
+                        type='checkbox'
+                        id='ignore-diactrical-enabled'
                         label="Don't ignore diacritical marks"
                     />
                 </FormGroup>
             </React.Fragment>
         );
     }
-  }
+}

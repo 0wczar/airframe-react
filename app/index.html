@@ -17,6 +17,8 @@
   <% for (var css in config.files.css) { %>
   <link href="<%= config.files.css[css] %>" rel="preload" as="style">
   <link href="<%= config.files.css[css] %>" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/mailtoharshit/San-Francisco-Font-/sanfrancisco.css">
   <% } %>
   
   <% if (config.options.chunks) { %>
@@ -25,6 +27,7 @@
 
   <!-- Loader Style -->
   <style>
+
     @keyframes spin {
       100% {
         transform: rotate(360deg)
@@ -38,7 +41,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: -apple-system, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+      font-family: 'San Francisco', -apple-system, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
       font-size: 12px;
       position: fixed;
       z-index: 99999;

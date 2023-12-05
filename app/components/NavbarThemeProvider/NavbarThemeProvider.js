@@ -10,16 +10,11 @@ const NavbarThemeProvider = ({ style, color, children, className }) => {
         const child = React.Children.only(children);
 
         return React.cloneElement(child, {
-            className: classNames(
-                child.props.className,
-                themeClass
-            ),
+            className: classNames(child.props.className, themeClass),
         });
     } else {
         return (
-            <div className={ classNames(className, themeClass) }>
-                { children }
-            </div>
+            <div className={classNames(className, themeClass)}>{children}</div>
         );
     }
 };

@@ -1,3 +1,3 @@
 import SessionsEdit from './SessionsEdit';
 
-export default SessionsEdit; 
+export default SessionsEdit;

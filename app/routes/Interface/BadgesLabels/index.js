@@ -1,3 +1,3 @@
 import BadgesLabels from './BadgesLabels';
 
-export default BadgesLabels; 
+export default BadgesLabels;

@@ -23,7 +23,7 @@ export {
     PolarRadiusAxis,
     PolarAngleAxis,
     PieValueLabel,
-    Tooltip
+    Tooltip,
 };
 
 export {
@@ -58,5 +58,5 @@ export {
     ScatterChart,
     Sector,
     Text,
-    Treemap
+    Treemap,
 } from 'recharts';

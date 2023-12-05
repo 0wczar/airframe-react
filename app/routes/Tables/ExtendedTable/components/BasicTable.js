@@ -1,38 +1,39 @@
 import React from 'react';
 import _ from 'lodash';
 import BootstrapTable from 'react-bootstrap-table-next';
-import faker from 'faker/locale/en_US';
+
+import { faker } from '@faker-js/faker';
 
 const columns = [
     {
         dataField: 'id',
-        text: 'Product ID'
-    }, {
+        text: 'Product ID',
+    },
+    {
         dataField: 'name',
-        text: 'Product Name'
-    }, {
+        text: 'Product Name',
+    },
+    {
         dataField: 'price',
-        text: 'Product Price'
-    }
+        text: 'Product Price',
+    },
 ];
 
 const data = _.times(5, (index) => ({
     id: index,
     name: faker.commerce.productName(),
-    price: Math.round(2000 + Math.random() * 500)
+    price: Math.round(2000 + Math.random() * 500),
 }));
 
 export const BasicTable = () => (
     <React.Fragment>
-        <h6 className="mt-0">
-            Basic Table
-        </h6>
+        <h6 className='mt-0'>Basic Table</h6>
         <BootstrapTable
-            classes="table-responsive-sm"
+            classes='table-responsive-sm'
             keyField='id'
-            data={ data }
-            columns={ columns }
-            bordered={ false }
+            data={data}
+            columns={columns}
+            bordered={false}
         />
     </React.Fragment>
 );

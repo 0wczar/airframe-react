@@ -1,3 +1,3 @@
 import ListGroups from './ListGroups';
 
-export default ListGroups; 
+export default ListGroups;

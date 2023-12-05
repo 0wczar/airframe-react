@@ -1,9 +1,9 @@
 import React from 'react';
 
 const MenuContext = React.createContext({
-    entries: { },
-    addEntry: () => { },
-    removeEntry: () => { }
+    entries: {},
+    addEntry: () => {},
+    removeEntry: () => {},
 });
 
 export { MenuContext };

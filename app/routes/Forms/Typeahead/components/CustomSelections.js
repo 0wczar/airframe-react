@@ -5,8 +5,8 @@ export const CustomSelections = () => (
     <Typeahead
         allowNew
         multiple
-        newSelectionPrefix="Add a new item: "
+        newSelectionPrefix='Add a new item: '
         options={[]}
-        placeholder="Type anything..."
+        placeholder='Type anything...'
     />
 );

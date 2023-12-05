@@ -1,3 +1,3 @@
 import InputGroups from './InputGroups';
 
-export default InputGroups; 
+export default InputGroups;

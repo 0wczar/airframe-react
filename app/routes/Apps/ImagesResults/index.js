@@ -1,3 +1,3 @@
 import ImagesResults from './ImagesResults';
 
-export default ImagesResults; 
+export default ImagesResults;

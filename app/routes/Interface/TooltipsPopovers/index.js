@@ -1,3 +1,3 @@
 import TooltipsPopovers from './TooltipsPopovers';
 
-export default TooltipsPopovers; 
+export default TooltipsPopovers;

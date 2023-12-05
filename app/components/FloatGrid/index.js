@@ -10,7 +10,7 @@ Grid.Ready = Ready;
 export const applyColumn = (columnId, layouts) => ({
     ...layouts[columnId],
     i: columnId,
-    key: columnId
+    key: columnId,
 });
 
 export default Grid;

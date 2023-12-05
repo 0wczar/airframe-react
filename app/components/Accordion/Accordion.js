@@ -11,19 +11,21 @@ export class Accordion extends React.Component {
         onToggle: PropTypes.func,
         open: PropTypes.bool,
         children: PropTypes.node,
-        className: PropTypes.string
+        className: PropTypes.string,
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: props.initialOpen
-        }
+            isOpen: props.initialOpen,
+        };
 
         if (props.open !== 'undefined' && props.onToggle === 'undefined') {
-            throw "Accordion: props.open has to be used combined with props.onToggle " +
-                "use props.initialOpen to create an uncontrolled Accordion."
+            throw (
+                'Accordion: props.open has to be used combined with props.onToggle ' +
+                'use props.initialOpen to create an uncontrolled Accordion.'
+            );
         }
     }
 
@@ -38,8 +40,7 @@ export class Accordion extends React.Component {
     }
 
     isOpen() {
-        return !this.props.onToggle ?
-            this.state.isOpen : this.props.open;
+        return !this.props.onToggle ? this.state.isOpen : this.props.open;
     }
 
     render() {
@@ -50,11 +51,11 @@ export class Accordion extends React.Component {
             <Provider
                 value={{
                     onToggle: this.toggleHandler.bind(this),
-                    isOpen: this.isOpen()
+                    isOpen: this.isOpen(),
                 }}
             >
-                <Card className={ className } { ...otherProps }>
-                    { children }
+                <Card className={className} {...otherProps}>
+                    {children}
                 </Card>
             </Provider>
         );

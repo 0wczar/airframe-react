@@ -1,21 +1,17 @@
 import React from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
 
-import {
-    CustomInput,
-    Card,
-    FormGroup
-} from './../../../../components';
+import { CustomInput, Card, FormGroup } from '../../../../components';
 import options from './exampleData';
 
 export class BodyContainer extends React.Component {
     state = {
         bodyContainer: true,
-        dropup: false
+        dropup: false,
     };
-  
+
     render() {
-        const {bodyContainer, dropup} = this.state;
+        const { bodyContainer, dropup } = this.state;
 
         return (
             <React.Fragment>
@@ -26,39 +22,39 @@ export class BodyContainer extends React.Component {
                         padding: '40px',
                     }}
                 >
-                    <div style={{height: '300px'}}>
+                    <div style={{ height: '300px' }}>
                         <Typeahead
                             {...this.state}
-                            labelKey="name"
+                            labelKey='name'
                             options={options}
-                            placeholder="Choose a state..."
+                            placeholder='Choose a state...'
                         />
                     </div>
                 </Card>
-                <FormGroup className="mt-2">
+                <FormGroup className='mt-2'>
                     <CustomInput
                         checked={bodyContainer}
-                        name="bodyContainer"
+                        name='bodyContainer'
                         onChange={this._handleChange}
-                        type="checkbox"
-                        id="enable-attach-menu"
-                        label="Attach menu to document body"
+                        type='checkbox'
+                        id='enable-attach-menu'
+                        label='Attach menu to document body'
                     />
                     <CustomInput
                         checked={dropup}
-                        name="dropup"
+                        name='dropup'
                         onChange={this._handleChange}
-                        type="checkbox"
-                        id="enable-dropup-menu"
-                        label="Dropup menu"
+                        type='checkbox'
+                        id='enable-dropup-menu'
+                        label='Dropup menu'
                     />
                 </FormGroup>
             </React.Fragment>
         );
     }
-  
+
     _handleChange = (e) => {
-        const {checked, name} = e.target;
-        this.setState({[name]: checked});
-    }
+        const { checked, name } = e.target;
+        this.setState({ [name]: checked });
+    };
 }

@@ -1,3 +1,3 @@
 import GalleryGrid from './GalleryGrid';
 
-export default GalleryGrid; 
+export default GalleryGrid;

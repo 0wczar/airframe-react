@@ -1,3 +1,3 @@
 import Avatars from './Avatars';
 
-export default Avatars; 
+export default Avatars;

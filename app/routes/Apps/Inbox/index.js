@@ -1,3 +1,3 @@
 import Inbox from './Inbox';
 
-export default Inbox; 
+export default Inbox;

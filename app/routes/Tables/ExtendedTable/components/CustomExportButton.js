@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-    Button
-} from './../../../../components';
+import { Button } from '../../../../components';
 
-export const CustomExportCSV = ({children, onExport, ...props}) => {
+export const CustomExportCSV = ({ children, onExport, ...props }) => {
     return (
         <Button
-            { ...props }
-            onClick={() => { onExport() }}
+            {...props}
+            onClick={() => {
+                onExport();
+            }}
         >
-            { children }
+            {children}
         </Button>
     );
-}
+};
 
 CustomExportCSV.propTypes = {
     size: PropTypes.string,
     outline: PropTypes.bool,
     onExport: PropTypes.func,
-    children: PropTypes.node
-}
+    children: PropTypes.node,
+};
 
 CustomExportCSV.defaultProps = {
     size: 'sm',
-    outline: true
-}
+    outline: true,
+};

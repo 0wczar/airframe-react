@@ -6,20 +6,20 @@ import {
     InputGroup,
     InputGroupAddon,
     FormGroup,
-    Button
-} from './../../../../components';
+    Button,
+} from '../../../../components';
 import options from './exampleData';
 
 const getInitialState = () => ({
     index: Math.floor(Math.random() * options.length),
     selected: [],
 });
-  
+
 export class FormExample extends React.Component {
     state = getInitialState();
-  
+
     render() {
-        const {index, selected} = this.state;
+        const { index, selected } = this.state;
         const state = options[index];
 
         let isInvalid;
@@ -37,23 +37,23 @@ export class FormExample extends React.Component {
             <React.Fragment>
                 <FormGroup>
                     <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                            <span className="input-group-text">
+                        <InputGroupAddon addonType='prepend'>
+                            <span className='input-group-text'>
                                 The capital of {state.name} is
                             </span>
                         </InputGroupAddon>
                         <Typeahead
                             isInvalid={isInvalid}
                             isValid={isValid}
-                            labelKey="capital"
-                            onChange={(selected) => this.setState({selected})}
+                            labelKey='capital'
+                            onChange={(selected) => this.setState({ selected })}
                             options={_.sortBy(options, 'capital')}
-                            placeholder="Select a capital..."
+                            placeholder='Select a capital...'
                             selected={selected}
                         />
-                        <InputGroupAddon addonType="append">
+                        <InputGroupAddon addonType='append'>
                             <Button
-                                className="btn-outline-secondary"
+                                className='btn-outline-secondary'
                                 onClick={() => this.setState(getInitialState())}
                             >
                                 Play Again

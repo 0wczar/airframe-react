@@ -1,3 +1,3 @@
 import System from './System';
 
-export default System; 
+export default System;

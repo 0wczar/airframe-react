@@ -1,3 +1,3 @@
 import Paginations from './Paginations';
 
-export default Paginations; 
+export default Paginations;
