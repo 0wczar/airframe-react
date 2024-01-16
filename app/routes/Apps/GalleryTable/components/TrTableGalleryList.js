@@ -76,17 +76,17 @@ const TrTableGalleryList = (props) => (
           </Media>
           <Media body>
             <a className="mt-0 text-decoration-none d-flex" href="#">
-              {faker.name.firstName()} {faker.name.lastName()}
+              {faker.person.firstName()} {faker.person.lastName()}
             </a>
             <span>
-              {faker.address.state()}, {faker.address.stateAbbr()}
+              {faker.location.state()}, {faker.location.stateAbbr()}
             </span>
           </Media>
         </Media>
       </td>
       <td className="align-middle">22-Jul-2012</td>
       <td className="align-middle">
-        Size: {faker.random.number()} Kb
+        Size: {faker.number.int()} Kb
         <br />
         Format: .png
       </td>

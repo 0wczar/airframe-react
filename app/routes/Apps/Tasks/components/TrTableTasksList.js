@@ -87,7 +87,7 @@ const TrTableTasksList = (props) => (
       </td>
       <td className="align-middle">
         <div>
-          <span className="mr-2">#{faker.random.number()}</span>
+          <span className="mr-2">#{faker.number.int()}</span>
           <Link to="/apps/task-details" className="text-decoration-none">
             {faker.hacker.phrase()}
           </Link>

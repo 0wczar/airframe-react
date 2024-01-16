@@ -53,7 +53,7 @@ const TrTableContextual = () => (
       <tr className={trColor[index % 12]} key={index}>
         <td className="align-middle">#{faker.finance.mask()}</td>
         <td className="align-middle">
-          {faker.name.firstName()} {faker.name.lastName()}
+          {faker.person.firstName()} {faker.person.lastName()}
         </td>
         <td className="align-middle">
           {faker.date.weekday()}, 12 {faker.date.month()}, 2018
@@ -64,7 +64,7 @@ const TrTableContextual = () => (
             {faker.finance.accountName()}
           </Badge>
         </td>
-        <td className="align-middle text-right">{faker.address.country()}</td>
+        <td className="align-middle text-right">{faker.location.country()}</td>
       </tr>
     ))}
   </React.Fragment>

@@ -61,14 +61,14 @@ const TrTableClients = (props) => (
           </Media>
           <Media body>
             <a className="mt-0 d-flex text-decoration-none" href="#">
-              {faker.name.firstName()} {faker.name.lastName()}
+              {faker.person.firstName()} {faker.person.lastName()}
             </a>
-            <span>{faker.name.jobTitle()}</span>
+            <span>{faker.person.jobTitle()}</span>
           </Media>
         </Media>
       </td>
       <td className="align-middle">{faker.internet.email()}</td>
-      <td className="align-middle">{faker.phone.phoneNumberFormat()}</td>
+      <td className="align-middle">{faker.phone.number()}</td>
       <td className="align-middle text-right">
         <Badge pill color={randomArray(tag)}>
           {faker.commerce.department()}

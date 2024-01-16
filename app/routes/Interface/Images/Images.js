@@ -494,7 +494,7 @@ const Images = () => (
               </Media>
               <Media body>
                 <span className="mt-0 d-flex h6 mb-0">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </span>
                 <p className="mb-0">2 Days Ago</p>
               </Media>

@@ -10,7 +10,7 @@ const TrTableInvoices = () => (
     {_.times(6, (index) => (
       <tr key={index}>
         <td className="align-middle">
-          <span className="text-inverse">{faker.company.companyName()}</span>
+          <span className="text-inverse">{faker.company.name()}</span>
           <br />
           {faker.company.bsBuzz()}
         </td>
@@ -39,10 +39,10 @@ const TrTableInvoices = () => (
             <Media body>
               <span className="d-flex mb-1">
                 <span className="mt-0 d-flex h6 mb-0">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </span>
               </span>
-              <p className="mb-0">{faker.name.jobTitle()}</p>
+              <p className="mb-0">{faker.person.jobTitle()}</p>
             </Media>
           </Media>
         </td>
@@ -51,7 +51,7 @@ const TrTableInvoices = () => (
             {faker.internet.exampleEmail()}
           </a>
           <br />
-          {faker.phone.phoneNumber()}
+          {faker.phone.number()}
         </td>
         <td className="text-right align-middle text-nowrap">
           <a href="#" className="text-decoration-none">

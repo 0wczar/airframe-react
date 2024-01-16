@@ -101,10 +101,10 @@ const ProjectsLeftNav = () => (
               </Media>
               <Media body>
                 <div className="mt-0">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </div>
                 <span className="small">
-                  {faker.address.state()}, {faker.address.stateAbbr()}
+                  {faker.location.state()}, {faker.location.stateAbbr()}
                 </span>
               </Media>
             </Media>
@@ -119,10 +119,10 @@ const ProjectsLeftNav = () => (
               </Media>
               <Media body>
                 <div className="mt-0">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </div>
                 <span className="small">
-                  {faker.address.state()}, {faker.address.stateAbbr()}
+                  {faker.location.state()}, {faker.location.stateAbbr()}
                 </span>
               </Media>
             </Media>
@@ -137,10 +137,10 @@ const ProjectsLeftNav = () => (
               </Media>
               <Media body>
                 <div className="mt-0">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </div>
                 <span className="small">
-                  {faker.address.state()}, {faker.address.stateAbbr()}
+                  {faker.location.state()}, {faker.location.stateAbbr()}
                 </span>
               </Media>
             </Media>

@@ -108,7 +108,7 @@ const VideosResultsCard = () => (
                 </Media>
                 <Media body>
                   <div className="mt-0">
-                    {faker.name.firstName()} {faker.name.lastName()}
+                    {faker.person.firstName()} {faker.person.lastName()}
                   </div>
                 </Media>
               </Media>

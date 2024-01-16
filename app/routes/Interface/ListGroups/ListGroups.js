@@ -380,7 +380,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -408,7 +408,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -436,7 +436,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -456,7 +456,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1 text-success">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -484,7 +484,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1 text-danger">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -512,7 +512,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1 text-warning">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -550,7 +550,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="text-muted mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -578,7 +578,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="text-danger mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -606,7 +606,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="text-success mb-0">
                       {faker.lorem.sentence()}
@@ -664,7 +664,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -695,7 +695,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -726,7 +726,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -767,7 +767,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -800,7 +800,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -833,7 +833,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -919,7 +919,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -958,7 +958,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -996,7 +996,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1035,7 +1035,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1053,7 +1053,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1071,7 +1071,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1095,7 +1095,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1123,7 +1123,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1151,7 +1151,7 @@ const ListGroups = () => (
                 <Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1207,7 +1207,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1238,7 +1238,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1269,7 +1269,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1310,7 +1310,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1341,7 +1341,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1372,7 +1372,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1465,7 +1465,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1503,7 +1503,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1540,7 +1540,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1578,7 +1578,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1597,7 +1597,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>
@@ -1616,7 +1616,7 @@ const ListGroups = () => (
                   </Media>
                   <Media body>
                     <span className="mt-0 d-flex h6 mb-1">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </span>
                     <p className="mb-0">{faker.lorem.sentence()}</p>
                   </Media>

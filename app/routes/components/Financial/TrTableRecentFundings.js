@@ -7,7 +7,7 @@ const TrTableRecentFundings = () => (
     {_.times(6, (index) => (
       <tr key={index}>
         <td className="align-middle">
-          <span className="text-inverse">{faker.company.companyName()}</span>
+          <span className="text-inverse">{faker.company.name()}</span>
         </td>
         <td className="align-middle">${faker.commerce.price()}</td>
         <td className="align-middle text-nowrap">20-02-2015</td>

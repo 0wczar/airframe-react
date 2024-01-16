@@ -49,7 +49,7 @@ const ProjectsCardGrid = () => (
           </Link>
         </div>
         <div className="mb-3">
-          Last Edited by: {faker.name.firstName()} {faker.name.lastName()}{" "}
+          Last Edited by: {faker.person.firstName()} {faker.person.lastName()}{" "}
           <br />
           {faker.date.weekday()}, 12 {faker.date.month()}, 2018
         </div>

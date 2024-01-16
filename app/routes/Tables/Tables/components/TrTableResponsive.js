@@ -44,9 +44,9 @@ const TrTableResponsive = () => (
           <span>-</span>
         </td>
         <td className="align-middle">
-          <div>{faker.address.city()}</div>
+          <div>{faker.location.city()}</div>
           <span>
-            {faker.address.state()}, {faker.address.country()}
+            {faker.location.state()}, {faker.location.country()}
           </span>
         </td>
         <td className="align-middle">

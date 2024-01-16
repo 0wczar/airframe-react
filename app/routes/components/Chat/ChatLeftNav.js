@@ -59,9 +59,9 @@ const ChatLeftNav = () => (
               </Media>
               <Media body>
                 <div className="mt-0 d-flex">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </div>
-                <span className="small">{faker.address.country()}</span>
+                <span className="small">{faker.location.country()}</span>
               </Media>
             </Media>
           </NavLink>
@@ -89,9 +89,9 @@ const ChatLeftNav = () => (
               </Media>
               <Media body>
                 <div className="mt-0 d-flex">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </div>
-                <span className="small">{faker.address.country()}</span>
+                <span className="small">{faker.location.country()}</span>
               </Media>
             </Media>
           </NavLink>
@@ -119,9 +119,9 @@ const ChatLeftNav = () => (
               </Media>
               <Media body>
                 <div className="mt-0 d-flex">
-                  {faker.name.firstName()} {faker.name.lastName()}
+                  {faker.person.firstName()} {faker.person.lastName()}
                 </div>
-                <span className="small">{faker.address.country()}</span>
+                <span className="small">{faker.location.country()}</span>
               </Media>
             </Media>
           </NavLink>

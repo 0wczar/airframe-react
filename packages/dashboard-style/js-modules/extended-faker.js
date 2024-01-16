@@ -5,7 +5,7 @@ function pad(num, size) {
   return s.substr(s.length - size);
 }
 
-faker.name.initials = function () {
+faker.person.initials = function () {
   var charCodes = {
     min: 65,
     max: 90,

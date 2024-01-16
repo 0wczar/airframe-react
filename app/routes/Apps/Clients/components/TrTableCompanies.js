@@ -23,7 +23,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse mt-0 d-flex">Facebook</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="twitter">
@@ -35,7 +35,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Twitter</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="linkedin">
@@ -47,7 +47,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Linkedin</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="foursquare">
@@ -59,7 +59,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Foursquare</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="lastfm">
@@ -71,7 +71,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">LastFM</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="paypal">
@@ -83,7 +83,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">PayPal</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="amazon">
@@ -95,7 +95,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Amazon</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="skype">
@@ -107,7 +107,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Skype</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="spotify">
@@ -119,7 +119,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Spotify</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="pinterest">
@@ -131,7 +131,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Pinterest</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="windows">
@@ -143,7 +143,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Windows</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="android">
@@ -155,7 +155,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Android</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
   <Media key="medium">
@@ -167,7 +167,7 @@ const brand = [
     </Media>
     <Media body>
       <div className="text-inverse  mt-0 d-flex">Medium</div>
-      <span>{faker.address.country()}</span>
+      <span>{faker.location.country()}</span>
     </Media>
   </Media>,
 ];
@@ -215,14 +215,14 @@ const TrTableCompanies = (props) => (
         />
       </td>
       <td className="align-middle text-right">
-        {faker.phone.phoneNumberFormat()}
+        {faker.phone.number()}
         <br />
         {faker.internet.email()}
       </td>
       <td className="align-middle text-right">
-        {faker.address.streetAddress()}
+        {faker.location.streetAddress()}
         <br />
-        {faker.address.city()}
+        {faker.location.city()}
       </td>
     </tr>
   </React.Fragment>

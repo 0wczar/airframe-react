@@ -20,9 +20,9 @@ import { randomArray, randomAvatar } from "./../../../../utilities";
 const generateRow = (id) => ({
   id,
   photo: randomAvatar(),
-  firstName: faker.name.firstName(),
-  lastName: faker.name.lastName(),
-  role: faker.name.jobType(),
+  firstName: faker.person.firstName(),
+  lastName: faker.person.lastName(),
+  role: faker.person.jobType(),
   status: randomArray(["Active", "Suspended", "Waiting", "Unknown"]),
   region: randomArray(["North", "South", "East", "West"]),
   earnings: 500 + Math.random() * 1000,

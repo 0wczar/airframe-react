@@ -11,7 +11,7 @@ const TrBorderless = () => (
         <i className="fa fa-fw fa-check text-success"></i>
       </td>
       <td className="align-middle">
-        <samp>{faker.random.number()}</samp>
+        <samp>{faker.number.int()}</samp>
       </td>
       <td className="align-middle">
         {faker.date.weekday()}, 12 {faker.date.month()}, 2018

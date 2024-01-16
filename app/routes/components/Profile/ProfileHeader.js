@@ -31,7 +31,7 @@ const ProfileHeader = () => (
       <Media body>
         <h5 className="mb-1 mt-0">
           <Link to="/apps/profile-details">
-            {faker.name.firstName()} {faker.name.lastName()}
+            {faker.person.firstName()} {faker.person.lastName()}
           </Link>{" "}
           <span className="text-muted mx-1"> / </span> Profile Edit
         </h5>

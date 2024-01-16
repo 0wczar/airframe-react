@@ -23,7 +23,7 @@ const Attachment = (props) => (
         <span>
           by{" "}
           <span>
-            {faker.name.firstName()} {faker.name.firstName()}
+            {faker.person.firstName()} {faker.person.firstName()}
           </span>
           <span className="text-muted"> · </span>
           <span>{faker.finance.amount()} Kb</span>

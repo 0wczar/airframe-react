@@ -171,7 +171,7 @@ const EmailDetails = () => (
                     </Media>
                     <Media body>
                       <a className="mt-0 text-decoration-none d-flex" href="#">
-                        {faker.name.firstName()} {faker.name.lastName()}
+                        {faker.person.firstName()} {faker.person.lastName()}
                       </a>
                       <samp className="small">{faker.internet.email()}</samp>
                     </Media>

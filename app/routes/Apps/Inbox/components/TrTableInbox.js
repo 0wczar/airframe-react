@@ -79,9 +79,9 @@ const TrTableInbox = (props) => (
           </Media>
           <Media body>
             <a className="mt-0 text-decoration-none d-flex" href="#">
-              {faker.name.firstName()} {faker.name.lastName()}
+              {faker.person.firstName()} {faker.person.lastName()}
             </a>
-            <span>{faker.address.state()}</span>
+            <span>{faker.location.state()}</span>
           </Media>
         </Media>
       </td>

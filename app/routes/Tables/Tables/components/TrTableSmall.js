@@ -14,7 +14,7 @@ const TrTableSmall = () => (
       <tr key={index}>
         <td className="align-middle">#{faker.finance.mask()}</td>
         <td className="align-middle">
-          {faker.name.firstName()} {faker.name.lastName()}
+          {faker.person.firstName()} {faker.person.lastName()}
         </td>
         <td className="align-middle">$ {faker.finance.amount()}</td>
         <td className="align-middle text-right">

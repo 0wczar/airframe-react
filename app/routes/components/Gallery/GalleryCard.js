@@ -83,10 +83,10 @@ const GalleryCard = (props) => (
           </Media>
           <Media body>
             <a className="mt-0 d-flex text-decoration-none" href="#">
-              {faker.name.firstName()} {faker.name.lastName()}
+              {faker.person.firstName()} {faker.person.lastName()}
             </a>
             <span>
-              {faker.address.state()}, {faker.address.stateAbbr()}
+              {faker.location.state()}, {faker.location.stateAbbr()}
             </span>
           </Media>
         </Media>

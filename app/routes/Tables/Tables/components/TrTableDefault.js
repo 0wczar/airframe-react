@@ -24,9 +24,9 @@ const TrTableDefault = (props) => (
       <tr key={index}>
         <td className="align-middle">
           <div className={props.projectColor}>
-            {faker.name.firstName()} {faker.name.lastName()}
+            {faker.person.firstName()} {faker.person.lastName()}
           </div>
-          <span>{faker.company.companyName()}</span>
+          <span>{faker.company.name()}</span>
         </td>
         <td className="align-middle">
           <div>Thursday</div>
@@ -54,9 +54,9 @@ const TrTableDefault = (props) => (
             </Media>
             <Media body>
               <div className="mt-0 d-flex text-inverse">
-                {faker.name.firstName()} {faker.name.lastName()}
+                {faker.person.firstName()} {faker.person.lastName()}
               </div>
-              <span>{faker.name.jobTitle()}</span>
+              <span>{faker.person.jobTitle()}</span>
             </Media>
           </Media>
         </td>

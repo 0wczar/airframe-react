@@ -35,8 +35,8 @@ const allSkills = [
 
 const generateUser = () => ({
   id: uid(),
-  name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-  title: faker.name.jobType(),
+  name: `${faker.person.firstName()} ${faker.person.lastName()}`,
+  title: faker.person.jobType(),
   avatarUrl: randomAvatar(),
   status: randomArray(["success", "warning", "danger"]),
   skills: _.uniq(_.times(_.random(2, 5), () => randomArray(allSkills))),

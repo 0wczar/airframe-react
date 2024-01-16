@@ -37,7 +37,7 @@ const ChatLeft = (props) => (
         </Card>
         <div className="mb-2">
           <span className="text-inverse mr-2">
-            {faker.name.firstName()} {faker.name.firstName()}
+            {faker.person.firstName()} {faker.person.firstName()}
           </span>
           <span className="small">13-Jun-2015, 08:13</span>
         </div>

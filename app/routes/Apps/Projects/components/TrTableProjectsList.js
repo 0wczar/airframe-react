@@ -52,7 +52,7 @@ const TrTableProjectsList = () => (
             </Link>
           </div>
           <span>
-            Last Edited by: {faker.name.firstName()} {faker.name.lastName()}{" "}
+            Last Edited by: {faker.person.firstName()} {faker.person.lastName()}{" "}
             <br />
             {faker.date.weekday()}, 12 {faker.date.month()}, 2018
           </span>

@@ -55,7 +55,7 @@ const TasksDetails = () => (
                   <td className="align-middle">Assigned by</td>
                   <td className="text-right">
                     <a href="#" className="text-decoration-none">
-                      {faker.name.firstName()} {faker.name.lastName()}
+                      {faker.person.firstName()} {faker.person.lastName()}
                     </a>
                   </td>
                 </tr>
@@ -131,10 +131,10 @@ const TasksDetails = () => (
                     </Media>
                     <Media body>
                       <div className="mt-0">
-                        {faker.name.firstName()} {faker.name.lastName()}
+                        {faker.person.firstName()} {faker.person.lastName()}
                       </div>
                       <span className="small">
-                        {faker.address.state()}, {faker.address.stateAbbr()}
+                        {faker.location.state()}, {faker.location.stateAbbr()}
                       </span>
                     </Media>
                   </Media>
@@ -149,10 +149,10 @@ const TasksDetails = () => (
                     </Media>
                     <Media body>
                       <div className="mt-0">
-                        {faker.name.firstName()} {faker.name.lastName()}
+                        {faker.person.firstName()} {faker.person.lastName()}
                       </div>
                       <span className="small">
-                        {faker.address.state()}, {faker.address.stateAbbr()}
+                        {faker.location.state()}, {faker.location.stateAbbr()}
                       </span>
                     </Media>
                   </Media>
@@ -167,10 +167,10 @@ const TasksDetails = () => (
                     </Media>
                     <Media body>
                       <div className="mt-0">
-                        {faker.name.firstName()} {faker.name.lastName()}
+                        {faker.person.firstName()} {faker.person.lastName()}
                       </div>
                       <span className="small">
-                        {faker.address.state()}, {faker.address.stateAbbr()}
+                        {faker.location.state()}, {faker.location.stateAbbr()}
                       </span>
                     </Media>
                   </Media>
@@ -208,7 +208,7 @@ const TasksDetails = () => (
                 <Media body>
                   <div className="mb-3">
                     <h5>
-                      <span className="mr-2">#{faker.random.number()}</span>
+                      <span className="mr-2">#{faker.number.int()}</span>
                       {faker.hacker.phrase()}
                     </h5>
                     <Badge pill color="primary" className="mr-1">

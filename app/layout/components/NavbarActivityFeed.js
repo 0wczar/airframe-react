@@ -63,7 +63,7 @@ const NavbarActivityFeed = (props) => (
                 <Media left>{activityFeedIcons[index % 4]}</Media>
                 <Media body>
                   <span className="h6">
-                    {faker.name.firstName()} {faker.name.lastName()}
+                    {faker.person.firstName()} {faker.person.lastName()}
                   </span>{" "}
                   changed Description to &quot;{faker.random.words()}&quot;
                   <p className="mt-2 mb-1">{faker.lorem.sentence()}</p>

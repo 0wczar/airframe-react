@@ -30,7 +30,7 @@ const Messages = () => (
       <Media body className="text-left">
         <span className="d-flex justify-content-start">
           <span className="h6 pb-0 mb-0 d-flex align-items-center">
-            {faker.name.firstName()} {faker.name.lastName()}
+            {faker.person.firstName()} {faker.person.lastName()}
           </span>
 
           <span className="ml-1 small">(23)</span>

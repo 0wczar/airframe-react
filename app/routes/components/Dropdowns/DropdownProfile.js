@@ -9,7 +9,7 @@ const DropdownProfile = (props) => (
   <React.Fragment>
     <DropdownMenu right={props.right}>
       <DropdownItem header>
-        {faker.name.firstName()} {faker.name.lastName()}
+        {faker.person.firstName()} {faker.person.lastName()}
       </DropdownItem>
       <DropdownItem divider />
       <DropdownItem tag={Link} to="/apps/profile-details">

@@ -35,9 +35,9 @@ const TrTableMessages = () => (
           </Media>
           <Media body>
             <div className="mt-0 d-flex text-inverse">
-              {faker.name.firstName()} {faker.name.lastName()}
+              {faker.person.firstName()} {faker.person.lastName()}
             </div>
-            <span>{faker.address.state()}</span>
+            <span>{faker.location.state()}</span>
           </Media>
         </Media>
       </td>
