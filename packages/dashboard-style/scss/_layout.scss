@@ -1,0 +1,82 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "variables";
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+
+    &__navbar {
+        position: sticky;
+        top: 0;
+        left: $sidebar-default-width;
+        right: 0;
+        z-index: 1030;
+        background: $body-bg;
+
+        @media (max-width: breakpoint-max('md', $grid-breakpoints)) {
+            left: 0;
+            background: $navbar-background-color;
+            border-bottom: 1px solid $navbar-border-color;
+        }
+
+        /* noscript fallback */
+        + .layout__navbar {
+            top: $navbar-height;
+        }
+
+        .navbar {
+            z-index: 2;
+            
+            + .navbar {
+                z-index: 1;
+            }
+        }
+    }
+
+    &__sidebar {
+        flex: 0 0 auto;
+        height: 100vh;
+        width: $sidebar-default-width;
+
+        @media (min-width: breakpoint-min('lg', $grid-breakpoints)) {
+            &--slim {
+                width: $sidebar-slim-width;
+            }
+
+            &--slim ~ .layout__wrap .layout__navbar {
+                left: $sidebar-slim-width;
+            }
+
+            &--collapsed {
+                width: 0;
+            }
+
+            &--collapsed ~ .layout__wrap .layout__navbar {
+                left: 0;
+            }
+        }
+
+        @media (max-width: breakpoint-max('md', $grid-breakpoints)) {
+            width: 0;
+        }
+    }
+
+    &__content {
+        padding: 1.5rem;
+
+        @media (max-width: breakpoint-max('md', $grid-breakpoints)) {
+            padding: 0.5rem;
+        }
+    }
+
+    &__wrap {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    &--only-navbar .layout__navbar {
+        background: $navbar-background-color;
+        border-bottom: 1px solid $navbar-border-color;
+    }
+}

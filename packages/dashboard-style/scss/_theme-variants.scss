@@ -1,0 +1,399 @@
+@import "variables";
+@import "mixins/layout-theme";
+
+/**
+        Theme Colors
+**/
+$color-alternatives: (
+    'primary': $primary,
+    'success': $success,
+    'info': $info,
+    'danger': $danger,
+    'warning': $warning,
+    'indigo': $indigo,
+    'purple': $purple,
+    'pink': $pink,
+    'yellow': $yellow
+);
+
+/**
+        DARK Theme
+**/
+@mixin theme-dark-sidebar(
+    $background-color,
+    $text-color,
+    $muted-color,
+    $brand-color,
+    $sidebar-border,
+    $slim-menu-border
+) {
+    @include setup-sidebar((
+        'background': $background-color,
+        'border': $sidebar-border,
+        'border-slim-submenu': $slim-menu-border,
+        'brand-color': $brand-color,
+        'close-color': $text-color,
+        'text-color': $text-color,
+        'text-color-muted': $muted-color,
+        'link-color': $text-color,
+        'link-color-hover': lighten($text-color, 10%),
+        'link-color-muted': $muted-color,
+        'scroll-rail-color': transparent,
+        'scroll-thumb-color': transparent
+    ));
+
+    @include setup-sidebar-menu((
+        'accent-color': $brand-color,
+        'accent-color-hover': $brand-color,
+        'background-color': transparent,
+        'text-color': $muted-color,
+        'icon-color': $muted-color,
+        'slim-icon-color': $muted-color,
+        'arrow-color': $muted-color,
+        'background-color-hover': transparent,
+        'slim-background-color-hover': transparent,
+        'text-color-hover': $text-color,
+        'slim-text-color-hover': $text-color,
+        'icon-color-hover': $text-color,
+        'slim-icon-color-hover': $text-color,
+        'arrow-color-hover': $text-color,
+        'background-color-active': transparent,
+        'slim-background-color-active': transparent,
+        'text-color-active': $text-color,
+        'slim-text-color-active': $text-color,
+        'icon-color-active': $text-color,
+        'slim-icon-color-active': $text-color,
+        'arrow-color-active': $text-color
+    ));
+}
+
+@mixin theme-dark-navbar(
+    $background-color,
+    $text-color,
+    $muted-color,
+    $brand-color
+) {
+    @include setup-navbar((
+        'background': $background-color,
+        'brand-color': $brand-color,
+        'between-border-color': $background-color,
+        'menu-item-color': $muted-color,
+        'menu-item-hover-color': $white,
+        'menu-item-active-background': rgba(black, 0.1),
+        'menu-item-active-color': $text-color,
+        'menu-item-accent-color': $brand-color,
+        'menu-item-accent-hover-color': $muted-color,
+        'dropdown-active-color': #fff,
+        'dropdown-active-background': $brand-color
+    ));
+}
+
+@each $key, $color in $color-alternatives {
+    // Global Theme
+    .layout--theme--dark--#{$key} {
+        @include setup-theme(('theme-color': $color));
+
+        @include theme-dark-sidebar(
+            $gray-800,                  // background color
+            $white,                     // text / active links
+            $gray-600,                  // muted text menu
+            $color,                     // brand color
+            none,                       // sidebar border
+            1px solid rgba($white, 0.2) // slim menu border
+        );
+
+        @include theme-dark-navbar(
+            $gray-800,
+            $white,
+            $gray-600,
+            $color
+        );
+    }
+
+    .theme-dark-#{$key} {
+        @include setup-theme(('theme-color': $color));
+    }
+
+    // Navbar theme
+    .navbar-dark-#{$key} {
+        @include theme-dark-navbar(
+            $gray-800,
+            $white,
+            $gray-600,
+            $color
+        );
+    }
+
+    // Sidebar theme
+    .sidebar-dark-#{key} {
+        @include theme-dark-sidebar(
+            $gray-800,                  // background color
+            $white,                     // text / active links
+            $gray-600,                  // muted text menu
+            $color,                     // brand color
+            none,                       // sidebar border
+            1px solid rgba($white, 0.2) // slim menu border
+        );
+    }
+}
+
+/**
+        LIGHT Theme
+**/
+@mixin theme-light-sidebar(
+    $background-color,
+    $text-color,
+    $muted-color,
+    $brand-color,
+    $sidebar-border,
+    $slim-menu-border
+) {
+    @include setup-sidebar((
+        'background': $background-color,
+        'border': $sidebar-border,
+        'border-slim-submenu': $slim-menu-border,
+        'brand-color': $brand-color,
+        'close-color': $muted-color,
+        'text-color': $text-color,
+        'text-color-muted': $muted-color,
+        'link-color': $text-color,
+        'link-color-hover': lighten($text-color, 10%),
+        'link-color-muted': $muted-color,
+        'scroll-rail-color': transparent,
+        'scroll-thumb-color': transparent
+    ));
+
+    @include setup-sidebar-menu((
+        'accent-color': $brand-color,
+        'accent-color-hover': $brand-color,
+        'background-color': transparent,
+        'text-color': $muted-color,
+        'icon-color': $gray-400,
+        'slim-icon-color': $muted-color,
+        'arrow-color': $gray-400,
+        'background-color-hover': transparent,
+        'slim-background-color-hover': transparent,
+        'text-color-hover': $text-color,
+        'slim-text-color-hover': $text-color,
+        'icon-color-hover': $text-color,
+        'slim-icon-color-hover': $text-color,
+        'arrow-color-hover': $text-color,
+        'background-color-active': transparent,
+        'slim-background-color-active': transparent,
+        'text-color-active': $text-color,
+        'slim-text-color-active': $text-color,
+        'icon-color-active': $text-color,
+        'slim-icon-color-active': $text-color,
+        'arrow-color-active': $text-color
+    ));
+}
+
+@mixin theme-light-navbar(
+    $background-color,
+    $text-color,
+    $muted-color,
+    $brand-color
+) {
+    @include setup-navbar((
+        'background': $background-color,
+        'brand-color': $brand-color,
+        'between-border-color': $gray-200,
+        'menu-item-color':  $muted-color,
+        'menu-item-hover-color': $black,
+        'menu-item-active-background': rgba(black, 0.05),
+        'menu-item-active-color': $text-color,
+        'menu-item-accent-color': $brand-color,
+        'menu-item-accent-hover-color': $gray-200,
+        'dropdown-active-color': #fff,
+        'dropdown-active-background': $brand-color
+    ));
+}
+
+@each $key, $color in $color-alternatives {
+    // Global Theme
+    .layout--theme--light--#{$key} {
+        @include setup-theme(('theme-color': $color));
+
+        @include theme-light-sidebar(
+            $white,                 // background color
+            $black,                 // text / active links
+            $body-color,            // muted text menu
+            $color,                 // brand color
+            1px solid $gray-300,    // sidebar border
+            1px solid $gray-300     // slim menu border
+        );
+
+        @include theme-light-navbar(
+            $white,
+            $black,
+            $body-color,
+            $color
+        );
+    }
+
+    .theme-light-#{$key} {
+        @include setup-theme(('theme-color': $color));
+    }
+
+    // Navbar theme
+    .navbar-light-#{$key} {
+        @include theme-light-navbar(
+            $white,
+            $black,
+            $body-color,
+            $color
+        );
+    }
+
+    // Sidebar theme
+    .sidebar-light-#{key} {
+        @include theme-light-sidebar(
+            white,                 // background color
+            $black,                 // text / active links
+            $body-color,            // muted text menu
+            $color,                 // brand color
+            1px solid $gray-300,    // sidebar border
+            1px solid $gray-300     // slim menu border
+        );
+    }
+}
+
+/**
+        COLOR Theme
+**/
+@mixin theme-color-sidebar(
+    $brand-color,
+    $text-color,
+    $slim-menu-border
+) {
+    $muted-color: rgba($text-color, 0.7);
+
+    @include setup-sidebar((
+        'background': $brand-color,
+        'border': none,
+        'border-slim-submenu': $slim-menu-border,
+        'brand-color': $white,
+        'text-color': $text-color,
+        'text-color-muted': $muted-color,
+        'link-color': $text-color,
+        'link-color-hover': rgba($text-color, 0.9),
+        'link-color-muted': $muted-color,
+        'scroll-rail-color': transparent,
+        'scroll-thumb-color': transparent
+    ));
+
+    @include setup-sidebar-menu((
+        'accent-color': $white,
+        'accent-color-hover': $white,
+        'background-color': transparent,
+        'text-color': $muted-color,
+        'icon-color': $muted-color,
+        'arrow-color': $muted-color,
+        'background-color-hover': transparent,
+        'slim-background-color-hover': transparent,
+        'text-color-hover': $text-color,
+        'slim-text-color-hover': $text-color,
+        'icon-color-hover': $text-color,
+        'slim-icon-color-hover': $text-color,
+        'arrow-color-hover': $text-color,
+        'background-color-active': transparent,
+        'slim-background-color-active': transparent,
+        'text-color-active': $text-color,
+        'slim-text-color-active': $text-color,
+        'icon-color-active': $text-color,
+        'slim-icon-color-active': $text-color,
+        'arrow-color-active': $text-color
+    ));
+}
+
+@mixin theme-color-navbar(
+    $brand-color,
+    $text-color
+) {
+    @include setup-navbar((
+        'background': $brand-color,
+        'brand-color': $white,
+        'between-border-color': $brand-color,
+        'menu-item-color': rgba($white, 0.8),
+        'menu-item-hover-color': $text-color,
+        'menu-item-active-background': rgba($black, 0.1),
+        'menu-item-active-color': $white,
+        'menu-icon-w-badge-color': change-color($brand-color, $lightness: 70%),
+        'menu-item-accent-color': $white,
+        'menu-item-accent-hover-color': rgba($white, 0.5),
+        'dropdown-active-color': #fff,
+        'dropdown-active-background': $brand-color
+    ));
+}
+
+@each $key, $color in $color-alternatives {
+    // Global Theme
+    .layout--theme--color--#{$key} {
+        @include setup-theme(('theme-color': $color));
+
+        @include theme-color-sidebar(
+            $color,
+            $white,
+            1px solid rgba($white, 0.5)
+        );
+
+        @include theme-color-navbar(
+            $color,
+            $white
+        );
+
+        // Override Layout Navbar Badges
+        .layout__navbar .navbar-themed {
+            .icon-with-badge .icon-with-badge__badge {
+                background-color: change-color($color, $lightness: 70%) !important;
+            }
+        }
+
+        // Override Layout Sidebar Badges
+        .layout__sidebar .sidebar {
+            .badge {
+                background-color: rgba($white, 0.5),
+            }
+        }
+    }
+
+    .theme-color-#{$key} {
+        @include setup-theme(('theme-color': $color));
+    }
+
+    // Navbar theme
+    .navbar-color-#{$key} {
+        @include setup-theme(('theme-color': $color));
+
+        @include theme-color-navbar(
+            $color,
+            $white
+        );
+
+        // Override Badges
+        &.navbar,
+        .navbar.navbar-themed {
+            .icon-with-badge .icon-with-badge__badge {
+                background-color: change-color($color, $lightness: 70%) !important;
+            }
+        }
+    }
+
+    // Sidebar theme
+    .sidebar-color-#{key} {
+        @include setup-theme(('theme-color': $color));
+
+        @include theme-color-sidebar(
+            $color,
+            $white,
+            1px solid rgba($white, 0.5)
+        );
+
+        // Override Badges
+        .badge {
+            background-color: rgba($white, 0.4),
+        }
+    }
+}
+
+@include apply-layout-theme-accent();

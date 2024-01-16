@@ -1,0 +1,70 @@
+@import "./../../variables";
+
+$font-family: $font-family-base;
+$font-size: 14px;
+
+$foreground-opacity: 1 !default;
+$secondary-foreground-color-opacity: 1 !default;
+$disabled-foreground-color-opacity: 0.5 !default;
+
+// Colors
+$icon-color: #333 !default;
+$alt-icon-color: #fff !default;
+$foreground-color: rgba(black, $foreground-opacity) !default;
+$secondary-foreground-color: $table-head-color;
+$disabled-foreground-color: rgba($table-head-color, $disabled-foreground-color-opacity);
+$menu-option-active-color: #bde2e5 !default;
+
+$card-background-color: #f6f6f6 !default;
+$border-color: transparent !default;
+$primary-color: $primary !default;
+$accent-color: black !default;
+$selected-color: $gray-200;
+
+$background-color: white !default;
+$odd-row-background-color: #f6f6f6 !default;
+
+$editor-background-color: #f6f6f6 !default;
+
+$header-foreground-color: $secondary-foreground-color;
+$header-background-color: transparent !default;
+$header-cell-hover-background-color: $header-background-color !default;
+$header-background-image: none !default;
+$panel-background-color: #f6f6f6 !default;
+
+$input-border-color: $input-border-color;
+
+$tool-panel-background-color: #f6f6f6 !default;
+
+$chip-background-color: #ecf0f1 !default;
+
+$range-selection-background-color: rgba(120, 120, 120, 0.4) !default; 
+$range-selection-highlight-color: rgba(255, 255, 255, 0.4) !default;
+
+$hover-color: inherit !default;
+
+$selected-color: $menu-option-active-color !default;
+
+$cell-data-changed-color: white !default;
+
+$focused-cell-border-color: darkgrey !default;
+
+$tab-background-color: #e6e6e6;
+
+$cell-highlight-border: 2px solid $success;
+$cell-horizontal-border: none !default;
+
+$ag-range-selected-color-1: rgba(120, 120, 120, 0.4) !default;
+$ag-range-selected-color-2: rgba(80, 80, 80, 0.4) !default;
+$ag-range-selected-color-3: rgba(40, 40, 40, 0.4) !default;
+$ag-range-selected-color-4: rgba(0, 0, 0, 0.4) !default;
+
+$row-floating-background-color: #f0f0f0 !default;
+$row-stub-background-color: #f0f0f0 !default;
+
+// delta changes
+$value-change-delta-up-color: $success;
+$value-change-delta-down-color: $danger;
+$value-change-value-highlight-background-color: #cec !default;
+
+@import "~ag-grid-community/src/styles/ag-theme-classic/vars/ag-theme-classic-vars";

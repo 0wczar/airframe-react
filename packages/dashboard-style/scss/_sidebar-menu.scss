@@ -1,0 +1,227 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "./variables";
+
+@mixin caret {
+    margin-left: 0.5rem;
+    width: 1.28571em;
+    text-align: center;
+    font-family: FontAwesome;
+    content: "\f104";
+}
+
+@mixin apply-padding-map($padding-map, $leftOffset) {
+    padding-top: map-get($padding-map, top);
+    padding-right: map-get($padding-map, right);
+    padding-bottom: map-get($padding-map, bottom);
+    padding-left: calc(#{map-get($padding-map, left)} + #{$leftOffset});
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+
+    &__entry {
+        &.active:not(.open) {
+            > .sidebar-menu__entry__link {
+                @include sidebar-menu-item--active;
+            }
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+
+            @include sidebar-menu-item;
+            @include apply-padding-map($sidebar-menu-item-padding, 0px);
+
+            > i:first-child {
+                margin-right: 0.5rem;
+                flex: 0 0 auto;
+            }
+
+            > span {
+                &:not(.badge) {
+                    flex: 1 1 auto;
+                }
+            }
+
+            &:hover {
+                text-decoration: none;
+            
+                @include sidebar-menu-item--hover;
+            }
+        }
+
+        // Nested Carets
+        &--nested {
+            .sidebar-menu__entry__link {
+                &::after {
+                    flex: 0 0 auto;
+                    @include caret();
+                }
+                &:hover::after {
+                    color: $sidebar-menu-highlight-color;
+                }
+            }
+            
+            &.open .sidebar-menu__entry__link::after {
+                content: "\f107";
+            }
+        }
+
+        // No Carets
+        &--no-caret {
+            .sidebar-menu__entry__link::after {
+                content: none !important;
+            }
+        }
+    }
+}
+
+.sidebar-submenu {
+    padding: 0;
+    list-style-type: none;
+    height: 0;
+    overflow: hidden;
+
+    &__entry {
+        &.active:not(.open) {
+            > .sidebar-submenu__entry__link {
+                @include sidebar-submenu-item--active;
+            }
+        }
+
+        &--nested > .sidebar-submenu__entry__link {
+            &::after {
+                flex: 0 0 auto;
+                @include caret();
+            }
+        }
+
+        &--nested.open > .sidebar-submenu__entry__link::after {
+            content: "\f107";
+        }
+
+        &__link {
+            display: flex;
+            @include apply-padding-map(
+                $sidebar-submenu-item-padding,
+                $sidebar-submenu-nested-offset
+            );
+            @include sidebar-submenu-item;
+
+            > span {
+                flex: 1 1 auto;
+            }
+
+            &:hover {
+                text-decoration: none;
+                @include sidebar-submenu-item--hover;
+            }
+        }
+    }
+}
+
+.open {
+    &.sidebar-menu__entry--nested > .sidebar-submenu__entry__link::after {
+        content: "\f107";
+    }
+
+    > .sidebar-submenu {
+        height: auto;
+    }
+}
+
+.sidebar-submenu .sidebar-submenu .sidebar-submenu__entry__link {
+    @include apply-padding-map(
+        $sidebar-submenu-item-padding,
+        2 * $sidebar-submenu-nested-offset
+    );
+    font-size: $sidebar-submenu-nested-font-size;
+}
+
+/* ------ Slim Sidebar ---------- */
+@media (min-width: breakpoint-min('lg', $grid-breakpoints)) {
+    .sidebar--collapsed .sidebar-menu--slim {
+        .sidebar-menu__entry {
+            &.active.open {
+                > .sidebar-menu__entry__link {
+                    @include sidebar-slim-menu-item--active;
+                }
+            }
+
+            &--nested {
+                position: relative;
+
+                .sidebar-menu__entry__link {
+                    &::after {
+                        content: none;
+                    }
+                }
+
+                > .sidebar-submenu {
+                    display: none;
+                    position: absolute;
+                    left: calc(100% - 3px);
+                    top: 0;
+                    right: auto;
+                    bottom: auto;
+                    min-width: $sidebar-slim-submenu-width;
+                    background: $sidebar-slim-submenu-bg;
+                    border: $sidebar-slim-submenu-border;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.5rem;
+                    border-radius: $sidebar-slim-submenu-border-radius;
+                    box-shadow: $sidebar-slim-submenu-box-shadow;
+
+                    .sidebar-submenu__entry__link {
+                        @include apply-padding-map($sidebar-slim-submenu-item-padding, 0.5rem);
+
+                        @include sidebar-slim-submenu-item;
+
+                        &:hover {
+                            text-decoration: none;
+                            @include sidebar-slim-submenu-item--hover;
+                        }
+                    }
+                    // First Menu - hoverable
+                    > .sidebar-submenu__entry > .sidebar-submenu__entry__link {
+                        padding-left: 1rem;
+                    }
+                    // Nested menus
+                    .sidebar-submenu__entry.active:not(.open) > .sidebar-submenu__entry__link {
+                        @include sidebar-slim-submenu-item--active;
+                    }
+                }
+
+                &:hover > .sidebar-submenu {
+                    display: block;
+                    height: auto;
+                }
+            }
+
+            &__link {
+                justify-content: center;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+
+                @include sidebar-slim-menu-item;
+
+                > span {
+                    display: none;
+                }
+
+                > i:first-child {
+                    margin-right: 0;
+                }
+            }
+
+            &:hover .sidebar-menu__entry__link {
+                text-decoration: none;
+
+                @include sidebar-slim-menu-item--hover;
+            }
+        }
+    }
+}

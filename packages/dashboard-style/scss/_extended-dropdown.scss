@@ -1,0 +1,80 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "variables";
+
+.dropdown-menu {
+    &.extended-dropdown {
+        &.show {
+            display: flex;
+        }
+
+        flex-direction: column;
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 100vw;
+        max-width: 370px;
+    }
+
+    .extended-dropdown__section {
+        &:not(:last-child) {
+            border-bottom: 1px solid map-get($grays, "200");
+        }
+
+        flex: 0 0 auto;
+        padding: 0.75rem 1.25rem;
+
+        &--list {
+            flex: 1 1 auto;
+            max-height: 320px;
+            padding: 0;
+            overflow-y: auto;
+
+            > .list-group {
+                > .list-group-item {
+                    border-width: 0; 
+                    margin-bottom: 0;
+                    
+                    + .list-group-item {
+                        border-top-width: 1px;
+                    }
+                }
+
+                > .list-group-item:first-child {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+
+                > .list-group-item:last-child {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+    }
+
+    a.extended-dropdown__section {
+        color: map-get($grays, "900");
+
+        &:hover {
+            color: map-get($grays, "600");
+            text-decoration: none;
+        }
+    }
+}
+
+// Navbar dropdown on XS
+@media (max-width: breakpoint-max('xs', $grid-breakpoints)) {
+    .navbar .nav .dropdown-menu.extended-dropdown,
+    .navbar .navbar-nav .dropdown-menu.extended-dropdown {
+        position: fixed;
+        top: $navbar-height;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        max-width: none;
+
+        .extended-dropdown__section--list {
+            max-height: none;
+        }
+    }
+}

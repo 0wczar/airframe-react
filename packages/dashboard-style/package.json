@@ -1,0 +1,23 @@
+{
+  "name": "@owczar/dashboard-style--airframe",
+  "version": "0.2.2",
+  "main": "js-modules/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "bootstrap": "^4.1.3"
+  },
+  "author": "webkom.co",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "url-join": "^4.0.0",
+    "animejs": "^3.0.1",
+    "highcharts": "^7.1.2"
+  },
+  "devDependencies": {
+    "gulp-replace": "^1.0.0"
+  },
+  "description": ""
+}

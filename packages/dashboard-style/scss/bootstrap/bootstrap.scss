@@ -1,0 +1,713 @@
+@import "./variables";
+// TODO: Typically here should be imported
+// only @import "~bootstrap/scss/bootstrap"
+// but "bootstrap/scss/root" isn't compiling in
+// some cases on OSX Jekyll - needs some investigating
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+//@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+
+@import "./helpers";
+
+/* Modifications */
+// Recovered Button Nowrap
+body .btn {
+    white-space: nowrap;
+}
+
+.custom-control-empty {
+    &.custom-radio,
+    &.custom-checkbox {
+        .custom-control-label {
+            display: block;
+            &::after,
+            &::before {
+                left: -1.25rem;
+            }
+        }
+    }
+}
+
+.input-group-append,
+.input-group-prepend {
+    .form-check-input[type=radio],
+    .form-check-input[type=checkbox] {
+        margin: 0;
+        position: static;
+    }
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+
+    .custom-select {
+        font-size: $font-size-base;
+    }
+}
+
+.custom-select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.custom-range {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+    }
+}
+
+// Responsive to CARD COLUMNS (Optional from Boosttrap)
+// ---------------------------------------------
+.card-columns {
+    @include media-breakpoint-only(xl) {
+        column-count: 3;
+    }
+    @include media-breakpoint-only(lg) {
+        column-count: 2;
+    }
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+    }
+}
+
+// Variation Line TABS (demo: cards/cards-headers.html #2.07a )
+// ---------------------------------------------
+.tabs-line .nav-tabs .nav-link {
+    color: $body-color;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+
+.tabs-line .nav-tabs .nav-link i {
+    color: $gray-200;
+}
+
+.tabs-line .nav-tabs .nav-link .ml-2 {
+    color: $text-muted;
+}
+
+.tabs-line .nav-tabs .nav-link.active {
+    color: $dark;
+    background-color: transparent;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom: 1px solid $primary;
+    box-shadow: inset 2px -6px 0px -3px $primary;
+}
+
+.tabs-line .nav-tabs .nav-link.active:hover {
+    background-color: transparent;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom: 1px solid $primary;
+    box-shadow: inset 2px -6px 0px -3px $primary;
+}
+
+.tabs-line .nav-tabs .nav-link:hover {
+    color: $dark;
+    background-color: transparent;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom: 1px solid $gray-400;
+    box-shadow: inset 2px -6px 0px -3px $gray-400;
+}
+
+// Overwritten MODALS in Bootstrap
+// ---------------------------------------------
+.modal-header {
+    border-bottom: 0px solid transparent;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+}
+.modal-body {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.modal-content {
+    box-shadow: $box-shadow-sm;
+}
+.modal-footer {
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $card-cap-bg;
+}
+
+// Overwritten POPOVER in Bootstrap
+// ---------------------------------------------
+.popover-header {
+    border-bottom: 0px solid;
+    padding-bottom: 0px;
+}
+
+// MODALS: "Interface/MODALS (ALERTS)" section: 4 
+// ---------------------------------------------
+// Modal ALERT DANGER
+.modal-danger .modal-text {
+    color: $black !important;
+}
+.modal-danger .modal-body > h6 {
+    color: $danger !important;
+}
+.modal-danger .modal-header > button {
+    color: $danger !important;
+}
+.modal-danger .modal-body .modal-icon {
+    color: $danger !important;
+}
+.modal-danger .modal-body,
+.modal-danger .modal-header {
+    background-color: lighten($danger,40%) !important;
+}
+.modal-danger .modal-content {
+    border-color: lighten($danger,35%) !important;
+}
+.modal-danger .modal-footer {
+    background-color: lighten($danger,40%) !important;
+}
+// Modal ALERT PRIMARY
+.modal-primary .modal-text {
+    color: $black !important;
+}
+.modal-primary .modal-body > h6 {
+    color: $primary !important;
+}
+.modal-primary .modal-header > button {
+    color: $primary !important;
+}
+.modal-primary .modal-body .modal-icon {
+    color: $primary !important;
+}
+.modal-primary .modal-body,
+.modal-primary .modal-header {
+    background-color: lighten($primary,40%) !important;
+}
+.modal-primary .modal-content {
+    border-color: lighten($primary,35%) !important;
+}
+.modal-primary .modal-footer {
+    background-color: lighten($primary,40%) !important;
+}
+// Modal ALERT SUCCESS
+.modal-success .modal-text {
+    color: $black !important;
+}
+.modal-success .modal-body > h6 {
+    color: $success !important;
+}
+.modal-success .modal-header > button {
+    color: $success !important;
+}
+.modal-success .modal-body .modal-icon {
+    color: $success !important;
+}
+.modal-success .modal-body,
+.modal-success .modal-header {
+    background-color: lighten($success,46%) !important;
+}
+.modal-success .modal-content {
+    border-color: lighten($success,35%) !important;
+}
+.modal-success .modal-footer {
+    background-color: lighten($success,46%) !important;
+}
+// Modal ALERT INFO
+.modal-info .modal-text {
+    color: $black !important;
+}
+.modal-info .modal-body > h6 {
+    color: $info !important;
+}
+.modal-info .modal-header > button {
+    color: $info !important;
+}
+.modal-info .modal-body .modal-icon {
+    color: $info !important;
+}
+.modal-info .modal-body,
+.modal-info .modal-header {
+    background-color: lighten($info,47%) !important;
+}
+.modal-info .modal-content {
+    border-color: lighten($info,35%) !important;
+}
+.modal-info .modal-footer {
+    background-color: lighten($info,47%) !important;
+}
+// Modal ALERT WARNING
+.modal-warning .modal-text {
+    color: $black !important;
+}
+.modal-warning .modal-body > h6 {
+    color: $warning !important;
+}
+.modal-warning .modal-header > button {
+    color: $warning !important;
+}
+.modal-warning .modal-body .modal-icon {
+    color: $warning !important;
+}
+.modal-warning .modal-body,
+.modal-warning .modal-header {
+    background-color: lighten($warning,40%) !important;
+}
+.modal-warning .modal-content {
+    border-color: lighten($warning,35%) !important;
+}
+.modal-warning .modal-footer {
+    background-color: lighten($warning,40%) !important;
+}
+// Modal ALERT DARK
+.modal-dark .modal-text {
+    color: $black !important;
+}
+.modal-dark .modal-body > h6 {
+    color: $dark !important;
+}
+.modal-dark .modal-header > button {
+    color: $dark !important;
+}
+.modal-dark .modal-body .modal-icon {
+    color: $dark !important;
+}
+.modal-dark .modal-body,
+.modal-dark .modal-header {
+    background-color: $white !important;
+}
+.modal-dark .modal-content {
+    border-color: $gray-300 !important;
+}
+.modal-dark .modal-footer {
+    background-color: $white !important;
+}
+
+// MODALS: "Interface/MODALS (OUTLINES)" section: 3 
+// ---------------------------------------------
+// Modal ALERT PRIMARY
+.modal-outline-primary .modal-content {
+    border-color: $primary !important;
+}
+.modal-outline-primary .modal-content h6 {
+    color: $primary !important;
+}
+// Modal ALERT DANGER
+.modal-outline-danger .modal-content {
+    border-color: $danger !important;
+}
+.modal-outline-danger .modal-content h6 {
+    color: $danger !important;
+}
+// Modal ALERT INFO
+.modal-outline-info .modal-content {
+    border-color: $info !important;
+}
+.modal-outline-info .modal-content h6 {
+    color: $info !important;
+}
+// Modal ALERT SUCCESS
+.modal-outline-success .modal-content {
+    border-color: $success !important;
+}
+.modal-outline-success .modal-content h6 {
+    color: $success !important;
+}
+// Modal ALERT WARNING
+.modal-outline-warning .modal-content {
+    border-color: $warning !important;
+}
+.modal-outline-warning .modal-content h6 {
+    color: $warning !important;
+}
+// Modal ALERT DARK
+.modal-outline-dark .modal-content {
+    border-color: $dark !important;
+}
+.modal-outline-dark .modal-content h6 {
+    color: $dark !important;
+}
+
+// TABLE CONTEXTUAL Colors Overrides
+// ---------------------------------------------
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+    background-color: none;
+}
+.table-hover .table-warning:hover {
+    > th,
+    > td {
+        background-color: lighten(transparent, 10%);
+    }
+}
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+    background-color: none;
+}
+.table-hover .table-danger:hover {
+    > th,
+    > td {
+        background-color: lighten(transparent, 10%);
+    }
+}
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+    background-color: none;
+}
+.table-hover .table-primary:hover {
+    > th,
+    > td {
+        background-color: lighten(transparent, 10%);
+    }
+}
+.table-info,
+.table-info > th,
+.table-info > td {
+    background-color: none;
+}
+.table-hover .table-info:hover {
+    > th,
+    > td {
+        background-color: lighten(transparent, 10%);
+    }
+}
+.table-success,
+.table-success > th,
+.table-success > td {
+    background-color: none;
+}
+.table-hover .table-success:hover {
+    > th,
+    > td {
+        background-color: lighten(transparent, 10%);
+    }
+}
+
+// ALERTS Overrides
+// ---------------------------------------------
+// Headings
+.alert-primary .alert-heading {
+    color: $black;
+}
+.alert-danger .alert-heading {
+    color: $black;
+}
+.alert-info .alert-heading {
+    color: $black;
+}
+.alert-warning .alert-heading {
+    color: $black;
+}
+.alert-success .alert-heading {
+    color: $black;
+}
+.alert-dark .alert-heading {
+    color: $black;
+}
+// ------------------------
+// Icons
+.alert-primary .alert-icon {
+    color: $primary;
+}
+.alert-danger .alert-icon {
+    color: $danger;
+}
+.alert-info .alert-icon {
+    color: $info;
+}
+.alert-warning .alert-icon {
+    color: $warning;
+}
+.alert-success .alert-icon {
+    color: $success;
+}
+.alert-dark .alert-icon {
+    color: $dark;
+}
+// ------------------------
+// Background Icons
+.alert-primary .alert-bg-icon {
+    color: $gray-200;
+}
+.alert-danger .alert-bg-icon {
+    color: $gray-200;
+}
+.alert-info .alert-bg-icon {
+    color: $gray-200;
+}
+.alert-warning .alert-bg-icon {
+    color: $gray-200;
+}
+.alert-success .alert-bg-icon {
+    color: $gray-200;
+}
+.alert-dark .alert-bg-icon {
+    color: $gray-200;
+}
+// ------------------------
+// Backgrounds
+.alert-primary {
+    background-color: white;
+    border-left: 3px solid $primary;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    color: $body-color;
+}
+.alert-danger {
+    background-color: white;
+    border-left: 3px solid $danger;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    color: $body-color;
+}
+.alert-info {
+    background-color: white;
+    border-left: 3px solid $info;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    color: $body-color;
+}
+.alert-warning {
+    background-color: white;
+    border-left: 3px solid $warning;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    color: $body-color;
+}
+.alert-success {
+    background-color: white;
+    border-left: 3px solid $success;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    color: $body-color;
+}
+.alert-dark {
+    background-color: white;
+    border-left: 3px solid $dark;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-right: 1px solid $gray-300;
+    color: $body-color;
+}
+
+// Overwritten CARD + TABLE (BORDERS) in Bootstrap
+// ---------------------------------------------
+.card .table:not(.table-dark) {
+    th {
+        border-bottom-color: none !important;
+    }
+    td,th {
+        border-top-color: none !important;
+    }
+    &.table-bordered {
+        th,td {
+            border-color: none !important;
+        }
+    }
+    &.table-hover {
+        tr:hover {
+            background-color: none;
+        }
+    }
+}
+
+// Add to .card shadow
+.card {
+    box-shadow: 0 1px 2px 0 rgba(31, 45, 61, 0.07);
+}
+.card-footer {
+    border-top: 0px solid !important;
+}
+
+// Add to .alert shadow
+.alert {
+    box-shadow: 0 1px 2px 0 rgba(31, 45, 61, 0.07);
+}
+
+// Override .card
+.list-group {
+    box-shadow: 0 1px 2px 0 rgba(31, 45, 61, 0.07);
+}
+
+// Override .th in Tables
+th {
+    font-size: 12px;
+    color: $table-head-color;
+    font-weight: 500 !important;
+}
+
+// Override .badge
+.badge {
+    font-size: 72% !important;
+    letter-spacing: 0.3px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+.badge-secondary {
+    background-color: lighten($body-color, 14%);
+}
+.badge-purple {
+    color: $white;
+}
+// Override code
+code {
+    background-color: #EFF2F7 !important;
+}
+// Override .btn-link (removed underline)
+.btn-link:hover {
+    text-decoration: none !important; 
+}
+
+// Override .btn-outline-secondary
+.btn-outline-secondary {
+    color: $gray-600;
+    background-color: transparent;
+    background-image: none;
+    border-color: $gray-300;
+}
+.btn-outline-secondary:hover {
+    color: $black;
+    background-color: $gray-300;
+    background-image: none;
+    border-color: $gray-300;
+}
+.btn-outline-secondary.active {
+    color: $black;
+    background-color: $body-color !important;
+    background-image: none;
+    border-color: $body-color !important;
+}
+
+// Add shadow to Dropdown
+.dropdown-menu {
+    box-shadow: 0 1px 2px 0 rgba(31, 45, 61, 0.07);
+}
+// - disable shadow on navbar collapsed Dropdown
+.navbar {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+    
+        &.navbar-expand#{$infix} {
+            @include media-breakpoint-down($breakpoint) {
+                .dropdown-menu {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+// Remove in <dt> .bold
+dt {
+    font-weight: normal !important;
+}
+
+// New style for .nav: "nav-item-line" 
+.nav-tabs .nav-item-line {
+    margin-bottom: -3px !important;
+}
+.nav-item-line .nav-link.active {
+    color: $dark !important;
+    box-shadow: inset -1px -12px 0px -8px $primary !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: none !important;
+}
+.nav-item-line .nav-link:hover {
+    color: $dark !important;
+    font-weight: normal !important;
+    box-shadow: inset -1px -12px 0px -8px $gray-400 !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: none !important;
+}
+.nav-item-line .nav-link.active:hover {
+    box-shadow: inset -1px -12px 0px -8px darken($primary, 13% ) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-bottom: none !important;
+}
+.nav-item-line .nav-link {
+    color: $body-color !important;
+}
+
+// Overwritten LINKS in NAVBARS Bootstrap
+.navbar .navbar-tabs  {
+    margin-bottom: -1px !important;
+}
+.navbar-tabs .nav-link {
+    padding-right: $spacer !important;
+    padding-left: $spacer !important;
+    padding-bottom: 16px !important;
+}
+
+.navbar-tabs .nav-link.active {
+    box-shadow: inset -1px -11px 0px -8px $primary !important;
+}
+.navbar-tabs .nav-link:hover {
+    box-shadow: inset -1px -11px 0px -8px $gray-400 !important;
+}
+.navbar-tabs .nav-link.active:hover {
+    box-shadow: inset -1px -11px 0px -8px darken($primary, 13% ) !important;
+}

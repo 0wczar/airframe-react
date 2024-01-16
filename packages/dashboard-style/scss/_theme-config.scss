@@ -1,0 +1,32 @@
+.theme-config {
+    width: 200px;
+    
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    transform: translateX(100%) translateY(-50%);
+    transition: transform 250ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    z-index: 1500;
+    
+    &--active {
+        transform: translateY(-50%);
+    }
+
+    .theme-config {
+        &__body.card {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    
+        &__trigger {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-100%, -50%);
+        }
+    }
+}

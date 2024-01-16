@@ -1,0 +1,533 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+// Configurators
+@mixin setup-theme($config) {
+    --theme-theme-color: #{map-get($config, 'theme-color')};
+}
+
+@mixin setup-sidebar($config) {
+    --theme-sidebar-background: #{map-get($config, 'background')};
+    --theme-sidebar-border: #{map-get($config, 'border')};
+    --theme-sidebar-border-slim-submenu: #{map-get($config, 'border-slim-submenu')};
+    --theme-sidebar-brand-color: #{map-get($config, 'brand-color')};
+    --theme-sidebar-badge-override: #{map-get($config, 'badge-override')};
+    --theme-sidebar-close-color: #{map-get($config, 'close-color')};
+    --theme-sidebar-text-color: #{map-get($config, 'text-color')};
+    --theme-sidebar-text-color-muted: #{map-get($config, 'text-color-muted')};
+    --theme-sidebar-link-color: #{map-get($config, 'link-color')};
+    --theme-sidebar-link-color-hover: #{map-get($config, 'link-color-hover')};
+    --theme-sidebar-link-color-muted: #{map-get($config, 'link-color-muted')};
+    --theme-sidebar-scroll-rail-color: #{map-get($config, 'scroll-rail-color')};
+    --theme-sidebar-scroll-thumb-color:  #{map-get($config, 'scroll-thumb-color')};
+}
+
+@mixin setup-sidebar-menu($config) {
+    --theme-menu-accent-color: #{map-get($config, 'accent-color')};
+    --theme-menu-accent-color-hover: #{map-get($config, 'accent-color-hover')};
+    --theme-menu-background-color: #{map-get($config, 'background-color')};
+    --theme-menu-text-color: #{map-get($config, 'text-color')};
+    --theme-menu-icon-color: #{map-get($config, 'icon-color')};
+    --theme-menu-slim-icon-color: #{map-get($config, 'slim-icon-color')};
+    --theme-menu-arrow-color: #{map-get($config, 'arrow-color')};
+    --theme-menu-background-color-hover: #{map-get($config, 'background-color-hover')};
+    --theme-menu-slim-background-color-hover: #{map-get($config, 'slim-background-color-hover')};
+    --theme-menu-text-color-hover: #{map-get($config, 'text-color-hover')};
+    --theme-menu-slim-text-color-hover: #{map-get($config, 'slim-text-color-hover')};
+    --theme-menu-icon-color-hover: #{map-get($config, 'icon-color-hover')};
+    --theme-menu-slim-icon-color-hover: #{map-get($config, 'slim-icon-color-hover')};
+    --theme-menu-arrow-color-hover: #{map-get($config, 'arrow-color-hover')};
+    --theme-menu-background-color-active: #{map-get($config, 'background-color-active')};
+    --theme-menu-slim-background-color-active: #{map-get($config, 'slim-background-color-active')};
+    --theme-menu-text-color-active: #{map-get($config, 'text-color-active')};
+    --theme-menu-slim-text-color-active: #{map-get($config, 'slim-text-color-active')};
+    --theme-menu-icon-color-active: #{map-get($config, 'icon-color-active')};
+    --theme-menu-slim-icon-color-active: #{map-get($config, 'slim-icon-color-active')};
+    --theme-menu-arrow-color-active: #{map-get($config, 'arrow-color-active')};
+}
+
+@mixin setup-navbar($config) {
+    --theme-navbar-background: #{map-get($config, 'background')};
+    --theme-navbar-brand-color: #{map-get($config, 'brand-color')};
+    --theme-navbar-between-border-color: #{map-get($config, 'between-border-color')};
+    --theme-navbar-menu-item-color: #{map-get($config, 'menu-item-color')};
+    --theme-navbar-menu-item-hover-color: #{map-get($config, 'menu-item-hover-color')};
+    --theme-navbar-menu-item-active-background: #{map-get($config, 'menu-item-active-background')};
+    --theme-navbar-menu-item-active-color: #{map-get($config, 'menu-item-active-color')};
+    @if map-has-key($config, 'menu-icon-w-badge-color') {
+        --theme-navbar-menu-icon-w-badge-color: #{map-get($config, 'menu-icon-w-badge-color')};
+    }
+    --theme-navbar-menu-item-accent-color: #{map-get($config, 'menu-item-accent-color')};
+    --theme-navbar-menu-item-accent-hover-color: #{map-get($config, 'menu-item-accent-hover-color')};
+    --theme-navbar-dropdown-active-color: #{map-get($config, 'dropdown-active-color')};
+    --theme-navbar-dropdown-active-background: #{map-get($config, 'dropdown-active-background')};
+}
+
+/**
+ *  background, border, border-slim-submenu, theme-color,
+ *  brand-color, text-color, text-color-muted,
+ *  link-color, link-color-hover, link-color-muted,
+ *  scroll-rail-color, scroll-thumb-color,
+ *  navbar-background, navbar-brand,
+ *  navbar-menu-item-bg, navbar-menu-item-color,
+ *  menu-background-color, menu-text-color, menu-icon-color, menu-arrow-color
+ *  (OPTIONAL) menu-slim-backgroud-color, menu-slim-text-color, menu-slim-icon-color, menu-slim-arrow-color
+ *  menu-background-color-hover, menu-text-color-hover, menu-icon-color-hover, menu-arrow-color-hover
+ *  (OPTIONAL) menu-slim-background-color-hover, menu-slim-text-color-hover, menu-slim-icon-color-hover, menu-slim-arrow-color-hover
+ *  menu-background-color-active, menu-text-color-active, menu-icon-color-active, menu-arrow-color-active
+ *  (OPTIONAL) menu-slim-background-color-active, menu-slim-text-color-active, menu-slim-icon-color-active, menu-slim-arrow-color-active
+ */
+
+@mixin collapsed-pills-menu($parent-class-name) {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &.navbar-expand#{$infix} {
+            @include media-breakpoint-down($breakpoint) {
+                .nav.#{$parent-class-name} {
+                    // Pills Colors
+                    .dropdown-item.active,
+                    .nav-link.active {
+                        background-color: var(--theme-navbar-menu-item-active-background);
+                        color: var(--theme-navbar-menu-item-active-color);
+
+                        box-shadow: none;
+                    }
+
+                    // Collapsed Dropdowns and NestedDropdowns restyle
+                    .nav-link,
+                    .dropdown-item {
+                        &,
+                        &:hover,
+                        &:focus {
+                            color: var(--theme-navbar-menu-item-color);
+
+                            box-shadow: none;
+                        }
+                    }
+                    .nested-dropdown__submenu-item--open > .dropdown-item,
+                    .dropdown.show > .nav-link {
+                        color: var(--theme-navbar-menu-item-hover-color);
+
+                        box-shadow: none;
+                    }
+                    .nested-dropdown__submenu-item--open .dropdown-menu,
+                    .dropdown-menu.show {
+                        background: none;
+
+                        > .dropdown-item {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin apply-layout-theme() {
+    /* Theme Helpers */
+    .text-theme {
+        color: var(--theme-theme-color) !important;
+    }
+
+    .bg-theme {
+        background-color: var(--theme-theme-color) !important;
+    }
+
+    .badge-theme {
+        background-color: var(--theme-theme-color);
+        color: #fff;
+    }
+
+    .navbar-brand {
+        color: var(--theme-theme-color);
+
+        > a {
+            color: var(--theme-theme-color);
+        }
+    }
+
+    /* Navbar Styling */
+    .navbar-themed {
+        background-color: var(--theme-navbar-background);
+
+        /*
+            General Navbar Elements =============
+        */
+        // Avatar Status BG Circle
+        .nav-item,
+        .nav-link {
+            > .avatar-image,
+            > .avatar-font {
+                .avatar__icon--stack > .fa-circle:first-child {
+                    color: var(--theme-navbar-background) !important;
+                }
+            }
+        }
+
+        // Stacked Navbars
+        + nav {
+            border-top: 1px solid var(--theme-navbar-between-border-color, var(--theme-navbar-background));
+        }
+        // Brand
+        .navbar-brand {
+            color: var(--theme-navbar-brand-color);
+        }
+
+        // Collapse Toggle
+        .navbar-toggler {
+            color: var(--theme-navbar-menu-item-color);
+        }
+
+        // Links
+        .nav .nav-link,
+        .navbar-nav .nav-link {
+            color: var(--theme-navbar-menu-item-color);
+
+            &:hover {
+                color: var(--theme-navbar-menu-item-hover-color);
+            }
+
+            &.active {
+                color: var(--theme-navbar-menu-item-active-color);
+                background: none;
+                font-weight: 500;
+
+                &:hover {
+                    color: var(--theme-navbar-menu-item-active-color);
+                }
+            }
+        }
+
+        /*
+            NavAccent Menu Theming
+        */
+        .nav-accent {
+            .nav-item {
+                .nav-link {
+                    &:hover {
+                        box-shadow: inset 0px -3px 0px 0px var(--theme-navbar-menu-item-accent-hover-color);
+                    }
+
+                    &.active {
+                        box-shadow: inset 0px -3px 0px 0px var(--theme-navbar-menu-item-accent-color);
+                    }
+                }
+            }
+
+            .dropdown.show > .nav-link {
+                box-shadow: inset 0px -3px 0px 0px var(--theme-navbar-menu-item-accent-hover-color);
+                color: var(--theme-navbar-menu-item-active-color);
+            }
+
+            .dropdown-menu .dropdown-item {
+                &:active,
+                &.active {
+                    background-color: var(--theme-navbar-dropdown-active-background);
+                    color: var(--theme-navbar-dropdown-active-color);
+                }
+            }
+        }
+
+        // Accent Collapsed
+        @include collapsed-pills-menu("nav-accent");
+
+        /*
+            NavPills Menu Theming ===============
+        */
+        // Pills Dropdown Open
+        .nav.nav-pills .dropdown.show > .nav-link {
+            background-color: var(--theme-navbar-menu-item-active-background);
+            color: var(--theme-navbar-menu-item-active-color);
+        }
+
+        // Pills Dropdown Item
+        .nav.nav-pills .dropdown-menu .dropdown-item {
+            &:active,
+            &.active {
+                background-color: var(--theme-navbar-dropdown-active-background);
+                color: var(--theme-navbar-dropdown-active-color);
+                font-weight: 500;
+            }
+        }
+        // Pills Collapsed
+        @include collapsed-pills-menu("nav-pills");
+
+        // Pill Dropdown Open
+        .nav-pills .show >.nav-link {
+            background-color: var(--theme-navbar-menu-item-active-background);
+            color: var(--theme-navbar-menu-item-active-color);
+        }
+
+        // Avatar Status BG Circle
+        .nav-item,
+        .nav-link {
+            > .avatar-image,
+            > .avatar-font {
+                .avatar__icon--stack > .fa-circle:first-child {
+                    color: var(--theme-navbar-background) !important;
+                }
+            }
+        }
+
+        // Stacked Navbars
+        + nav {
+            border-top: 1px solid var(--theme-navbar-between-border-color, var(--theme-navbar-background));
+        }
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        background: var(--theme-sidebar-background);
+        color: var(--theme-sidebar-text-color);
+        border-right: var(--theme-sidebar-border);
+    }
+
+    .sidebar .avatar__icon--stack > .fa-circle:first-child {
+        color: var(--theme-sidebar-background) !important;
+    }
+
+    .sidebar .text-muted {
+        color: var(--theme-sidebar-text-color-muted) !important;
+    }
+
+    .sidebar__brand {
+        color: var(--theme-sidebar-brand-color);
+    }
+
+    .sidebar__close > a {
+        color: var(--theme-sidebar-close-color);
+    }
+
+    .sidebar__link {
+        color: var(--theme-sidebar-link-color);
+
+        &:hover {
+            color: var(--theme-sidebar-link-color-hover);
+        }
+
+        &.text-muted,
+        .text-muted,
+        &--muted {
+            color: var(--theme-sidebar-link-color-muted) !important;
+        }
+    }
+
+    .sidebar__section--fluid {
+        &::-webkit-scrollbar-track {
+            background-color: var(--theme-sidebar-scroll-rail-color);
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--theme-sidebar-scroll-thumb-color);
+        }
+    }
+
+    // Main Menu
+    .sidebar-menu {
+        &__entry__icon {
+            color: var(--theme-menu-icon-color);
+        }
+
+        &__entry__link {
+            color: var(--theme-menu-text-color);
+            background-color: var(--theme-menu-background-color);
+
+            &::after {
+                color: var(--theme-menu-arrow-color);
+            }
+
+            &:hover {
+                color: var(--theme-menu-text-color-hover);
+                background-color: var(--theme-menu-background-color-hover);
+
+                .sidebar-menu__entry__icon {
+                    color: var(--theme-menu-icon-color-hover);
+                }
+
+                &::after {
+                    color: var(--theme-menu-arrow-color-hover) !important;
+                }
+            }
+        }
+
+        &__entry.active:not(.open) > .sidebar-menu__entry__link {
+            color: var(--theme-menu-text-color-active);
+            background-color: var(--theme-menu-background-color-active);
+            font-weight: 500;
+
+            .sidebar-menu__entry__icon {
+                color: var(--theme-menu-icon-color-active);
+            }
+
+            &::after {
+                color: var(--theme-menu-arrow-color-active) !important;
+            }
+        }
+    }
+
+    // Sub Menu
+    .sidebar-submenu {
+        &__entry__link {
+            color: var(--theme-menu-text-color);
+            background-color: var(--theme-menu-background-color);
+
+            &::after {
+                color: var(--theme-menu-arrow-color);
+            }
+
+            // Link Hover
+            &:hover {
+                color: var(--theme-menu-text-color-hover);
+                background-color: var(--theme-menu-background-color-hover);
+
+                &::after {
+                    color: var(--theme-menu-arrow-color-hover);
+                }
+            }
+        }
+
+        &__entry.active:not(.open) > .sidebar-submenu__entry__link {
+            color: var(--theme-menu-text-color-active);
+            background-color: var(--theme-menu-background-color-active);
+            font-weight: 500;
+
+            .sidebar-submenu__entry__icon {
+                color: var(--theme-menu-icon-color-active);
+            }
+
+            &::after {
+                color: var(--theme-menu-arrow-color-active) !important;
+            }
+        }
+    }
+    
+    // Slim Sidebar
+    @media (min-width: breakpoint-min('lg', $grid-breakpoints)) {
+        .sidebar.sidebar--collapsed .sidebar-menu--slim {
+            // Main Menu
+            .sidebar-menu__entry{
+                > .sidebar-menu__entry__link > .sidebar-menu__entry__icon {
+                    color: var(--theme-menu-slim-icon-color);
+                }
+
+                &:hover > .sidebar-menu__entry__link {
+                    background-color: var(--theme-menu-slim-background-color-hover);
+                    color: var(--theme-menu-slim-text-color-hover);
+                    
+                    > .sidebar-menu__entry__icon {
+                        color: var(--theme-menu-slim-icon-color-hover);
+                    }
+                }
+
+                &.active.open > .sidebar-menu__entry__link {
+                    background-color: var(--theme-menu-slim-background-color-active);
+                    color: var(--theme-menu-slim-text-color-active);
+
+                    > .sidebar-menu__entry__icon {
+                        color: var(--theme-menu-slim-icon-color-active);
+                    }
+                }
+            }
+
+            // Submenu
+            .sidebar-menu__entry--nested > .sidebar-submenu {
+                background: var(--theme-sidebar-background);
+                color: var(--theme-sidebar-text-color);
+
+                border: var(--theme-sidebar-border-slim-submenu);
+
+                .sidebar-submenu__entry {
+                    &.active:not(.open) > .sidebar-submenu__entry__link {
+                        background-color: var(--theme-menu-slim-background-color-active);
+                        color: var(--theme-menu-slim-color-active);
+
+                        &::after {
+                            color: var(--theme-menu-slim-color-active);
+                        }
+                    }
+                }
+
+                .sidebar-submenu__entry__link:hover {
+                    background-color: var(--theme-menu-slim-background-color-hover);
+                    color: var(--theme-menu-slim-text-color-hover);
+                }
+            }
+        }
+    }
+}
+
+@mixin add-accent-element($shadow) {
+    &::before {
+        content: " ";
+        position: absolute;
+        display: block;
+        transition: transform 150ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        transform-origin: center center;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        box-shadow: $shadow;
+        transform: translateZ(0) scaleY(0);
+        pointer-events: none;
+    }
+}
+
+/**
+ * All of the variables from apply-sidebar-theme
+ * and additional menu-accent-color,
+ * (OPTIONAL) menu-accent-color-hover menu-accent-color-active
+ */
+@mixin apply-layout-theme-accent() {
+    @include apply-layout-theme();
+
+    $accent: inset 3px 0 0 0 var(--theme-menu-accent-color-hover);
+
+    .sidebar-submenu {
+        &__entry__link {
+            position: relative;
+            @include add-accent-element($accent);
+            transition: color 250ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            
+            &::after {
+                transition: color 250ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            }
+        }
+
+        &__entry.active:not(.open) > .sidebar-submenu__entry__link::before {
+            transform: translateZ(0) scaleY(1);
+        }
+    }
+
+    .sidebar-menu {
+        &__entry__link {
+            position: relative;
+            @include add-accent-element($accent);
+
+            transition: color 250ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            .sidebar-menu__entry__icon {
+                transition: color 250ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            }
+            &::after {
+                transition: color 250ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            }
+        }
+
+        &__entry.active:not(.open) > .sidebar-menu__entry__link::before {
+            transform: translateZ(0) scaleY(1);
+        }
+    }
+
+    .sidebar--slim.sidebar--collapsed {
+        .sidebar-menu__entry.active > .sidebar-menu__entry__link::before {
+            transform: scaleY(1);
+        }
+        // Not on nested slim menus
+        .sidebar-submenu__entry > .sidebar-submenu__entry__link::before {
+            transform: translateZ(0) scaleY(0);
+        }
+    }
+}

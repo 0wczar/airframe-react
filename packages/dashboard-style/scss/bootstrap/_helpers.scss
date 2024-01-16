@@ -1,0 +1,262 @@
+@import "./mixins";
+@import "./variables";
+
+@include generate-colors((
+    'blue': $blue,
+    'indigo': $indigo,
+    'purple': $purple,
+    'pink': $pink,
+    'red': $red,
+    'orange': $orange,
+    'yellow': $yellow,
+    'green': $green,
+    'teal': $green,
+    'cyan': $cyan,
+));
+
+@include generate-colors($shades);
+
+// Social Buttons
+// ---------------------------------------------
+@include generate-buttons((
+// .btn-<name>:     color,  background,  border         
+    'facebook':     ($white, $facebook, $facebook),
+    'twitter':      ($white, $twitter, $twitter),
+    'lastfm':       ($white, $lastfm, $lastfm),
+    'pinterest':    ($white, $pinterest, $pinterest),
+    'linkedin':     ($white, $linkedin, $linkedin),
+    'medium':       ($white, $medium, $medium),
+    'skype':        ($white, $skype, $skype),
+    'foursquare':   ($white, $foursquare, $foursquare),
+    'android':      ($white, $android, $android),
+    'spotify':      ($white, $spotify, $spotify),
+    'paypal':       ($white, $paypal, $paypal),
+    'dribbble':     ($white, $dribbble, $dribbble),
+    'youtube':      ($white, $youtube, $youtube),
+    'windows':      ($white, $windows, $windows),
+    'amazon':       ($white, $amazon, $amazon),
+));
+
+// Gray Buttons
+// ---------------------------------------------
+@include generate-buttons((
+// .btn-<name>:     color,  background,  border         
+    'gray-100':     ($black, $gray-100, $gray-100),
+    'gray-200':     ($black, $gray-200, $gray-200),
+    'gray-300':     ($black, $gray-300, $gray-300),
+    'gray-400':     ($white, $gray-400, $gray-400),
+    'gray-500':     ($white, $gray-500, $gray-500),
+    'gray-600':     ($white, $gray-600, $gray-600),
+    'gray-700':     ($white, $gray-700, $gray-700),
+    'gray-800':     ($white, $gray-800, $gray-800),
+    'gray-900':     ($white, $gray-900, $gray-900),
+));
+
+// Generate Colors for: text, borders, background
+// ---------------------------------------------
+@include generate-colors((
+    'body-bg': $body-bg,
+    'gray-100': $gray-100,
+    'gray-200': $gray-200,
+    'gray-300': $gray-300,
+    'gray-400': $gray-400,
+    'gray-500': $gray-500,
+    'gray-600': $gray-600,
+    'gray-700': $gray-700,
+    'gray-800': $gray-800,
+    'gray-900': $gray-900,
+    'inverse': $black,
+));
+
+@include generate-colors((
+    'primary':      theme-color("primary"),
+    'success':      theme-color("success"),
+    'info':         theme-color("info"),
+    'warning':      theme-color("warning"),
+    'danger':       theme-color("danger"),
+    'secondary':    theme-color("secondary"),
+    'dark':         theme-color("dark"),
+    'light':        theme-color("light"),
+    'white':        $white,
+    'black':        $black,
+));
+
+@include generate-colors((
+    'facebook': $facebook,
+    'twitter': $twitter,
+    'lastfm': $lastfm,
+    'pinterest': $pinterest,
+    'linkedin': $linkedin,
+    'medium': $medium,
+    'skype': $skype,
+    'foursquare': $foursquare,
+    'android': $android,
+    'spotify': $spotify,
+    'paypal': $paypal,
+    'dribbble': $dribbble,
+    'youtube': $youtube,
+    'windows': $windows,
+    'amazon': $amazon,
+));
+
+// Custom .bg-none (this class not showing background. If used then background is transparent)
+// ---------------------------------------------
+.bg-none {
+    background: none !important;
+}
+
+// Custom .badge-*
+// ---------------------------------------------
+@include generate-badges((
+    'white':            $white,
+    'gray-dark':        $gray-800,
+    'gray':             $gray-700,
+    'gray-light':       $gray-500,
+    'gray-lighter':     $gray-400,
+    'gray-lightest':    $gray-300,
+    'blue':             $blue,
+    'green':            $green,
+    'teal':             $teal,
+    'orange':           $orange,
+    'red':              $red,
+    'pink':             $pink,
+    'purple':           $purple,
+    'yellow':           $yellow,
+    'indigo':           $indigo,
+));
+
+// Border Styles Generator
+// ---------------------------------------------
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $name, $style in $border-helpers-styles {
+            .b#{$infix}-#{$name} { border-style: $style !important; border-width: 1px; border-color: $gray-600; }
+            .bt#{$infix}-#{$name},
+            .by#{$infix}-#{$name} {
+                border-top-style: $style !important; border-top-width: 1px; border-top-color: $gray-600;
+            }
+            .br#{$infix}-#{$name},
+            .bx#{$infix}-#{$name} {
+                border-right-style: $style !important; border-right-width: 1px; border-right-color: $gray-600;
+            }
+            .bb#{$infix}-#{$name},
+            .by#{$infix}-#{$name} {
+                border-bottom-style: $style !important; border-bottom-width: 1px; border-bottom-color: $gray-600;
+            }
+            .bl#{$infix}-#{$name},
+            .bx#{$infix}-#{$name} {
+                border-left-style: $style !important; border-left-width: 1px; border-left-color: $gray-600;
+            }
+        }
+    }
+}
+
+// Border Helpers Generator
+// ---------------------------------------------
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $size, $value in $border-helpers-sizes {
+            .b#{$infix}-#{$size} { border-width: $value !important; border-color: $gray-600; border-style: solid;}
+            .bt#{$infix}-#{$size},
+            .by#{$infix}-#{$size} {
+                border-top-width: $value !important; border-top-color: $gray-600; border-top-style: solid;
+            }
+            .br#{$infix}-#{$size},
+            .bx#{$infix}-#{$size} {
+                border-right-width: $value !important; border-right-color: $gray-600; border-right-style: solid;
+            }
+            .bb#{$infix}-#{$size},
+            .by#{$infix}-#{$size} {
+                border-bottom-width: $value !important; border-bottom-color: $gray-600; border-bottom-style: solid;
+            }
+            .bl#{$infix}-#{$size},
+            .bx#{$infix}-#{$size} {
+                border-left-width: $value !important; border-left-color: $gray-600; border-left-style: solid;
+            }
+        }
+    }
+}
+
+// Border Radius Generator
+// ---------------------------------------------
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $abbrev, $prop in (
+            tl: border-top-left-radius,
+            tr: border-top-right-radius,
+            bl: border-bottom-left-radius,
+            br: border-bottom-right-radius,
+            '':border-radius
+        ) {
+            @each $size, $value in $border-radius-helpers-sizes {
+                .r#{$abbrev}#{$infix}-#{$size} { #{$prop}: $value !important; }
+            }
+        }
+    }
+}
+
+// Font Weight / Sizes Generator
+// ---------------------------------------------
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $value in $font-helpers-weight {
+            .fw#{$infix}-#{$value} { font-weight: $value !important; }
+        }
+
+        @each $value in $font-helpers-sizes {
+            .fs#{$infix}-#{$value} { font-size: #{$value}px !important; }
+        }
+    }
+}
+
+// Shadow Boxes for CARDS .shadow-box-*-*
+// ---------------------------------------------
+.shadow-box-light {
+    box-shadow: 0px 0px 5px 0px rgba(196, 196, 196, 0.59) !important;
+}
+
+.shadow-box-down {
+    box-shadow: 0px 3px 4px -1px rgba(196, 196, 196, 0.51) !important;
+}
+
+.shadow-box-inset-down {
+    box-shadow: inset 0px 4px 6px -4px rgba(194, 194, 194, 1) !important;
+}
+
+.shadow-box-hard-down {
+    box-shadow: -1px 6px 0px -2px rgba(196, 196, 196, 0.38) !important;
+}
+
+.shadow-box-inset-hard-down {
+    box-shadow: inset 0px 6px 0px -1px rgba(196, 196, 196, 0.38) !important;
+}
+
+.shadow-box-hard {
+    box-shadow: 0px 0px 0px 3px rgba(194, 194, 194, 0.34) !important;
+}
+
+.shadow-box-none {
+    box-shadow: none !important;
+}
+
+// CARET DISABLED in Dropdowns
+// ---------------------------------------------
+.no-caret::after {
+    display: none !important;
+}
+
+// Tiny Text muted
+// ---------------------------------------------
+.tiny {
+    font-size: 11px;
+    color: $text-muted;
+    font-weight: 500;
+}

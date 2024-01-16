@@ -1,0 +1,220 @@
+// Bootstrap Mixins
+@import "~bootstrap/scss/mixins";
+// Ag + Bootstrap Variables
+@import "./ag-theme-bootstrap-vars";
+// Ag Theme to Extend
+@import "~ag-grid-community/src/styles/ag-theme-classic/sass/ag-theme-classic";
+
+.card > .ag-theme-bootstrap .ag-root {
+    border-left: none;
+    border-right: none;
+    //border-bottom: none;
+}
+
+.ag-theme-bootstrap {
+    @include ag-theme-classic($params);
+
+    color: inherit;
+
+    &.ag-popup > div {
+        box-shadow: $box-shadow-sm;
+    }
+
+    .ag-header-group-text,
+    .ag-header-cell-text {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .ag-popup .ag-menu {
+        min-width: $dropdown-min-width;
+        padding: $dropdown-padding-y 0;
+        margin: $dropdown-spacer 0 0; // override default ul
+        @include font-size($dropdown-font-size);
+        color: $dropdown-color;
+        text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+        list-style: none;
+        background-color: $dropdown-bg;
+        background-clip: padding-box;
+        border: $dropdown-border-width solid $dropdown-border-color;
+        @include border-radius($dropdown-border-radius);
+        @include box-shadow($dropdown-box-shadow);
+    }
+
+    /* Custom Checkboxes */
+    .ag-selection-checkbox {
+        .ag-icon {
+            width: $custom-control-indicator-size;
+            height: $custom-control-indicator-size;
+            background-color: $custom-control-indicator-bg;
+            position: relative;
+
+            &::before {
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $custom-control-indicator-bg;
+                border: $custom-control-indicator-border-color solid $custom-control-indicator-border-width;
+                @include box-shadow($custom-control-indicator-box-shadow);
+                @include border-radius($custom-checkbox-indicator-border-radius);
+            }
+
+            &::after {
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: no-repeat 50% / #{$custom-control-indicator-bg-size};
+            }
+        }
+
+        .ag-icon-checkbox-checked {
+            &::before {
+                border-color: $custom-checkbox-indicator-indeterminate-border-color;
+                @include gradient-bg($custom-checkbox-indicator-indeterminate-bg);
+                @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
+            }
+
+            &::after {
+                background-image: $custom-checkbox-indicator-icon-checked;
+            }
+        }
+    }
+
+    /* Custom Filter Dropdowns */
+    /* NOTE: Those filters are copied from
+        the Bootstrap source, they might need to be
+        update. There is no clean way to import it
+        from the Bootstrap source fro @extend without
+        attaching a bunch of additional CSS definitions.
+    */
+    .ag-filter-body-wrapper {
+        padding: 0 0.5rem;
+    }
+
+    .ag-filter-condition {
+        padding: 0.5rem 0;
+    }
+
+    .ag-filter-select {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        max-width: calc(100% - 8px);
+        outline: none !important;
+        box-shadow: none !important;
+
+        /* Bootstrap SM Definition */
+        display: inline-block;
+        width: 100%;
+        height: $custom-select-height-sm;
+        padding: $custom-select-padding-y-sm ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y-sm $custom-select-padding-x-sm;
+        font-family: $custom-select-font-family;
+        @include font-size($custom-select-font-size-sm);
+        font-weight: $custom-select-font-weight;
+        line-height: $custom-select-line-height;
+        color: $custom-select-color;
+        vertical-align: middle;
+        background: $custom-select-background;
+        background-color: $custom-select-bg;
+        border: $custom-select-border-width solid $custom-select-border-color !important;
+        @include border-radius($custom-select-border-radius, 0);
+        @include box-shadow($custom-select-box-shadow);
+        appearance: none;
+
+        &:focus {
+            border-color: $custom-select-focus-border-color;
+            outline: 0;
+            @if $enable-shadows {
+            box-shadow: $custom-select-box-shadow, $custom-select-focus-box-shadow;
+            } @else {
+            box-shadow: $custom-select-focus-box-shadow;
+            }
+
+            &::-ms-value {
+            // For visual consistency with other platforms/browsers,
+            // suppress the default white text on blue background highlight given to
+            // the selected option text when the (still closed) <select> receives focus
+            // in IE and (under certain conditions) Edge.
+            // See https://github.com/twbs/bootstrap/issues/19398.
+            color: $input-color;
+            background-color: $input-bg;
+            }
+        }
+
+        &[multiple],
+        &[size]:not([size="1"]) {
+            height: auto;
+            padding-right: $custom-select-padding-x;
+            background-image: none;
+        }
+
+        &:disabled {
+            color: $custom-select-disabled-color;
+            background-color: $custom-select-disabled-bg;
+        }
+
+        // Hides the default caret in IE11
+        &::-ms-expand {
+            display: none;
+        }
+    }
+
+    .ag-filter-filter {
+        outline: none !important;
+        box-shadow: none !important;
+
+        /* Bootstrap SM Definition */
+        display: block;
+        width: 100%;
+        height: $input-height-sm;
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        font-family: $input-font-family;
+        @include font-size($input-font-size-sm);
+        font-weight: $input-font-weight;
+        line-height: $input-line-height-sm;
+        color: $input-color;
+        background-color: $input-bg;
+        background-clip: padding-box;
+        border: $input-border-width solid $input-border-color !important;
+
+        // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+        @include border-radius($input-border-radius-sm);
+
+        @include box-shadow($input-box-shadow);
+        @include transition($input-transition);
+
+        // Unstyle the caret on `<select>`s in IE10+.
+        &::-ms-expand {
+            background-color: transparent;
+            border: 0;
+        }
+
+        // Customize the `:focus` state to imitate native WebKit styles.
+        @include form-control-focus();
+
+        // Placeholder
+        &::placeholder {
+            color: $input-placeholder-color;
+            // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+            opacity: 1;
+        }
+
+        // Disabled and read-only inputs
+        //
+        // HTML5 says that controls under a fieldset > legend:first-child won't be
+        // disabled if the fieldset is disabled. Due to implementation difficulty, we
+        // don't honor that edge case; we style them as disabled anyway.
+        &:disabled,
+        &[readonly] {
+            background-color: $input-disabled-bg;
+            // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+            opacity: 1;
+        }
+    }
+}

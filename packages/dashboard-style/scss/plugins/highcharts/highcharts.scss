@@ -1,0 +1,12 @@
+@import "./../../variables";
+
+.highcharts-menu {
+    hr {
+        margin: 0.25rem 0;
+    }
+}
+
+.highcharts-root {
+    font-family: $font-family-base !important;
+    font-size: $font-size-base;
+}

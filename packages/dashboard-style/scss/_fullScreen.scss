@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "variables";
+
+.fullscreen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &__section {
+        flex: 0 0 auto;
+
+        &--center {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__child {
+            flex: 0 1 auto;
+        }
+    }
+}
+
+@media (max-width: breakpoint-max('sm', $grid-breakpoints)) {
+    .fullscreen {
+        min-height: auto;
+        padding: #{$grid-gutter-width / 2};
+    }
+}

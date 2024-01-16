@@ -1,0 +1,305 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "variables";
+
+.navbar.navbar-shadow {
+    box-shadow: map-get($navbar-shadow, 'shadow');
+    border-bottom: map-get($navbar-shadow, 'border');
+}
+
+.navbar-toggler.nav-link {
+    font-size: $font-size-base;
+}
+
+.navbar .navbar-nav.nav-pills .nav-link {
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link {
+    outline: none !important;
+}
+
+/**
+    Adding this class to the Navbar will allow to
+    have a collapsesd menu with additional UNCOLLAPSABLE elements
+    after. This will push the collapse container to be the last in the navbar.
+*/
+.navbar-multi-collapse {
+    &.navbar-expand {
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            $next: breakpoint-next($breakpoint, $grid-breakpoints);
+            $infix: breakpoint-infix($next, $grid-breakpoints);
+
+            @if ($infix != "") {
+                &#{$infix} {
+                    .navbar-collapse {
+                        align-self: stretch;
+                    }
+                    
+                    @include media-breakpoint-down($breakpoint) {
+                        .navbar-collapse-wrap {
+                            display: flex;
+                        }
+                        .navbar-collapse {
+                            order: 999;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+    Nav Accent  =================================
+*/
+.navbar-nav.nav-accent {
+    align-self: stretch;
+
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
+
+    .nav-item {
+        display: flex;
+
+        align-self: stretch;
+        
+        .nav-link {
+            display: flex;
+            align-self: stretch;
+            align-items: center;
+
+            margin-left: 1px;
+            margin-right: 1px;
+            padding: 1rem;
+        }
+    }
+}
+
+// Collapsed - reset and make dropdowns like pills
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    .navbar-expand#{$infix} {
+        @include media-breakpoint-down($breakpoint) {
+            .nav-accent {
+                align-self: center;
+                margin: 0;
+
+                .nav-item {
+                    display: block;
+                    
+                    .nav-link {
+                        display: block;
+                        margin: 0;
+                        padding: 0.5rem 1rem;
+
+                        &.active,
+                        &:hover {
+                            box-shadow: none;
+                        }
+
+                        &.active {
+                            background-color: $nav-pills-link-active-bg;
+                            color: $nav-pills-link-active-color;
+                        }
+                    }
+                }
+
+                .dropdown-menu {
+                    background: none;
+                    border: none;
+                }
+
+                .nav-item .nav-link,
+                .dropdown-menu .dropdown-item {
+                    border-radius: $nav-pills-border-radius;
+                }
+
+                .dropdown.show > .nav-link {
+                    box-shadow: none;
+                }
+            }
+
+            &.navbar-light .nav-accent {
+                .dropdown-menu .dropdown-item {
+                    color: $navbar-light-color;
+                    box-shadow: none;
+
+                    &.active {
+                        color: $nav-pills-link-active-color;
+                    }
+                }
+                .nav-item .nav-link:hover {
+                    box-shadow: none;
+                }
+                .dropdown.show > .nav-link {
+                    color: $navbar-light-hover-color;
+                }
+            } 
+
+            &.navbar-dark .nav-accent {
+                .dropdown-menu .dropdown-item {
+                    color: $navbar-dark-color;
+                    box-shadow: none;
+
+                    &.active {
+                        color: $nav-pills-link-active-color;
+                    }
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+                }
+                .nav-item .nav-link:hover {
+                    box-shadow: none;
+                }
+                .dropdown.show > .nav-link {
+                    color: $navbar-dark-hover-color;
+                }
+            }
+        }
+    }
+}
+
+
+// Default Colors
+.navbar-light .nav-accent {
+    $hover-color: lighten($navbar-light-hover-color, 80%);
+
+    .nav-item .nav-link {
+        &:hover {
+            box-shadow: inset 0px -3px 0px 0px $hover-color;
+        }
+    }
+
+    .dropdown.show > .nav-link {
+        box-shadow: inset 0px -3px 0px 0px $hover-color;
+        color: $navbar-light-active-color;
+    }
+}
+
+.navbar-dark .nav-accent {
+    $hover-color: darken($navbar-dark-hover-color, 40%);
+
+    .nav-item .nav-link {
+        &:hover {
+            box-shadow: inset 0px -3px 0px 0px $hover-color;
+        }
+    }
+
+    .dropdown.show > .nav-link {
+        box-shadow: inset 0px -3px 0px 0px $hover-color;
+        color: $navbar-dark-active-color;
+    }
+}
+
+.navbar-light,
+.navbar-dark {
+    .nav-accent .nav-item .nav-link.active {
+        box-shadow: inset 0px -3px 0px 0px $primary;
+    }
+}
+
+/**
+    Nav Pills ===================================
+*/
+.navbar .nav.nav-pills {
+    .dropdown.show > .nav-link {
+        color: #fff;
+    }
+}
+
+.navbar {
+    &.navbar-dark .nav.nav-pills .nav-link {
+        color: $navbar-dark-color;
+
+        &.active {
+            color: #fff;
+        }
+    }
+
+    &.navbar-light .nav.nav-pills .nav-link {
+        color: $navbar-light-color;
+
+        &.active {
+            color: #fff;
+        }
+    }
+}
+
+.navbar {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &.navbar-expand#{$infix} {
+            @include media-breakpoint-down($breakpoint) {
+                // General
+                .nav-pills {
+                    // Pills Colors
+                    .dropdown-item.active,
+                    .nav-link.active {
+                        background-color: $nav-pills-link-active-bg;
+                        color: $nav-pills-link-active-color;
+                        border-radius: $nav-pills-border-radius;
+                        box-shadow: none;
+                    }
+
+                    // Collapsed Dropdowns and NestedDropdowns restyle
+                    .dropdown-item {
+                        &,
+                        &:hover,
+                        &:focus {
+                            background: none;
+                        }
+                    }
+                    .nested-dropdown__submenu-item--open > .dropdown-item,
+                    .dropdown.show > .nav-link {
+                        background: none;
+                    }
+                    .nested-dropdown__submenu-item--open .dropdown-menu,
+                    .dropdown-menu.show {
+                        background: none;
+                        border: none;
+                    }
+                }
+
+                // Light
+                &.navbar-light {
+                    .nav-pills {
+                        .nested-dropdown__submenu-item--open > .dropdown-item,
+                        .dropdown.show > .nav-link {
+                            color: $navbar-light-hover-color;
+                        }
+                        .dropdown-item {
+                            color: $navbar-light-color;
+
+                            &.active {
+                                color: $nav-pills-link-active-color;
+                            }
+                        }
+                    }
+                }
+
+                // Dark
+                &.navbar-dark {
+                    .nav-pills {
+                        .nested-dropdown__submenu-item--open > .dropdown-item,
+                        .dropdown.show > .nav-link {
+                            color: $navbar-dark-hover-color;
+                        }
+                        .dropdown-item {
+                            color: $navbar-dark-color;
+
+                            &.active {
+                                color: $nav-pills-link-active-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

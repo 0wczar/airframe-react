@@ -1,0 +1,52 @@
+@mixin generate-colors($colorMap) {
+    @each $name, $color in $colorMap {
+        // Text Color
+        .text-#{$name} {
+            color: $color !important;
+        }
+
+        // Background Color
+        .bg-#{$name} {
+            background-color: $color !important;
+        }
+
+        // Border Color
+        .b-#{$name} { border-color: $color !important; border-style: solid; border-width: 1px; }
+        .bt-#{$name},
+        .by-#{$name} { border-top-color: $color !important; border-top-style: solid; border-top-width: 1px; }
+        .br-#{$name},
+        .bx-#{$name} { border-right-color: $color !important; border-right-style: solid; border-right-width: 1px; }
+        .bb-#{$name},
+        .by-#{$name} { border-bottom-color: $color !important; border-bottom-style: solid; border-bottom-width: 1px; }
+        .bl-#{$name},
+        .bx-#{$name} { border-left-color: $color !important; border-left-style: solid; border-left-width: 1px; }
+    }
+}
+
+@mixin generate-buttons($colorMap) {
+    @each $name, $colorDef in $colorMap {
+        $color: nth($colorDef, 1);
+        $background: nth($colorDef, 2);
+        $border: nth($colorDef, 3);
+
+        .btn-#{$name} {
+            @include button-variant($background, $border);
+            
+            &.btn {
+                color: $color;
+            }
+        }
+
+        .btn-outline-#{$name} {
+            @include button-outline-variant($background);
+        }
+    }
+}
+
+@mixin generate-badges($colorMap) {
+    @each $name, $color in $colorMap {
+        .badge-#{$name} {
+            @include badge-variant($color);
+        }
+    }
+}
