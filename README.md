@@ -19,7 +19,7 @@ High Quality **Dashboard / Admin / Analytics template** that works great on any 
 
 **Airframe Dashboard** with a minimalist design and innovative Light UI will let you build an amazing and powerful application with great UI. Perfectly designed for large scale applications, with detailed step by step documentation.
 
-This **Airframe** project is a typical Webpack based React app, [React Router](https://reacttraining.com/react-router/web/guides/quick-start) also included together with customised [Reacstrap](https://reactstrap.github.io). This project has all of it's few dependencies up to date and it will be updated on a regular basis. This project doesn't support SSR. If you need it - use the [NextJs](https://github.com/zeit/next.js/) based version.
+This **Airframe** project is a typical Webpack based React app, [React Router](https://reacttraining.com/react-router/web/guides/quick-start) also included together with customised [reactstrap](https://reactstrap.github.io). This project has all of it's few dependencies up to date and it will be updated on a regular basis. This project doesn't support SSR. If you need it - use the [NextJs](https://github.com/zeit/next.js/) based version.
 
 # Features
 
