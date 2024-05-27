@@ -90,7 +90,9 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            includePaths: config.scssIncludes
+                            sassOptions: {
+                                includePaths: config.scssIncludes
+                            }
                         }
                     }
                 ],
@@ -116,7 +118,9 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            includePaths: config.scssIncludes
+                            sassOptions: {
+                                includePaths: config.scssIncludes
+                            }
                         }
                     }
                 ],
