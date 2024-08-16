@@ -1,122 +1,123 @@
-import React from 'react';
+import React from 'react'
 import {
-    Route,
-    Switch,
-    Redirect
-} from 'react-router';
+  Route,
+  Switch,
+  Redirect
+} from 'react-router'
 
 // ----------- Pages Imports ---------------
-import Analytics from './Dashboards/Analytics';
-import ProjectsDashboard from './Dashboards/Projects';
-import System from './Dashboards/System';
-import Monitor from './Dashboards/Monitor'; 
-import Financial from './Dashboards/Financial';
-import Stock from './Dashboards/Stock';
-import Reports from './Dashboards/Reports';
+import Analytics from './Dashboards/Analytics'
+import ProjectsDashboard from './Dashboards/Projects'
+import System from './Dashboards/System'
+import Monitor from './Dashboards/Monitor'
+import Financial from './Dashboards/Financial'
+import Stock from './Dashboards/Stock'
+import Reports from './Dashboards/Reports'
 
-import Widgets from './Widgets';
+import Widgets from './Widgets'
 
-import Cards from './Cards/Cards';
-import CardsHeaders from './Cards/CardsHeaders';
+import Cards from './Cards/Cards'
+import CardsHeaders from './Cards/CardsHeaders'
 
-import NavbarOnly from './Layouts/NavbarOnly';
-import SidebarDefault from './Layouts/SidebarDefault';
-import SidebarA from './Layouts/SidebarA';
-import DragAndDropLayout from './Layouts/DragAndDropLayout';
-import SidebarWithNavbar from './Layouts/SidebarWithNavbar';
+import NavbarOnly from './Layouts/NavbarOnly'
+import SidebarDefault from './Layouts/SidebarDefault'
+import SidebarA from './Layouts/SidebarA'
+import DragAndDropLayout from './Layouts/DragAndDropLayout'
+import SidebarWithNavbar from './Layouts/SidebarWithNavbar'
 
-import Accordions from './Interface/Accordions';
-import Alerts from './Interface/Alerts';
-import Avatars from './Interface/Avatars';
-import BadgesLabels from './Interface/BadgesLabels';
-import Breadcrumbs from './Interface/Breadcrumbs';
-import Buttons from './Interface/Buttons';
-import Colors from './Interface/Colors';
-import Dropdowns from './Interface/Dropdowns';
-import Images from './Interface/Images';
-import ListGroups from './Interface/ListGroups';
-import MediaObjects from './Interface/MediaObjects';
-import Modals from './Interface/Modals';
-import Navbars from './Interface/Navbars';
-import Paginations from './Interface/Paginations';
-import ProgressBars from './Interface/ProgressBars';
-import TabsPills from './Interface/TabsPills';
-import TooltipPopovers from './Interface/TooltipsPopovers';
-import Typography from './Interface/Typography';
-import Notifications from './Interface/Notifications';
-import CropImage from './Interface/CropImage';
-import DragAndDropElements from './Interface/DragAndDropElements';
-import Calendar from './Interface/Calendar';
-import ReCharts from './Graphs/ReCharts';
+import Accordions from './Interface/Accordions'
+import Alerts from './Interface/Alerts'
+import Avatars from './Interface/Avatars'
+import BadgesLabels from './Interface/BadgesLabels'
+import Breadcrumbs from './Interface/Breadcrumbs'
+import Buttons from './Interface/Buttons'
+import Colors from './Interface/Colors'
+import Dropdowns from './Interface/Dropdowns'
+import Images from './Interface/Images'
+import ListGroups from './Interface/ListGroups'
+import MediaObjects from './Interface/MediaObjects'
+import Modals from './Interface/Modals'
+import Navbars from './Interface/Navbars'
+import Paginations from './Interface/Paginations'
+import ProgressBars from './Interface/ProgressBars'
+import TabsPills from './Interface/TabsPills'
+import TooltipPopovers from './Interface/TooltipsPopovers'
+import Typography from './Interface/Typography'
+import Notifications from './Interface/Notifications'
+import CropImage from './Interface/CropImage'
+import DragAndDropElements from './Interface/DragAndDropElements'
+import Calendar from './Interface/Calendar'
+import ReCharts from './Graphs/ReCharts'
 
-import Forms from './Forms/Forms';
-import FormsLayouts from './Forms/FormsLayouts';
-import InputGroups from './Forms/InputGroups';
-import Wizard from './Forms/Wizard';
-import TextMask from './Forms/TextMask';
-import Typeahead from './Forms/Typeahead';
-import Toggles from './Forms/Toggles';
-import Editor from './Forms/Editor';
-import DatePicker from './Forms/DatePicker';
-import Dropzone from './Forms/Dropzone';
-import Sliders from './Forms/Sliders';
+import Forms from './Forms/Forms'
+import FormsLayouts from './Forms/FormsLayouts'
+import InputGroups from './Forms/InputGroups'
+import Wizard from './Forms/Wizard'
+import TextMask from './Forms/TextMask'
+import Typeahead from './Forms/Typeahead'
+import Toggles from './Forms/Toggles'
+import Editor from './Forms/Editor'
+import DatePicker from './Forms/DatePicker'
+import Dropzone from './Forms/Dropzone'
+import Sliders from './Forms/Sliders'
 
-import Tables from './Tables/Tables';
-import NewExtendedTable  from './Tables/NewTable/NewExtendedTable';
-import ExtendedTable from './Tables/ExtendedTable';
-import AgGrid from './Tables/AgGrid';
+import Tables from './Tables/Tables'
+import ContabilidadVentas from './Tables/ContabilidadVentas'
+import NewExtendedTable from './Tables/NewTable/NewExtendedTable'
+import ExtendedTable from './Tables/ExtendedTable'
+import AgGrid from './Tables/AgGrid'
 
-import AccountEdit from './Apps/AccountEdit';
-import BillingEdit from './Apps/BillingEdit';
-import Chat from './Apps/Chat';
-import Clients from './Apps/Clients';
-import EmailDetails from './Apps/EmailDetails';
-import Files from './Apps/Files';
-import GalleryGrid from './Apps/GalleryGrid';
-import GalleryTable from './Apps/GalleryTable';
-import ImagesResults from './Apps/ImagesResults';
-import Inbox from './Apps/Inbox';
-import NewEmail from './Apps/NewEmail';
-import ProfileDetails from './Apps/ProfileDetails';
-import ProfileEdit from './Apps/ProfileEdit';
-import Projects from './Apps/Projects';
-import SearchResults from './Apps/SearchResults';
-import SessionsEdit from './Apps/SessionsEdit';
-import SettingsEdit from './Apps/SettingsEdit';
-import Tasks from './Apps/Tasks';
-import TasksDetails from './Apps/TasksDetails';
-import TasksKanban from './Apps/TasksKanban';
-import Users from './Apps/Users';
-import UsersResults from './Apps/UsersResults';
-import VideosResults from './Apps/VideosResults';
+import AccountEdit from './Apps/AccountEdit'
+import BillingEdit from './Apps/BillingEdit'
+import Chat from './Apps/Chat'
+import Clients from './Apps/Clients'
+import EmailDetails from './Apps/EmailDetails'
+import Files from './Apps/Files'
+import GalleryGrid from './Apps/GalleryGrid'
+import GalleryTable from './Apps/GalleryTable'
+import ImagesResults from './Apps/ImagesResults'
+import Inbox from './Apps/Inbox'
+import NewEmail from './Apps/NewEmail'
+import ProfileDetails from './Apps/ProfileDetails'
+import ProfileEdit from './Apps/ProfileEdit'
+import Projects from './Apps/Projects'
+import SearchResults from './Apps/SearchResults'
+import SessionsEdit from './Apps/SessionsEdit'
+import SettingsEdit from './Apps/SettingsEdit'
+import Tasks from './Apps/Tasks'
+import TasksDetails from './Apps/TasksDetails'
+import TasksKanban from './Apps/TasksKanban'
+import Users from './Apps/Users'
+import UsersResults from './Apps/UsersResults'
+import VideosResults from './Apps/VideosResults'
 
-import ComingSoon from './Pages/ComingSoon';
-import Confirmation from './Pages/Confirmation';
-import Danger from './Pages/Danger';
-import Error404 from './Pages/Error404';
-import ForgotPassword from './Pages/ForgotPassword';
-import LockScreen from './Pages/LockScreen';
-import Login from './Pages/Login';
-import Register from './Pages/Register';
-import Success from './Pages/Success';
-import Timeline from './Pages/Timeline';
+import ComingSoon from './Pages/ComingSoon'
+import Confirmation from './Pages/Confirmation'
+import Danger from './Pages/Danger'
+import Error404 from './Pages/Error404'
+import ForgotPassword from './Pages/ForgotPassword'
+import LockScreen from './Pages/LockScreen'
+import Login from './Pages/Login'
+import Register from './Pages/Register'
+import Success from './Pages/Success'
+import Timeline from './Pages/Timeline'
 
-import Icons from './Icons';
+import Icons from './Icons'
 
 // ----------- Layout Imports ---------------
-import { DefaultNavbar } from './../layout/components/DefaultNavbar';
-import { DefaultSidebar } from './../layout/components/DefaultSidebar';
+import { DefaultNavbar } from './../layout/components/DefaultNavbar'
+import { DefaultSidebar } from './../layout/components/DefaultSidebar'
 
-import { SidebarANavbar } from './../layout/components/SidebarANavbar';
-import { SidebarASidebar } from './../layout/components/SidebarASidebar';
+import { SidebarANavbar } from './../layout/components/SidebarANavbar'
+import { SidebarASidebar } from './../layout/components/SidebarASidebar'
 
-//------ Route Definitions --------
+// ------ Route Definitions --------
 // eslint-disable-next-line no-unused-vars
 export const RoutedContent = () => {
-    return (
+  return (
         <Switch>
             <Redirect from="/" to="/dashboards/projects" exact />
-            
+
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
             <Route path="/dashboards/system" exact component={System} />
@@ -126,11 +127,11 @@ export const RoutedContent = () => {
             <Route path="/dashboards/reports" exact component={Reports} />
 
             <Route path='/widgets' exact component={Widgets} />
-            
+
             { /*    Cards Routes     */ }
             <Route path='/cards/cards' exact component={Cards} />
             <Route path='/cards/cardsheaders' exact component={CardsHeaders} />
-            
+
             { /*    Layouts     */ }
             <Route path='/layouts/navbar' component={NavbarOnly} />
             <Route path='/layouts/sidebar' component={SidebarDefault} />
@@ -174,12 +175,13 @@ export const RoutedContent = () => {
             <Route component={ DatePicker } path="/forms/date-picker" />
             <Route component={ Dropzone } path="/forms/dropzone" />
             <Route component={ Sliders } path="/forms/sliders" />
-            
+
             { /*    Graphs Routes   */ }
             <Route component={ ReCharts } path="/graphs/re-charts" />
 
             { /*    Tables Routes   */ }
             <Route component={ Tables } path="/tables/tables" />
+            <Route component={ ContabilidadVentas } path="/contabilidad/ventas" />
             <Route component={ NewExtendedTable } path="/tables/new-extended-table" />
             <Route component={ ExtendedTable } path="/tables/extended-table" />
             <Route component={ AgGrid } path="/tables/ag-grid" />
@@ -226,11 +228,11 @@ export const RoutedContent = () => {
             { /*    404    */ }
             <Redirect to="/pages/error-404" />
         </Switch>
-    );
-};
+  )
+}
 
-//------ Custom Layout Parts --------
-export const RoutedNavbars  = () => (
+// ------ Custom Layout Parts --------
+export const RoutedNavbars = () => (
     <Switch>
         { /* Other Navbars: */}
         <Route
@@ -249,8 +251,8 @@ export const RoutedNavbars  = () => (
         <Route
             component={ DefaultNavbar }
         />
-    </Switch>  
-);
+    </Switch>
+)
 
 export const RoutedSidebars = () => (
     <Switch>
@@ -268,4 +270,4 @@ export const RoutedSidebars = () => (
             component={ DefaultSidebar }
         />
     </Switch>
-);
+)
