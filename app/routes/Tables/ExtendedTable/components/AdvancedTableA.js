@@ -1,46 +1,46 @@
-import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
-import paginationFactory from "react-bootstrap-table2-paginator";
+import React from 'react'
+import BootstrapTable from 'react-bootstrap-table-next'
+import paginationFactory from 'react-bootstrap-table2-paginator'
 import filterFactory, {
   Comparator,
-  dateFilter,
-} from "react-bootstrap-table2-filter";
-import ToolkitProvider from "react-bootstrap-table2-toolkit";
-import _ from "lodash";
-import { faker } from "@faker-js/faker";
-import moment from "moment";
+  dateFilter
+} from 'react-bootstrap-table2-filter'
+import ToolkitProvider from 'react-bootstrap-table2-toolkit'
+import _ from 'lodash'
+import { faker } from '@faker-js/faker'
+import moment from 'moment'
 
 import {
   Badge,
   Button,
   CustomInput,
   StarRating,
-  ButtonGroup,
-} from "./../../../../components";
-import { CustomExportCSV } from "./CustomExportButton";
-import { CustomSearch } from "./CustomSearch";
-import { CustomPaginationPanel } from "./CustomPaginationPanel";
-import { CustomSizePerPageButton } from "./CustomSizePerPageButton";
-import { CustomPaginationTotal } from "./CustomPaginationTotal";
-import { randomArray } from "./../../../../utilities";
+  ButtonGroup
+} from './../../../../components'
+import { CustomExportCSV } from './CustomExportButton'
+import { CustomSearch } from './CustomSearch'
+import { CustomPaginationPanel } from './CustomPaginationPanel'
+import { CustomSizePerPageButton } from './CustomSizePerPageButton'
+import { CustomPaginationTotal } from './CustomPaginationTotal'
+import { randomArray } from './../../../../utilities'
 import {
   buildCustomTextFilter,
   buildCustomSelectFilter,
-  buildCustomNumberFilter,
-} from "./../filters";
+  buildCustomNumberFilter
+} from './../filters'
 
-const INITIAL_PRODUCTS_COUNT = 500;
+const INITIAL_PRODUCTS_COUNT = 500
 
 const ProductQuality = {
-  Good: "product-quality__good",
-  Bad: "product-quality__bad",
-  Unknown: "product-quality__unknown",
-};
+  Good: 'product-quality__good',
+  Bad: 'product-quality__bad',
+  Unknown: 'product-quality__unknown'
+}
 
 const sortCaret = (order) => {
-  if (!order) return <i className="fa fa-fw fa-sort text-muted"></i>;
-  if (order) return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>;
-};
+  if (!order) return <i className="fa fa-fw fa-sort text-muted"></i>
+  if (order) return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>
+}
 
 const generateRow = (index) => ({
   id: index,
@@ -48,72 +48,72 @@ const generateRow = (index) => ({
   quality: randomArray([
     ProductQuality.Bad,
     ProductQuality.Good,
-    ProductQuality.Unknown,
+    ProductQuality.Unknown
   ]),
   price: (1000 + Math.random() * 1000).toFixed(2),
   satisfaction: Math.round(Math.random() * 6),
-  inStockDate: faker.date.past(),
-});
+  inStockDate: faker.date.past()
+})
 
 export class AdvancedTableA extends React.Component {
-  constructor() {
-    super();
+  constructor () {
+    super()
 
     this.state = {
       products: _.times(INITIAL_PRODUCTS_COUNT, generateRow),
-      selected: [],
-    };
+      selected: []
+    }
 
-    this.headerCheckboxRef = React.createRef();
+    this.headerCheckboxRef = React.createRef()
   }
 
-  handleSelect(row, isSelected) {
+  handleSelect (row, isSelected) {
     if (isSelected) {
-      this.setState({ selected: [...this.state.selected, row.id] });
+      this.setState({ selected: [...this.state.selected, row.id] })
     } else {
       this.setState({
-        selected: this.state.selected.filter((itemId) => itemId !== row.id),
-      });
+        selected: this.state.selected.filter((itemId) => itemId !== row.id)
+      })
     }
   }
 
-  handleSelectAll(isSelected, rows) {
+  handleSelectAll (isSelected, rows) {
     if (isSelected) {
-      this.setState({ selected: _.map(rows, "id") });
+      this.setState({ selected: _.map(rows, 'id') })
     } else {
-      this.setState({ selected: [] });
+      this.setState({ selected: [] })
     }
   }
 
-  handleAddRow() {
-    const currentSize = this.state.products.length;
+  handleAddRow () {
+    const currentSize = this.state.products.length
 
     this.setState({
-      products: [generateRow(currentSize + 1), ...this.state.products],
-    });
+      products: [generateRow(currentSize + 1), ...this.state.products]
+    })
   }
 
-  handleDeleteRow() {
+  handleDeleteRow () {
     this.setState({
       products: _.filter(
         this.state.products,
         (product) => !_.includes(this.state.selected, product.id)
-      ),
-    });
+      )
+    })
   }
 
-  handleResetFilters() {
-    this.nameFilter("");
-    this.qualityFilter("");
-    this.priceFilter("");
-    this.satisfactionFilter("");
+  handleResetFilters () {
+    this.nameFilter('')
+    this.qualityFilter('')
+    this.priceFilter('')
+    this.satisfactionFilter('')
   }
 
-  createColumnDefinitions() {
+  createColumnDefinitions () {
     return [
       {
-        dataField: "id",
-        text: "Product ID",
+        dataField: 'id',
+        text: 'Product ID',
         headerFormatter: (column) => (
           <React.Fragment>
             <span className="text-nowrap">{column.text}</span>
@@ -125,110 +125,110 @@ export class AdvancedTableA extends React.Component {
               Reset Filters <i className="fa fa-times fa-fw text-danger"></i>
             </a>
           </React.Fragment>
-        ),
+        )
       },
       {
-        dataField: "name",
-        text: "Product Name",
+        dataField: 'name',
+        text: 'Product Name',
         sort: true,
         sortCaret,
         formatter: (cell) => <span className="text-inverse">{cell}</span>,
         ...buildCustomTextFilter({
-          placeholder: "Enter product name...",
+          placeholder: 'Enter product name...',
           getFilter: (filter) => {
-            this.nameFilter = filter;
-          },
-        }),
+            this.nameFilter = filter
+          }
+        })
       },
       {
-        dataField: "quality",
-        text: "Product Quality",
+        dataField: 'quality',
+        text: 'Product Quality',
         formatter: (cell) => {
-          let pqProps;
+          let pqProps
           switch (cell) {
             case ProductQuality.Good:
               pqProps = {
-                color: "success",
-                text: "Good",
-              };
-              break;
+                color: 'success',
+                text: 'Good'
+              }
+              break
             case ProductQuality.Bad:
               pqProps = {
-                color: "danger",
-                text: "Bad",
-              };
-              break;
+                color: 'danger',
+                text: 'Bad'
+              }
+              break
             case ProductQuality.Unknown:
             default:
               pqProps = {
-                color: "secondary",
-                text: "Unknown",
-              };
+                color: 'secondary',
+                text: 'Unknown'
+              }
           }
 
-          return <Badge color={pqProps.color}>{pqProps.text}</Badge>;
+          return <Badge color={pqProps.color}>{pqProps.text}</Badge>
         },
         sort: true,
         sortCaret,
         ...buildCustomSelectFilter({
-          placeholder: "Select Quality",
+          placeholder: 'Select Quality',
           options: [
-            { value: ProductQuality.Good, label: "Good" },
-            { value: ProductQuality.Bad, label: "Bad" },
-            { value: ProductQuality.Unknown, label: "Unknown" },
+            { value: ProductQuality.Good, label: 'Good' },
+            { value: ProductQuality.Bad, label: 'Bad' },
+            { value: ProductQuality.Unknown, label: 'Unknown' }
           ],
           getFilter: (filter) => {
-            this.qualityFilter = filter;
-          },
-        }),
+            this.qualityFilter = filter
+          }
+        })
       },
       {
-        dataField: "price",
-        text: "Product Price",
+        dataField: 'price',
+        text: 'Product Price',
         sort: true,
         sortCaret,
         ...buildCustomNumberFilter({
           comparators: [Comparator.EQ, Comparator.GT, Comparator.LT],
           getFilter: (filter) => {
-            this.priceFilter = filter;
-          },
-        }),
+            this.priceFilter = filter
+          }
+        })
       },
       {
-        dataField: "satisfaction",
-        text: "Buyer Satisfaction",
+        dataField: 'satisfaction',
+        text: 'Buyer Satisfaction',
         sort: true,
         sortCaret,
         formatter: (cell) => <StarRating at={cell} max={6} />,
         ...buildCustomSelectFilter({
-          placeholder: "Select Satisfaction",
+          placeholder: 'Select Satisfaction',
           options: _.times(6, (i) => ({ value: i + 1, label: i + 1 })),
           getFilter: (filter) => {
-            this.satisfactionFilter = filter;
-          },
-        }),
+            this.satisfactionFilter = filter
+          }
+        })
       },
       {
-        dataField: "inStockDate",
-        text: "In Stock From",
-        formatter: (cell) => moment(cell).format("DD/MM/YYYY"),
+        dataField: 'inStockDate',
+        text: 'In Stock From',
+        formatter: (cell) => moment(cell).format('DD/MM/YYYY'),
         filter: dateFilter({
-          className: "d-flex align-items-center",
-          comparatorClassName: "d-none",
-          dateClassName: "form-control form-control-sm",
+          className: 'd-flex align-items-center',
+          comparatorClassName: 'd-none',
+          dateClassName: 'form-control form-control-sm',
           comparator: Comparator.GT,
           getFilter: (filter) => {
-            this.stockDateFilter = filter;
-          },
+            this.stockDateFilter = filter
+          }
         }),
         sort: true,
-        sortCaret,
-      },
-    ];
+        sortCaret
+      }
+    ]
   }
 
-  render() {
-    const columnDefs = this.createColumnDefinitions();
+  render () {
+    const columnDefs = this.createColumnDefinitions()
     const paginationDef = paginationFactory({
       paginationSize: 5,
       showTotal: true,
@@ -242,10 +242,10 @@ export class AdvancedTableA extends React.Component {
       sizePerPageRenderer: (props) => <CustomSizePerPageButton {...props} />,
       paginationTotalRenderer: (from, to, size) => (
         <CustomPaginationTotal {...{ from, to, size }} />
-      ),
-    });
+      )
+    })
     const selectRowConfig = {
-      mode: "checkbox",
+      mode: 'checkbox',
       selected: this.state.selected,
       onSelect: this.handleSelect.bind(this),
       onSelectAll: this.handleSelectAll.bind(this),
@@ -258,8 +258,8 @@ export class AdvancedTableA extends React.Component {
           checked={checked}
           innerRef={(el) => el && (el.indeterminate = indeterminate)}
         />
-      ),
-    };
+      )
+    }
 
     return (
       <ToolkitProvider
@@ -306,6 +306,6 @@ export class AdvancedTableA extends React.Component {
           </React.Fragment>
         )}
       </ToolkitProvider>
-    );
+    )
   }
 }

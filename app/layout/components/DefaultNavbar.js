@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 
 import {
     Navbar,
@@ -12,6 +12,25 @@ import { NavbarActivityFeed } from './NavbarActivityFeed';
 import { NavbarMessages } from './NavbarMessages';
 import { NavbarUser } from './NavbarUser';
 import { LogoThemed } from './../../routes/components/LogoThemed/LogoThemed';
+
+
+const getCurrentPat = () => {
+    const location = useLocation();
+    const pathname = location.pathname || '';
+  
+    // Selecciona la parte de la ruta después del último '/'
+    const lastPart = pathname.substring(pathname.lastIndexOf('/') + 1);
+  
+    // Divide la cadena en palabras separadas por guiones medios
+    const words = lastPart.split('-');
+  
+    // Pone en mayúscula la primera letra de cada palabra y las une con espacios
+    const formatted = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  
+    console.log(formatted);
+    return formatted;
+  };
+  
 
 export const DefaultNavbar = () => (
     <Navbar light expand="xs" fluid>
@@ -40,7 +59,7 @@ export const DefaultNavbar = () => (
                     <i className="fa fa-angle-right"></i>
                 </span>
                 <span className="navbar-text">
-                    Page Link
+                   {getCurrentPat()}
                 </span>
             </NavItem>
         </Nav>

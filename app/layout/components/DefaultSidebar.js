@@ -41,7 +41,7 @@ export const DefaultSidebar = () => (
                 <SidebarMiddleNav />
             </Sidebar.Section>
 
-            <SidebarBottomA />
+            {/*<SidebarBottomA />*/}
         </Sidebar.MobileFluid>
         { /* END SIDEBAR: Only for Mobile */ }
     </Sidebar>

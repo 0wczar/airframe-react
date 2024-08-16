@@ -11,7 +11,6 @@ const FooterText = (props) => (
 			rel="noopener noreferrer"
 			className="sidebar__link"
 		>
-			www.webkom.co
 		</a>
 	</React.Fragment>
 )

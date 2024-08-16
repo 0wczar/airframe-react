@@ -4,6 +4,12 @@ import { SidebarMenu } from './../../components';
 
 export const SidebarMiddleNav = () => (
     <SidebarMenu>
+           <SidebarMenu.Item
+            icon={<i className="fa fa-fw fa-trello"></i>}
+            title="New Table"
+            to='/tables/new-extended-table' 
+            exact
+        />
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
             title="Dashboards"

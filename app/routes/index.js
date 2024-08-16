@@ -62,6 +62,7 @@ import Dropzone from './Forms/Dropzone';
 import Sliders from './Forms/Sliders';
 
 import Tables from './Tables/Tables';
+import NewExtendedTable  from './Tables/NewTable/NewExtendedTable';
 import ExtendedTable from './Tables/ExtendedTable';
 import AgGrid from './Tables/AgGrid';
 
@@ -179,6 +180,7 @@ export const RoutedContent = () => {
 
             { /*    Tables Routes   */ }
             <Route component={ Tables } path="/tables/tables" />
+            <Route component={ NewExtendedTable } path="/tables/new-extended-table" />
             <Route component={ ExtendedTable } path="/tables/extended-table" />
             <Route component={ AgGrid } path="/tables/ag-grid" />
 
