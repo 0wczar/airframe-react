@@ -1,43 +1,36 @@
 import React from 'react'
 import paginationFactory from 'react-bootstrap-table2-paginator'
 import filterFactory, {
-  Comparator,
-  dateFilter
 } from 'react-bootstrap-table2-filter'
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider from 'react-bootstrap-table2-toolkit'
 import { CustomPaginationPanel } from './CustomPaginationPanel'
 import { CustomSizePerPageButton } from './CustomSizePerPageButton'
 import { CustomPaginationTotal } from './CustomPaginationTotal'
-import moment from 'moment'
 import _ from 'lodash'
 
 import {
-  Avatar,
-  Badge,
   Button,
+  CustomInput,
   ButtonGroup,
-  Row,
-  Col
 } from '../../../../components'
+
+
 import { CustomExportCSV } from './CustomExportButton'
 import { CustomSearch } from './CustomSearch'
 import {
   buildCustomTextFilter,
-  buildCustomSelectFilter,
-  buildCustomNumberFilter
 } from './../filters'
+
 
 const sortCaret = (order) => {
   if (!order) return <i className="fa fa-fw fa-sort text-muted"></i>
   if (order) return <i className={`fa fa-fw text-muted fa-sort-${order}`}></i>
 }
 
-export class AdvancedTableB extends React.Component {
-  constructor (props) {
+export class TableData extends React.Component {
+  constructor(props) {
     super(props)
-
-    console.log('xxxx', this.props.tableData[0])
 
     this.state = {
       tableData: this.props.tableData || [],
@@ -45,21 +38,13 @@ export class AdvancedTableB extends React.Component {
     }
   }
 
-  addFilterFunction (filter) {
+  addFilterFunction(filter) {
     this.setState((prevState) => ({
       filters: [...prevState.filters, filter]
     }))
   }
 
-  handleAddRow () {
-    const tableDataLength = this.state.tableData.length
-
-    this.setState({
-      tableData: []
-    })
-  }
-
-  handleSelect (row, isSelected) {
+  handleSelect(row, isSelected) {
     if (isSelected) {
       this.setState({ selected: [...this.state.selected, row.id] })
     } else {
@@ -69,7 +54,7 @@ export class AdvancedTableB extends React.Component {
     }
   }
 
-  handleSelectAll (isSelected, rows) {
+  handleSelectAll(isSelected, rows) {
     if (isSelected) {
       this.setState({ selected: _.map(rows, 'id') })
     } else {
@@ -77,37 +62,20 @@ export class AdvancedTableB extends React.Component {
     }
   }
 
-  handleResetFilters () {
+  handleResetFilters() {
     this.state.filters.map((func) => {
       func('')
     })
   }
 
-  createColumnDefinitions () {
+  createColumnDefinitions() {
     const nombresColumnas = this.props.columNames || []
     const campos = this.props.columFields || []
 
     console.log('nombresColumnas', nombresColumnas)
     console.log('campos', campos)
 
-    const mapeoCampos = [
-      {
-        dataField: 'a',
-        text: '',
-        headerFormatter: (column) => (
-          <React.Fragment>
-            <span className="text-nowrap">{column.text}</span>
-            <a
-              href="javascript:;"
-              className="d-block small text-decoration-none text-nowrap"
-              onClick={() => this.handleResetFilters()}
-            >
-              Reset Filters <i className="fa fa-times fa-fw text-danger"></i>
-            </a>
-          </React.Fragment>
-        )
-      }
-    ]
+    const mapeoCampos = []
 
     for (let i = 0; i < campos.length; i++) {
       mapeoCampos.push(
@@ -128,7 +96,8 @@ export class AdvancedTableB extends React.Component {
     return mapeoCampos
   }
 
-  render () {
+
+  render() {
     const columnDefs = this.createColumnDefinitions()
     const paginationDef = paginationFactory({
       paginationSize: 5,
@@ -146,6 +115,23 @@ export class AdvancedTableB extends React.Component {
       )
     })
 
+    const selectRowConfig = {
+      mode: 'checkbox',
+      selected: this.state.selected,
+      onSelect: this.handleSelect.bind(this),
+      onSelectAll: this.handleSelectAll.bind(this),
+      selectionRenderer: ({ mode, checked, disabled }) => (
+        <CustomInput type={mode} checked={checked} disabled={disabled} />
+      ),
+      selectionHeaderRenderer: ({ mode, checked, indeterminate }) => (
+        <CustomInput
+          type={mode}
+          checked={checked}
+          innerRef={(el) => el && (el.indeterminate = indeterminate)}
+        />
+      )
+    }
+
     console.log('state table', this.state.tableData)
 
     return (
@@ -159,18 +145,19 @@ export class AdvancedTableB extends React.Component {
         {(props) => (
           <React.Fragment>
             <div className="d-flex justify-content-end align-items-center mb-2">
-              <h6 className="my-0">Ventas</h6>
+             
               <div className="d-flex ml-auto">
                 <CustomSearch className="mr-2" {...props.searchProps} />
                 <ButtonGroup>
-                  <CustomExportCSV {...props.csvProps}>Export</CustomExportCSV>
+                  <CustomExportCSV {...props.csvProps}>Exportar</CustomExportCSV>
                   <Button
                     size="sm"
                     outline
-                    onClick={this.handleAddRow.bind(this)}
+                    onClick={() => this.handleResetFilters()}
                   >
-                    Add <i className="fa fa-fw fa-plus"></i>
+                    Limpiar Filtros <i className="fa fa-times fa-fw text-danger"></i>
                   </Button>
+
                 </ButtonGroup>
               </div>
             </div>
@@ -179,6 +166,7 @@ export class AdvancedTableB extends React.Component {
               pagination={paginationDef}
               bordered={false}
               filter={filterFactory()}
+              selectRow={selectRowConfig}
               responsive
               hover
               {...props.baseProps}
