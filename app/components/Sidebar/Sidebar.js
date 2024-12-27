@@ -16,7 +16,6 @@ const Sidebar = (props) => (
                     props.pageConfig.screenSize === 'md'
                 )
             }
-            onClickOutside={ () => props.pageConfig.toggleSidebar() }
         >
             <SidebarContent { ...props } />
         </OuterClick>
