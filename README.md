@@ -5,7 +5,7 @@
 
 High Quality **Dashboard / Admin / Analytics template** that works great on any smartphone, tablet or desktop. Available as **Open Source as MIT license.**
 
-- [**View Demo**](http://dashboards.webkom.co/react/airframe/)
+- [**View Demo**](https://airframe-react-lime.vercel.app)
 - [jQuery Version](http://dashboards.webkom.co/jquery/airframe) 
 - [**Next Version**](https://github.com/webkom-co/airframe-next) - Now is available
 - [Angular Version](http://dashboards.webkom.co/angular/airframe) - _Documentation in preparation_
